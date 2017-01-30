@@ -1,0 +1,335 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.3.12102/W32 for ARM                25/Jan/2017  19:14:53
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Exe\Project.out
+#    Map file     =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\List\Project.map
+#    Command line =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\main.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\misc.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\startup_stm32f40xx.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm324xg_eval.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm324xg_eval_fsmc_sram.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm324xg_eval_ioe.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm324xg_eval_lcd.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_adc.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_can.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_crc.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_cryp.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_cryp_aes.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_cryp_des.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_cryp_tdes.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_dac.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_dbgmcu.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_dcmi.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_dma.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_exti.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_flash.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_fsmc.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_gpio.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_hash.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_hash_md5.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_hash_sha1.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_i2c.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_it.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_iwdg.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_pwr.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_rcc.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_rng.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_rtc.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_sdio.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_spi.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_syscfg.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_tim.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_usart.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\stm32f4xx_wwdg.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj\system_stm32f4xx.o
+#        --redirect _Printf=_PrintfSmall --redirect _Scanf=_ScanfSmall -o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Exe\Project.out
+#        --map
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\List\Project.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.5\arm\config\linker\ST\stm32f407xG.icf" --semihosting --entry
+#        __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x08000000 { ro section .intvec };
+"P1":  place in [from 0x08000000 to 0x080fffff] { ro };
+"P3":  place in [from 0x10000000 to 0x1000ffff] { block CSTACK, section .ccram };
+"P4":  place in [from 0x20000000 to 0x2001bfff] |
+                [from 0x2001c000 to 0x2001ffff] { rw, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                      0x188
+  .intvec            ro code  0x08000000   0x188  startup_stm32f40xx.o [1]
+                            - 0x08000188   0x188
+
+"P1":                                      0x620
+  .text              ro code  0x08000188    0xf0  system_stm32f4xx.o [1]
+  .text              ro code  0x08000278    0xa8  main.o [1]
+  .text              ro code  0x08000320    0x2c  stm32f4xx_rcc.o [1]
+  .text              ro code  0x0800034c    0x70  stm32f4xx_gpio.o [1]
+  .text              ro code  0x080003bc    0x28  stm32f4xx_syscfg.o [1]
+  .text              ro code  0x080003e4    0x88  stm32f4xx_exti.o [1]
+  .text              ro code  0x0800046c    0x68  misc.o [1]
+  .text              ro code  0x080004d4    0x6e  stm32f4xx_it.o [1]
+  .text              ro code  0x08000544    0x24  stm324xg_eval.o [1]
+  .text              ro code  0x08000568    0x2c  copy_init3.o [5]
+  .text              ro code  0x08000594    0x28  data_init.o [5]
+  .text              ro code  0x080005bc    0x22  fpinit_M.o [4]
+  .iar.init_table    const    0x080005e0    0x14  - Linker created -
+  .text              ro code  0x080005f4    0x1a  cmain.o [5]
+  .text              ro code  0x0800060e     0x4  low_level_init.o [3]
+  .text              ro code  0x08000612     0x4  exit.o [3]
+  .text              ro code  0x08000618     0xa  cexit.o [5]
+  .text              ro code  0x08000624    0x14  exit.o [6]
+  .text              ro code  0x08000638    0x10  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000648     0xc  cstartup_M.o [5]
+  .text              ro code  0x08000654     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000658     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800065c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000660     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000664     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000668     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800066c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000670     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000674     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000678     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800067c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000680     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000684     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000688     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800068c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000690     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000694     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000698     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800069c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006a0     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006a4     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006a8     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006ac     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006b0     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006b4     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006b8     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006bc     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006c0     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006c4     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006c8     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006cc     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006d0     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006d4     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006d8     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006dc     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006e0     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006e4     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006e8     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006ec     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006f0     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006f4     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006f8     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x080006fc     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000700     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000704     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000708     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800070c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000710     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000714     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000718     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800071c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000720     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000724     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000728     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800072c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000730     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000734     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000738     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800073c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000740     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000744     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000748     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800074c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000750     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000754     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000758     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800075c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000760     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000764     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000768     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800076c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000770     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000774     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000778     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800077c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000780     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000784     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000788     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800078c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08000790     0x4  startup_stm32f40xx.o [1]
+  .rodata            const    0x08000794     0x0  copy_init3.o [5]
+  Initializer bytes  const    0x08000794    0x14  <for P4 s0>
+                            - 0x080007a8   0x620
+
+"P3":                                     0x2000
+  CSTACK                      0x10000000  0x2000  <Block>
+    CSTACK           uninit   0x10000000  0x2000  <Block tail>
+                            - 0x10002000  0x2000
+
+"P4":                                       0x14
+  P4 s0                       0x20000000    0x14  <Init block>
+    .data            inited   0x20000000    0x10  stm324xg_eval.o [1]
+    .bss             inited   0x20000010     0x4  stm32f4xx_it.o [1]
+                            - 0x20000014    0x14
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x14:
+          0x08000794  0x14
+    1 destination range, total size 0x14:
+          0x20000000  0x14
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                ro code  ro data  rw data
+    ------                -------  -------  -------
+C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj: [1]
+    main.o                    168
+    misc.o                    104
+    startup_stm32f40xx.o      728
+    stm324xg_eval.o            36       16       16
+    stm32f4xx_exti.o          136
+    stm32f4xx_gpio.o          112
+    stm32f4xx_it.o            110        4        4
+    stm32f4xx_rcc.o            44
+    stm32f4xx_syscfg.o         40
+    system_stm32f4xx.o        240
+    -----------------------------------------------
+    Total:                  1 718       20       20
+
+command line: [2]
+    -----------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                      4
+    low_level_init.o            4
+    -----------------------------------------------
+    Total:                      8
+
+m7M_tls.a: [4]
+    fpinit_M.o                 34
+    -----------------------------------------------
+    Total:                     34
+
+rt7M_tl.a: [5]
+    cexit.o                    10
+    cmain.o                    26
+    copy_init3.o               44
+    cstartup_M.o               12
+    data_init.o                40
+    -----------------------------------------------
+    Total:                    132
+
+shb_l.a: [6]
+    exit.o                     20
+    -----------------------------------------------
+    Total:                     20
+
+    Gaps                        6        2
+    Linker created                      20    8 192
+---------------------------------------------------
+    Grand Total:            1 918       42    8 212
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address  Size  Type      Object
+-----                      -------  ----  ----      ------
+.iar.init_table$$Base   0x080005e0         --   Gb  - Linker created -
+.iar.init_table$$Limit  0x080005f4         --   Gb  - Linker created -
+?main                   0x080005f5        Code  Gb  cmain.o [5]
+BusFault_Handler        0x080004db   0x2  Code  Gb  stm32f4xx_it.o [1]
+CSTACK$$Base            0x10000000         --   Gb  - Linker created -
+CSTACK$$Limit           0x10002000         --   Gb  - Linker created -
+DebugMon_Handler        0x080004e1   0x2  Code  Gb  stm32f4xx_it.o [1]
+EXTI0_IRQHandler        0x080004e7  0x20  Code  Gb  stm32f4xx_it.o [1]
+EXTI15_10_IRQHandler    0x08000511  0x2a  Code  Gb  stm32f4xx_it.o [1]
+EXTI_ClearITPendingBit  0x08000459   0x2  Code  Gb  stm32f4xx_exti.o [1]
+EXTI_GetITStatus        0x08000449  0x10  Code  Gb  stm32f4xx_exti.o [1]
+EXTI_Init               0x080003e5  0x64  Code  Gb  stm32f4xx_exti.o [1]
+GPIO_Init               0x0800034d  0x70  Code  Gb  stm32f4xx_gpio.o [1]
+GPIO_PIN                0x08000560   0x8  Data  Gb  stm324xg_eval.o [1]
+GPIO_PORT               0x20000000  0x10  Data  Gb  stm324xg_eval.o [1]
+HardFault_Handler       0x080004d7   0x2  Code  Gb  stm32f4xx_it.o [1]
+MemManage_Handler       0x080004d9   0x2  Code  Gb  stm32f4xx_it.o [1]
+NMI_Handler             0x080004d5   0x2  Code  Gb  stm32f4xx_it.o [1]
+NVIC_Init               0x0800046d  0x58  Code  Gb  misc.o [1]
+PendSV_Handler          0x080004e3   0x2  Code  Gb  stm32f4xx_it.o [1]
+RCC_AHB1PeriphClockCmd  0x08000321  0x12  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_APB2PeriphClockCmd  0x08000333  0x12  Code  Gb  stm32f4xx_rcc.o [1]
+Region$$Table$$Base     0x080005e0         --   Gb  - Linker created -
+Region$$Table$$Limit    0x080005f4         --   Gb  - Linker created -
+STM_EVAL_LEDToggle      0x08000545  0x18  Code  Gb  stm324xg_eval.o [1]
+SVC_Handler             0x080004df   0x2  Code  Gb  stm32f4xx_it.o [1]
+SYSCFG_EXTILineConfig   0x080003bd  0x22  Code  Gb  stm32f4xx_syscfg.o [1]
+SysTick_Handler         0x080004e5   0x2  Code  Gb  stm32f4xx_it.o [1]
+SystemInit              0x08000189  0xce  Code  Gb  system_stm32f4xx.o [1]
+UsageFault_Handler      0x080004dd   0x2  Code  Gb  stm32f4xx_it.o [1]
+__cmain                 0x080005f5        Code  Gb  cmain.o [5]
+__exit                  0x08000625  0x14  Code  Gb  exit.o [6]
+__iar_copy_init3        0x08000569  0x2c  Code  Gb  copy_init3.o [5]
+__iar_data_init3        0x08000595  0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp          0x080005bd        Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x08000649        Code  Gb  cstartup_M.o [5]
+__low_level_init        0x0800060f   0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x08000000        Data  Gb  startup_stm32f40xx.o [1]
+_call_main              0x08000601        Code  Gb  cmain.o [5]
+_exit                   0x08000619        Code  Gb  cexit.o [5]
+_main                   0x0800060b        Code  Gb  cmain.o [5]
+counter                 0x20000010   0x4  Data  Gb  stm32f4xx_it.o [1]
+exit                    0x08000613   0x4  Code  Gb  exit.o [3]
+main                    0x08000279  0xa8  Code  Gb  main.o [1]
+
+
+[1] = C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Examples\EXTI\EXTI_Example\STM324xG_EVAL\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  1 918 bytes of readonly  code memory
+     42 bytes of readonly  data memory
+  8 212 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

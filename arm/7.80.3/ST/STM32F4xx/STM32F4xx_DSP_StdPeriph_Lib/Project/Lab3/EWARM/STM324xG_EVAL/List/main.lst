@@ -1,0 +1,549 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       23/Jan/2017  19:20:53
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\main.c
+#    Command line =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\main.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\..\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\STM324xG_EVAL\List\main.lst
+#    Object file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\EWARM\STM324xG_EVAL\Obj\main.o
+#
+###############################################################################
+
+C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F4xx_StdPeriph_Templates\main.c
+      1          /**
+      2            ******************************************************************************
+      3            * @file    Project/STM32F4xx_StdPeriph_Templates/main.c 
+      4            * @author  MCD Application Team
+      5            * @version V1.2.0RC2
+      6            * @date    20-February-2013
+      7            * @brief   Main program body
+      8            ******************************************************************************
+      9            * @attention
+     10            *
+     11            * <h2><center>&copy; COPYRIGHT 2013 STMicroelectronics</center></h2>
+     12            *
+     13            * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
+     14            * You may not use this file except in compliance with the License.
+     15            * You may obtain a copy of the License at:
+     16            *
+     17            *        http://www.st.com/software_license_agreement_liberty_v2
+     18            *
+     19            * Unless required by applicable law or agreed to in writing, software 
+     20            * distributed under the License is distributed on an "AS IS" BASIS, 
+     21            * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     22            * See the License for the specific language governing permissions and
+     23            * limitations under the License.
+     24            *
+     25            ******************************************************************************
+     26            */
+     27          
+     28          /* Includes ------------------------------------------------------------------*/
+     29          #include "main.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_SetPriority(IRQn_Type, uint32_t)
+   \                     __NVIC_SetPriority: (+1)
+   \   00000000   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   00000002   0x2800             CMP      R0,#+0
+   \   00000004   0xD404             BMI.N    ??__NVIC_SetPriority_0
+   \   00000006   0x0109             LSLS     R1,R1,#+4
+   \   00000008   0x....             LDR.N    R2,??DataTable4  ;; 0xe000e400
+   \   0000000A   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   0000000C   0x5411             STRB     R1,[R2, R0]
+   \   0000000E   0xE007             B.N      ??__NVIC_SetPriority_1
+   \                     ??__NVIC_SetPriority_0: (+1)
+   \   00000010   0x0109             LSLS     R1,R1,#+4
+   \   00000012   0x....             LDR.N    R2,??DataTable4_1  ;; 0xe000ed18
+   \   00000014   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   00000016   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   0000001A   0x4410             ADD      R0,R2,R0
+   \   0000001C   0xF800 0x1C04      STRB     R1,[R0, #-4]
+   \                     ??__NVIC_SetPriority_1: (+1)
+   \   00000020   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp uint32_t SysTick_Config(uint32_t)
+   \                     SysTick_Config: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+   \   00000002   0x1E41             SUBS     R1,R0,#+1
+   \   00000004   0xF1B1 0x7F80      CMP      R1,#+16777216
+   \   00000008   0xD301             BCC.N    ??SysTick_Config_0
+   \   0000000A   0x2001             MOVS     R0,#+1
+   \   0000000C   0xE00E             B.N      ??SysTick_Config_1
+   \                     ??SysTick_Config_0: (+1)
+   \   0000000E   0x1E40             SUBS     R0,R0,#+1
+   \   00000010   0x....             LDR.N    R1,??DataTable4_2  ;; 0xe000e014
+   \   00000012   0x6008             STR      R0,[R1, #+0]
+   \   00000014   0x210F             MOVS     R1,#+15
+   \   00000016   0xF05F 0x30FF      MOVS     R0,#-1
+   \   0000001A   0x.... 0x....      BL       __NVIC_SetPriority
+   \   0000001E   0x2000             MOVS     R0,#+0
+   \   00000020   0x....             LDR.N    R1,??DataTable4_3  ;; 0xe000e018
+   \   00000022   0x6008             STR      R0,[R1, #+0]
+   \   00000024   0x2007             MOVS     R0,#+7
+   \   00000026   0x....             LDR.N    R1,??DataTable4_4  ;; 0xe000e010
+   \   00000028   0x6008             STR      R0,[R1, #+0]
+   \   0000002A   0x2000             MOVS     R0,#+0
+   \                     ??SysTick_Config_1: (+1)
+   \   0000002C   0xBD02             POP      {R1,PC}          ;; return
+     30          
+     31          /** @addtogroup Template_Project
+     32            * @{
+     33            */ 
+     34          
+     35          /* Private typedef -----------------------------------------------------------*/
+     36          /* Private define ------------------------------------------------------------*/
+     37          
+     38          #if defined (USE_STM324xG_EVAL)
+     39            #define MESSAGE1   "     STM32F40xx     "
+     40            #define MESSAGE2   " Device running on  " 
+     41            #define MESSAGE3   "   STM324xG-EVAL    "
+     42          
+     43          #elif defined (USE_STM324x7I_EVAL) 
+     44            #define MESSAGE1   "     STM32F427x     "
+     45            #define MESSAGE2   " Device running on  " 
+     46            #define MESSAGE3   "  STM324x7I-EVAL    "
+     47          
+     48          #else
+     49            #define MESSAGE1   "          STM32F429X          " 
+     50            #define MESSAGE2   "      Device running on       " 
+     51            #define MESSAGE3   "        STM324x9I-EVAL        "
+     52          #endif
+     53          
+     54          /* Private macro -------------------------------------------------------------*/
+     55          /* Private variables ---------------------------------------------------------*/
+
+   \                                 In section .bss, align 4
+     56          static __IO uint32_t uwTimingDelay;
+   \                     uwTimingDelay:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+     57          RCC_ClocksTypeDef RCC_Clocks;
+   \                     RCC_Clocks:
+   \   00000000                      DS8 16
+     58          
+     59          /* Private function prototypes -----------------------------------------------*/
+     60          static void Delay(__IO uint32_t nTime);
+     61          
+     62          /* Private functions ---------------------------------------------------------*/
+     63          
+     64          /**
+     65            * @brief   Main program
+     66            * @param  None
+     67            * @retval None
+     68            */
+
+   \                                 In section .text, align 2, keep-with-next
+     69          int main(void)
+     70          {
+   \                     main: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     71            /*!< At this stage the microcontroller clock setting is already configured, 
+     72                 this is done through SystemInit() function which is called from startup
+     73                 files (startup_stm32f40xx.s/startup_stm32f427x.s/startup_stm32f429x.s)
+     74                 before to branch to application main. 
+     75                 To reconfigure the default setting of SystemInit() function, refer to
+     76                 system_stm32f4xx.c file
+     77               */  
+     78          
+     79            /* SysTick end of count event each 10ms */
+     80            RCC_GetClocksFreq(&RCC_Clocks);
+   \   00000002   0x....             LDR.N    R0,??DataTable4_5
+   \   00000004   0x.... 0x....      BL       RCC_GetClocksFreq
+     81            SysTick_Config(RCC_Clocks.HCLK_Frequency / 100);
+   \   00000008   0x....             LDR.N    R0,??DataTable4_5
+   \   0000000A   0x6840             LDR      R0,[R0, #+4]
+   \   0000000C   0x2164             MOVS     R1,#+100
+   \   0000000E   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   00000012   0x.... 0x....      BL       SysTick_Config
+     82            
+     83            /* Initialize LEDs and LCD available on EVAL board **************************/
+     84            STM_EVAL_LEDInit(LED1);
+   \   00000016   0x2000             MOVS     R0,#+0
+   \   00000018   0x.... 0x....      BL       STM_EVAL_LEDInit
+     85            STM_EVAL_LEDInit(LED2);
+   \   0000001C   0x2001             MOVS     R0,#+1
+   \   0000001E   0x.... 0x....      BL       STM_EVAL_LEDInit
+     86            STM_EVAL_LEDInit(LED3);
+   \   00000022   0x2002             MOVS     R0,#+2
+   \   00000024   0x.... 0x....      BL       STM_EVAL_LEDInit
+     87            STM_EVAL_LEDInit(LED4);  
+   \   00000028   0x2003             MOVS     R0,#+3
+   \   0000002A   0x.... 0x....      BL       STM_EVAL_LEDInit
+     88            /* Initialize the LCD */
+     89            LCD_Init();
+   \   0000002E   0x.... 0x....      BL       LCD_Init
+     90          
+     91            /* Display message on LCD ***************************************************/
+     92          #if defined (USE_STM324x9I_EVAL) 
+     93            /* Enable The Display */
+     94            LCD_DisplayOn(); 
+     95            /* Set LCD Background Layer  */
+     96            LCD_SetLayer(LCD_BACKGROUND_LAYER);
+     97            /* Clear the Background Layer */ 
+     98            LCD_Clear(LCD_COLOR_WHITE);
+     99            
+    100            /* Set LCD Foreground Layer  */
+    101            LCD_SetLayer(LCD_FOREGROUND_LAYER);
+    102          
+    103            /* Configure the transparency for foreground */
+    104            LCD_SetTransparency(100);
+    105          #endif /* USE_STM324x9I_EVAL */
+    106            
+    107            /* Clear the Foreground Layer */ 
+    108            LCD_Clear(LCD_COLOR_WHITE);
+   \   00000032   0xF64F 0x70FF      MOVW     R0,#+65535
+   \   00000036   0x.... 0x....      BL       LCD_Clear
+    109            
+    110            /* Set the LCD Back Color */
+    111            LCD_SetBackColor(LCD_COLOR_WHITE);
+   \   0000003A   0xF64F 0x70FF      MOVW     R0,#+65535
+   \   0000003E   0x.... 0x....      BL       LCD_SetBackColor
+    112            /* Set the LCD Text Color */
+    113            LCD_SetTextColor(LCD_COLOR_BLUE);
+   \   00000042   0x201F             MOVS     R0,#+31
+   \   00000044   0x.... 0x....      BL       LCD_SetTextColor
+    114            
+    115            /* Display LCD messages */
+    116            LCD_DisplayStringLine(LCD_LINE_3, (uint8_t *)MESSAGE1);
+   \   00000048   0x.... 0x....      BL       LCD_GetFont
+   \   0000004C   0x....             LDR.N    R1,??DataTable4_6
+   \   0000004E   0x88C0             LDRH     R0,[R0, #+6]
+   \   00000050   0x2203             MOVS     R2,#+3
+   \   00000052   0xFB10 0xF002      SMULBB   R0,R0,R2
+   \   00000056   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000058   0x.... 0x....      BL       LCD_DisplayStringLine
+    117            LCD_DisplayStringLine(LCD_LINE_4, (uint8_t *)MESSAGE2);
+   \   0000005C   0x.... 0x....      BL       LCD_GetFont
+   \   00000060   0x....             LDR.N    R1,??DataTable4_7
+   \   00000062   0x88C0             LDRH     R0,[R0, #+6]
+   \   00000064   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000066   0x0080             LSLS     R0,R0,#+2
+   \   00000068   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000006A   0x.... 0x....      BL       LCD_DisplayStringLine
+    118            LCD_DisplayStringLine(LCD_LINE_5, (uint8_t *)MESSAGE3);
+   \   0000006E   0x.... 0x....      BL       LCD_GetFont
+   \   00000072   0x....             LDR.N    R1,??DataTable4_8
+   \   00000074   0x88C0             LDRH     R0,[R0, #+6]
+   \   00000076   0x2205             MOVS     R2,#+5
+   \   00000078   0xFB10 0xF002      SMULBB   R0,R0,R2
+   \   0000007C   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000007E   0x.... 0x....      BL       LCD_DisplayStringLine
+    119          
+    120            /* Turn on LEDs *************************************************************/
+    121            STM_EVAL_LEDOn(LED1);
+   \   00000082   0x2000             MOVS     R0,#+0
+   \   00000084   0x.... 0x....      BL       STM_EVAL_LEDOn
+    122            STM_EVAL_LEDOn(LED2);
+   \   00000088   0x2001             MOVS     R0,#+1
+   \   0000008A   0x.... 0x....      BL       STM_EVAL_LEDOn
+    123            STM_EVAL_LEDOn(LED3);
+   \   0000008E   0x2002             MOVS     R0,#+2
+   \   00000090   0x.... 0x....      BL       STM_EVAL_LEDOn
+    124            STM_EVAL_LEDOn(LED4);
+   \   00000094   0x2003             MOVS     R0,#+3
+   \   00000096   0x.... 0x....      BL       STM_EVAL_LEDOn
+    125          
+    126            /* Add your application code here */
+    127              
+    128            /* Infinite loop */
+    129            while (1)
+    130            {
+    131              /* Toggle LD1 */
+    132              STM_EVAL_LEDToggle(LED1);
+   \                     ??main_0: (+1)
+   \   0000009A   0x2000             MOVS     R0,#+0
+   \   0000009C   0x.... 0x....      BL       STM_EVAL_LEDToggle
+    133              /* Insert 50 ms delay */
+    134              Delay(5);
+   \   000000A0   0x2005             MOVS     R0,#+5
+   \   000000A2   0x.... 0x....      BL       Delay
+    135          
+    136              /* Toggle LD2 */
+    137              STM_EVAL_LEDToggle(LED2);
+   \   000000A6   0x2001             MOVS     R0,#+1
+   \   000000A8   0x.... 0x....      BL       STM_EVAL_LEDToggle
+    138              /* Insert 50 ms delay */
+    139              Delay(5);
+   \   000000AC   0x2005             MOVS     R0,#+5
+   \   000000AE   0x.... 0x....      BL       Delay
+    140              
+    141              /* Toggle LD3 */
+    142              STM_EVAL_LEDToggle(LED3);
+   \   000000B2   0x2002             MOVS     R0,#+2
+   \   000000B4   0x.... 0x....      BL       STM_EVAL_LEDToggle
+    143              /* Insert 50 ms delay */
+    144              Delay(5);
+   \   000000B8   0x2005             MOVS     R0,#+5
+   \   000000BA   0x.... 0x....      BL       Delay
+    145          
+    146              /* Toggle LD4 */    
+    147              STM_EVAL_LEDToggle(LED4);
+   \   000000BE   0x2003             MOVS     R0,#+3
+   \   000000C0   0x.... 0x....      BL       STM_EVAL_LEDToggle
+    148              /* Insert 50 ms delay */
+    149              Delay(5);
+   \   000000C4   0x2005             MOVS     R0,#+5
+   \   000000C6   0x.... 0x....      BL       Delay
+   \   000000CA   0xE7E6             B.N      ??main_0
+    150            }
+    151          }
+    152          
+    153          /**
+    154            * @brief  Inserts a delay time.
+    155            * @param  nTime: specifies the delay time length, in milliseconds.
+    156            * @retval None
+    157            */
+
+   \                                 In section .text, align 2, keep-with-next
+    158          void Delay(__IO uint32_t nTime)
+    159          { 
+   \                     Delay: (+1)
+   \   00000000   0xB401             PUSH     {R0}
+    160            uwTimingDelay = nTime;
+   \   00000002   0x9800             LDR      R0,[SP, #+0]
+   \   00000004   0x....             LDR.N    R1,??DataTable4_9
+   \   00000006   0x6008             STR      R0,[R1, #+0]
+    161          
+    162            while(uwTimingDelay != 0);
+   \                     ??Delay_0: (+1)
+   \   00000008   0x....             LDR.N    R0,??DataTable4_9
+   \   0000000A   0x6800             LDR      R0,[R0, #+0]
+   \   0000000C   0x2800             CMP      R0,#+0
+   \   0000000E   0xD1FB             BNE.N    ??Delay_0
+    163          }
+   \   00000010   0xB001             ADD      SP,SP,#+4
+   \   00000012   0x4770             BX       LR               ;; return
+    164          
+    165          /**
+    166            * @brief  Decrements the TimingDelay variable.
+    167            * @param  None
+    168            * @retval None
+    169            */
+
+   \                                 In section .text, align 2, keep-with-next
+    170          void TimingDelay_Decrement(void)
+    171          {
+    172            if (uwTimingDelay != 0x00)
+   \                     TimingDelay_Decrement: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable4_9
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0x2800             CMP      R0,#+0
+   \   00000006   0xD004             BEQ.N    ??TimingDelay_Decrement_0
+    173            { 
+    174              uwTimingDelay--;
+   \   00000008   0x....             LDR.N    R0,??DataTable4_9
+   \   0000000A   0x6800             LDR      R0,[R0, #+0]
+   \   0000000C   0x1E40             SUBS     R0,R0,#+1
+   \   0000000E   0x....             LDR.N    R1,??DataTable4_9
+   \   00000010   0x6008             STR      R0,[R1, #+0]
+    175            }
+    176          }
+   \                     ??TimingDelay_Decrement_0: (+1)
+   \   00000012   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \   00000000   0xE000E400         DC32     0xe000e400
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \   00000000   0xE000ED18         DC32     0xe000ed18
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \   00000000   0xE000E014         DC32     0xe000e014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \   00000000   0xE000E018         DC32     0xe000e018
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \   00000000   0xE000E010         DC32     0xe000e010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \   00000000   0x........         DC32     RCC_Clocks
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \   00000000   0x........         DC32     ?_0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \   00000000   0x........         DC32     ?_1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \   00000000   0x........         DC32     ?_2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_9:
+   \   00000000   0x........         DC32     uwTimingDelay
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \   00000000   0x20 0x20          DC8 "     STM32F40xx     "
+   \              0x20 0x20    
+   \              0x20 0x53    
+   \              0x54 0x4D    
+   \              0x33 0x32    
+   \              0x46 0x34    
+   \              0x30 0x78    
+   \              0x78 0x20    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   00000015   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     ?_1:
+   \   00000000   0x20 0x44          DC8 " Device running on  "
+   \              0x65 0x76    
+   \              0x69 0x63    
+   \              0x65 0x20    
+   \              0x72 0x75    
+   \              0x6E 0x6E    
+   \              0x69 0x6E    
+   \              0x67 0x20    
+   \              0x6F 0x6E    
+   \              0x20 0x20    
+   \              0x00         
+   \   00000015   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     ?_2:
+   \   00000000   0x20 0x20          DC8 "   STM324xG-EVAL    "
+   \              0x20 0x53    
+   \              0x54 0x4D    
+   \              0x33 0x32    
+   \              0x34 0x78    
+   \              0x47 0x2D    
+   \              0x45 0x56    
+   \              0x41 0x4C    
+   \              0x20 0x20    
+   \              0x20 0x20    
+   \              0x00         
+   \   00000015   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+    177          
+    178          #ifdef  USE_FULL_ASSERT
+    179          
+    180          /**
+    181            * @brief  Reports the name of the source file and the source line number
+    182            *         where the assert_param error has occurred.
+    183            * @param  file: pointer to the source file name
+    184            * @param  line: assert_param error line source number
+    185            * @retval None
+    186            */
+    187          void assert_failed(uint8_t* file, uint32_t line)
+    188          { 
+    189            /* User can add his own implementation to report the file name and line number,
+    190               ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    191          
+    192            /* Infinite loop */
+    193            while (1)
+    194            {
+    195            }
+    196          }
+    197          #endif
+    198          
+    199          /**
+    200            * @}
+    201            */
+    202          
+    203          
+    204          /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       4   Delay
+       8   SysTick_Config
+         8   -> __NVIC_SetPriority
+       0   TimingDelay_Decrement
+       0   __NVIC_SetPriority
+       8   main
+         8   -> Delay
+         8   -> LCD_Clear
+         8   -> LCD_DisplayStringLine
+         8   -> LCD_GetFont
+         8   -> LCD_Init
+         8   -> LCD_SetBackColor
+         8   -> LCD_SetTextColor
+         8   -> RCC_GetClocksFreq
+         8   -> STM_EVAL_LEDInit
+         8   -> STM_EVAL_LEDOn
+         8   -> STM_EVAL_LEDToggle
+         8   -> SysTick_Config
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+       4  ??DataTable4_7
+       4  ??DataTable4_8
+       4  ??DataTable4_9
+      24  ?_0
+      24  ?_1
+      24  ?_2
+      20  Delay
+      16  RCC_Clocks
+      46  SysTick_Config
+      20  TimingDelay_Decrement
+      34  __NVIC_SetPriority
+     204  main
+       4  uwTimingDelay
+
+ 
+  20 bytes in section .bss
+  72 bytes in section .rodata
+ 364 bytes in section .text
+ 
+ 364 bytes of CODE  memory
+  72 bytes of CONST memory
+  20 bytes of DATA  memory
+
+Errors: none
+Warnings: none
