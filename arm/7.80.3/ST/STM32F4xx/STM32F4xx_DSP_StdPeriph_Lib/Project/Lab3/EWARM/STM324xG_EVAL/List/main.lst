@@ -1,90 +1,241 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       01/Feb/2017  20:33:47
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       06/Feb/2017  17:58:22
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
 #    Endian       =  little
 #    Source file  =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\main.c
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\main.c
 #    Command line =  
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\main.c" -D USE_STDPERIPH_DRIVER -D STM32F40XX -D
-#        USE_STM324xG_EVAL -lC
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\STM324xG_EVAL\List" -o
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\STM324xG_EVAL\Obj" --no_cse --no_unroll --no_inline
-#        --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug
-#        --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config
-#        "C:\Program Files (x86)\IAR Systems\Embedded Workbench
-#        7.5\arm\INC\c\DLib_Config_Full.h" -I
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\..\" -I
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\"
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\main.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
 #        -I
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\" -I
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\..\..\..\Utilities\STM32_EVAL\Common\" -I
-#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\" -Ol
-#        --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\..\
+#        -I
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
 #        Workbench 7.5\arm\CMSIS\Include\"
 #    Locale       =  English_United States.1252
 #    List file    =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\STM324xG_EVAL\List\main.lst
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\STM324xG_EVAL\List\main.lst
 #    Object file  =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
-#        Template\EWARM\STM324xG_EVAL\Obj\main.o
+#        C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\EWARM\STM324xG_EVAL\Obj\main.o
 #
 ###############################################################################
 
-C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG Template\main.c
-      1          #include "main.h"
-      2          
+C:\bowen_lab3\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab3\main.c
+      1          /* Includes */
+      2          #include "main.h"
+      3          
+      4          /* Defines */
+      5          #define DATA_PINS       0x00FF
+      6          #define SIGNAL_PIN      GPIO_Pin_14
+      7          #define INITIAL_VALUE   0xA5A5
+      8          
 
-   \                                 In section .text, align 2, keep-with-next
-      3          int main(void)
-      4          {
-      5            /*!< At this stage the microcontroller clock setting is already configured, 
-      6                 this is done through SystemInit() function which is called from startup
-      7                 files (startup_stm32f40xx.s/startup_stm32f427x.s/startup_stm32f429x.s)
-      8                 before to branch to application main. 
-      9                 To reconfigure the default setting of SystemInit() function, refer to
-     10                 system_stm32f4xx.c file
-     11               */  
-     12              
-     13            /* Infinite loop */
-     14            while (1)
+   \                                 In section .bss, align 4
+      9          GPIO_InitTypeDef   GPIO_InitStructure;
+   \                     GPIO_InitStructure:
+   \   00000000                      DS8 8
+
+   \                                 In section .bss, align 4
+     10          EXTI_InitTypeDef   EXTI_InitStructure;
+   \                     EXTI_InitStructure:
+   \   00000000                      DS8 8
+
+   \                                 In section .bss, align 4
+     11          NVIC_InitTypeDef   NVIC_InitStructure_Main;
+   \                     NVIC_InitStructure_Main:
+   \   00000000                      DS8 4
+     12          
+
+   \                                 In section .text, align 4, keep-with-next
+     13          int main(void)
+     14          {
    \                     main: (+1)
-   \                     ??main_0: (+1)
-   \   00000000   0xE7FE             B.N      ??main_0
-     15            {
-     16              
-     17            }
-     18          }
+   \   00000000   0xB580             PUSH     {R7,LR}
+     15            /*!< At this stage the microcontroller clock setting is already configured, 
+     16                 this is done through SystemInit() function which is called from startup
+     17                 files (startup_stm32f40xx.s/startup_stm32f427x.s/startup_stm32f429x.s)
+     18                 before to branch to application main. 
+     19                 To reconfigure the default setting of SystemInit() function, refer to
+     20                 system_stm32f4xx.c file
+     21               */  
+     22          
+     23            /* GPIOC and GPIOE Peripheral clock enable */
+     24            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+   \   00000002   0x2101             MOVS     R1,#+1
+   \   00000004   0x2001             MOVS     R0,#+1
+   \   00000006   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+     25            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+   \   0000000A   0x2101             MOVS     R1,#+1
+   \   0000000C   0x2008             MOVS     R0,#+8
+   \   0000000E   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+     26          
+     27            /* Enable SYSCFG clock */
+     28            RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+   \   00000012   0x2101             MOVS     R1,#+1
+   \   00000014   0xF44F 0x4080      MOV      R0,#+16384
+   \   00000018   0x.... 0x....      BL       RCC_APB2PeriphClockCmd
+     29          
+     30            /* Configure PA0:PA7 output */
+     31            GPIO_InitStructure.GPIO_Pin = DATA_PINS;
+   \   0000001C   0x20FF             MOVS     R0,#+255
+   \   0000001E   0x4924             LDR.N    R1,??main_0
+   \   00000020   0x6008             STR      R0,[R1, #+0]
+     32            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+   \   00000022   0x2001             MOVS     R0,#+1
+   \   00000024   0x4922             LDR.N    R1,??main_0
+   \   00000026   0x7108             STRB     R0,[R1, #+4]
+     33            GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+   \   00000028   0x2001             MOVS     R0,#+1
+   \   0000002A   0x4921             LDR.N    R1,??main_0
+   \   0000002C   0x7188             STRB     R0,[R1, #+6]
+     34            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+   \   0000002E   0x2003             MOVS     R0,#+3
+   \   00000030   0x491F             LDR.N    R1,??main_0
+   \   00000032   0x7148             STRB     R0,[R1, #+5]
+     35            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+   \   00000034   0x2001             MOVS     R0,#+1
+   \   00000036   0x491E             LDR.N    R1,??main_0
+   \   00000038   0x71C8             STRB     R0,[R1, #+7]
+     36            GPIO_Init(GPIOA, &GPIO_InitStructure);
+   \   0000003A   0x491D             LDR.N    R1,??main_0
+   \   0000003C   0x481D             LDR.N    R0,??main_0+0x4  ;; 0x40020000
+   \   0000003E   0x.... 0x....      BL       GPIO_Init
+     37          
+     38            /* Configure PD14 input */
+     39            GPIO_InitStructure.GPIO_Pin = SIGNAL_PIN;
+   \   00000042   0xF44F 0x4080      MOV      R0,#+16384
+   \   00000046   0x491A             LDR.N    R1,??main_0
+   \   00000048   0x6008             STR      R0,[R1, #+0]
+     40            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+   \   0000004A   0x2000             MOVS     R0,#+0
+   \   0000004C   0x4918             LDR.N    R1,??main_0
+   \   0000004E   0x7108             STRB     R0,[R1, #+4]
+     41            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+   \   00000050   0x2001             MOVS     R0,#+1
+   \   00000052   0x4917             LDR.N    R1,??main_0
+   \   00000054   0x71C8             STRB     R0,[R1, #+7]
+     42            GPIO_Init(GPIOD, &GPIO_InitStructure);
+   \   00000056   0x4916             LDR.N    R1,??main_0
+   \   00000058   0x4817             LDR.N    R0,??main_0+0x8  ;; 0x40020c00
+   \   0000005A   0x.... 0x....      BL       GPIO_Init
+     43          
+     44          
+     45            /* Connect EXTI Line 14 to PD14 pin */
+     46            SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOD, EXTI_PinSource14);
+   \   0000005E   0x210E             MOVS     R1,#+14
+   \   00000060   0x2003             MOVS     R0,#+3
+   \   00000062   0x.... 0x....      BL       SYSCFG_EXTILineConfig
+     47          
+     48            /* Configure EXTI Line14 */
+     49            EXTI_InitStructure.EXTI_Line = EXTI_Line14;
+   \   00000066   0xF44F 0x4080      MOV      R0,#+16384
+   \   0000006A   0x4914             LDR.N    R1,??main_0+0xC
+   \   0000006C   0x6008             STR      R0,[R1, #+0]
+     50            EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+   \   0000006E   0x2000             MOVS     R0,#+0
+   \   00000070   0x4912             LDR.N    R1,??main_0+0xC
+   \   00000072   0x7108             STRB     R0,[R1, #+4]
+     51            EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
+   \   00000074   0x2008             MOVS     R0,#+8
+   \   00000076   0x4911             LDR.N    R1,??main_0+0xC
+   \   00000078   0x7148             STRB     R0,[R1, #+5]
+     52            EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+   \   0000007A   0x2001             MOVS     R0,#+1
+   \   0000007C   0x490F             LDR.N    R1,??main_0+0xC
+   \   0000007E   0x7188             STRB     R0,[R1, #+6]
+     53            EXTI_Init(&EXTI_InitStructure);
+   \   00000080   0x480E             LDR.N    R0,??main_0+0xC
+   \   00000082   0x.... 0x....      BL       EXTI_Init
+     54          
+     55            /* Enable and set EXTI Line 14 Interrupt to the lowest priority */
+     56            NVIC_InitStructure_Main.NVIC_IRQChannel = EXTI15_10_IRQn;
+   \   00000086   0x2028             MOVS     R0,#+40
+   \   00000088   0x490D             LDR.N    R1,??main_0+0x10
+   \   0000008A   0x7008             STRB     R0,[R1, #+0]
+     57            NVIC_InitStructure_Main.NVIC_IRQChannelPreemptionPriority = 0x0F;
+   \   0000008C   0x200F             MOVS     R0,#+15
+   \   0000008E   0x490C             LDR.N    R1,??main_0+0x10
+   \   00000090   0x7048             STRB     R0,[R1, #+1]
+     58            NVIC_InitStructure_Main.NVIC_IRQChannelSubPriority = 0x0F;
+   \   00000092   0x200F             MOVS     R0,#+15
+   \   00000094   0x490A             LDR.N    R1,??main_0+0x10
+   \   00000096   0x7088             STRB     R0,[R1, #+2]
+     59            NVIC_InitStructure_Main.NVIC_IRQChannelCmd = ENABLE;
+   \   00000098   0x2001             MOVS     R0,#+1
+   \   0000009A   0x4909             LDR.N    R1,??main_0+0x10
+   \   0000009C   0x70C8             STRB     R0,[R1, #+3]
+     60            NVIC_Init(&NVIC_InitStructure_Main);
+   \   0000009E   0x4808             LDR.N    R0,??main_0+0x10
+   \   000000A0   0x.... 0x....      BL       NVIC_Init
+     61          
+     62          
+     63            GPIOA->ODR = INITIAL_VALUE; 
+   \   000000A4   0xF24A 0x50A5      MOVW     R0,#+42405
+   \   000000A8   0x4906             LDR.N    R1,??main_0+0x14  ;; 0x40020014
+   \   000000AA   0x6008             STR      R0,[R1, #+0]
+     64            
+     65            /* Infinite loop */
+     66            while (1)
+   \                     ??main_1: (+1)
+   \   000000AC   0xE7FE             B.N      ??main_1
+   \   000000AE   0xBF00             Nop      
+   \                     ??main_0:
+   \   000000B0   0x........         DC32     GPIO_InitStructure
+   \   000000B4   0x40020000         DC32     0x40020000
+   \   000000B8   0x40020C00         DC32     0x40020c00
+   \   000000BC   0x........         DC32     EXTI_InitStructure
+   \   000000C0   0x........         DC32     NVIC_InitStructure_Main
+   \   000000C4   0x40020014         DC32     0x40020014
+     67            {
+     68              
+     69            }
+     70          }
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
-       0   main
+       8   main
+         8   -> EXTI_Init
+         8   -> GPIO_Init
+         8   -> NVIC_Init
+         8   -> RCC_AHB1PeriphClockCmd
+         8   -> RCC_APB2PeriphClockCmd
+         8   -> SYSCFG_EXTILineConfig
 
 
    Section sizes:
 
    Bytes  Function/Label
    -----  --------------
-       2  main
+       8  EXTI_InitStructure
+       8  GPIO_InitStructure
+       4  NVIC_InitStructure_Main
+     200  main
 
  
- 2 bytes in section .text
+  20 bytes in section .bss
+ 200 bytes in section .text
  
- 2 bytes of CODE memory
+ 200 bytes of CODE memory
+  20 bytes of DATA memory
 
 Errors: none
 Warnings: none

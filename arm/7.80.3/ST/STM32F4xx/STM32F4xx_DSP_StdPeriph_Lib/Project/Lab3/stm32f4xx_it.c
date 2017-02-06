@@ -46,6 +46,21 @@
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
 
+/* ISR for EXTI line 2 */
+void EXTI15_10_IRQHandler(void)
+{
+  /* Check the EXTI line 2 flag */
+  if(EXTI_GetITStatus(EXTI_Line14) != RESET)
+  {
+    /* Toggle the Data line */
+    int x  = GPIOA->ODR;
+    GPIOA->ODR = (x - 8)/256;
+    
+    /* Clear the EXTI line 2 pending bit */
+    EXTI_ClearITPendingBit(EXTI_Line14);
+  }
+}
+
 /**
   * @brief   This function handles NMI exception.
   * @param  None
