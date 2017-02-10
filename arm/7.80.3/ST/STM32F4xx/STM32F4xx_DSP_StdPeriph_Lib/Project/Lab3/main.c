@@ -59,7 +59,7 @@ int main(void)
   NVIC_InitStructure_Main.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure_Main);
 
-
+  /* Put Initial Value on GPIOA */
   GPIOA->ODR = INITIAL_VALUE; 
   
   /* Infinite loop */

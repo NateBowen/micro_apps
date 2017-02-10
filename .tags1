@@ -1,0 +1,12 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+DATA_PINS	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework 2\main.c	/^#define DATA_PINS /;"	macro	line:6	file:
+SIGNAL_PIN	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework 2\main.c	/^#define SIGNAL_PIN /;"	macro	line:7	file:
+GPIO_InitStructure	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework 2\main.c	/^GPIO_InitTypeDef   GPIO_InitStructure;$/;"	variable	line:9
+EXTI_InitStructure	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework 2\main.c	/^EXTI_InitTypeDef   EXTI_InitStructure;$/;"	variable	line:10
+NVIC_InitStructure_Main	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework 2\main.c	/^NVIC_InitTypeDef   NVIC_InitStructure_Main;$/;"	variable	line:11
+main	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework 2\main.c	/^int main(void)$/;"	function	line:13	signature:(void)

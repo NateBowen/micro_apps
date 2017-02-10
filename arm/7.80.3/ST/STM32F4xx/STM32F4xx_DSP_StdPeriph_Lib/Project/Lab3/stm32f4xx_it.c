@@ -46,7 +46,7 @@
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
 
-/* ISR for EXTI line 2 */
+/* ISR for EXTI line 14 */
 void EXTI15_10_IRQHandler(void)
 {
   /* Check the EXTI line 2 flag */
