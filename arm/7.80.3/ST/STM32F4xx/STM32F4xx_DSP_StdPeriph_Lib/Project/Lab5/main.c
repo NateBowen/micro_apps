@@ -1,12 +1,13 @@
 #include "main.h"
 
+
 TIM_ICInitTypeDef  TIM_ICInitStructure;
 GPIO_InitTypeDef GPIO_InitStructure;
 NVIC_InitTypeDef NVIC_InitStructureMain;
 
 int main(void)
 {
-    /* TIM2 clock enable */
+    /* TIM5 clock enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
 
   /* GPIOA clock enable */
@@ -30,7 +31,7 @@ int main(void)
 
   /* TIM5 configuration: Input Capture mode ---------------------*/
   TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
-  TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_Rising;
+  TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_BothEdge;
   TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI;
   TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;
   TIM_ICInitStructure.TIM_ICFilter = 0x0;

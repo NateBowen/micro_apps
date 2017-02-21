@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       20/Feb/2017  16:19:25
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       20/Feb/2017  18:22:32
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -40,128 +40,127 @@
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab5\main.c
       1          #include "main.h"
       2          
+      3          
 
    \                                 In section .bss, align 4
-      3          TIM_ICInitTypeDef  TIM_ICInitStructure;
+      4          TIM_ICInitTypeDef  TIM_ICInitStructure;
    \                     TIM_ICInitStructure:
    \   00000000                      DS8 12
 
    \                                 In section .bss, align 4
-      4          GPIO_InitTypeDef GPIO_InitStructure;
+      5          GPIO_InitTypeDef GPIO_InitStructure;
    \                     GPIO_InitStructure:
    \   00000000                      DS8 8
 
    \                                 In section .bss, align 4
-      5          NVIC_InitTypeDef NVIC_InitStructureMain;
+      6          NVIC_InitTypeDef NVIC_InitStructureMain;
    \                     NVIC_InitStructureMain:
    \   00000000                      DS8 4
-      6          
+      7          
 
    \                                 In section .text, align 4, keep-with-next
-      7          int main(void)
-      8          {
+      8          int main(void)
+      9          {
    \                     main: (+1)
    \   00000000   0xB580             PUSH     {R7,LR}
-      9              /* TIM2 clock enable */
-     10            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+     10              /* TIM5 clock enable */
+     11            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
    \   00000002   0x2101             MOVS     R1,#+1
    \   00000004   0x2008             MOVS     R0,#+8
    \   00000006   0x.... 0x....      BL       RCC_APB1PeriphClockCmd
-     11          
-     12            /* GPIOA clock enable */
-     13            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+     12          
+     13            /* GPIOA clock enable */
+     14            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
    \   0000000A   0x2101             MOVS     R1,#+1
    \   0000000C   0x2001             MOVS     R0,#+1
    \   0000000E   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
-     14            
-     15            /* TIM5 channel 2 pin (PA1) configuration */
-     16            GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_1;
+     15            
+     16            /* TIM5 channel 2 pin (PA1) configuration */
+     17            GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_1;
    \   00000012   0x2002             MOVS     R0,#+2
    \   00000014   0x491E             LDR.N    R1,??main_0
    \   00000016   0x6008             STR      R0,[R1, #+0]
-     17            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+     18            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
    \   00000018   0x2002             MOVS     R0,#+2
    \   0000001A   0x491D             LDR.N    R1,??main_0
    \   0000001C   0x7108             STRB     R0,[R1, #+4]
-     18          //  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-     19          //  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-     20            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+     19            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
    \   0000001E   0x2000             MOVS     R0,#+0
    \   00000020   0x491B             LDR.N    R1,??main_0
    \   00000022   0x71C8             STRB     R0,[R1, #+7]
-     21            GPIO_Init(GPIOA, &GPIO_InitStructure);
+     20            GPIO_Init(GPIOA, &GPIO_InitStructure);
    \   00000024   0x491A             LDR.N    R1,??main_0
    \   00000026   0x481B             LDR.N    R0,??main_0+0x4  ;; 0x40020000
    \   00000028   0x.... 0x....      BL       GPIO_Init
-     22          
-     23            /* Connect TIM5 pins to AF1 */
-     24            GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_TIM5);
+     21          
+     22            /* Connect TIM5 pins to AF1 */
+     23            GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_TIM5);
    \   0000002C   0x2202             MOVS     R2,#+2
    \   0000002E   0x2101             MOVS     R1,#+1
    \   00000030   0x4818             LDR.N    R0,??main_0+0x4  ;; 0x40020000
    \   00000032   0x.... 0x....      BL       GPIO_PinAFConfig
-     25            
-     26            /* Enable the TIM5 global Interrupt */
-     27            NVIC_InitStructureMain.NVIC_IRQChannel = TIM5_IRQn;
+     24            
+     25            /* Enable the TIM5 global Interrupt */
+     26            NVIC_InitStructureMain.NVIC_IRQChannel = TIM5_IRQn;
    \   00000036   0x2032             MOVS     R0,#+50
    \   00000038   0x4917             LDR.N    R1,??main_0+0x8
    \   0000003A   0x7008             STRB     R0,[R1, #+0]
-     28            NVIC_InitStructureMain.NVIC_IRQChannelPreemptionPriority = 0;
+     27            NVIC_InitStructureMain.NVIC_IRQChannelPreemptionPriority = 0;
    \   0000003C   0x2000             MOVS     R0,#+0
    \   0000003E   0x4916             LDR.N    R1,??main_0+0x8
    \   00000040   0x7048             STRB     R0,[R1, #+1]
-     29            NVIC_InitStructureMain.NVIC_IRQChannelSubPriority = 1;
+     28            NVIC_InitStructureMain.NVIC_IRQChannelSubPriority = 1;
    \   00000042   0x2001             MOVS     R0,#+1
    \   00000044   0x4914             LDR.N    R1,??main_0+0x8
    \   00000046   0x7088             STRB     R0,[R1, #+2]
-     30            NVIC_InitStructureMain.NVIC_IRQChannelCmd = ENABLE;
+     29            NVIC_InitStructureMain.NVIC_IRQChannelCmd = ENABLE;
    \   00000048   0x2001             MOVS     R0,#+1
    \   0000004A   0x4913             LDR.N    R1,??main_0+0x8
    \   0000004C   0x70C8             STRB     R0,[R1, #+3]
-     31            NVIC_Init(&NVIC_InitStructureMain);
+     30            NVIC_Init(&NVIC_InitStructureMain);
    \   0000004E   0x4812             LDR.N    R0,??main_0+0x8
    \   00000050   0x.... 0x....      BL       NVIC_Init
-     32          
-     33            /* TIM5 configuration: Input Capture mode ---------------------*/
-     34            TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
+     31          
+     32            /* TIM5 configuration: Input Capture mode ---------------------*/
+     33            TIM_ICInitStructure.TIM_Channel = TIM_Channel_2;
    \   00000054   0x2004             MOVS     R0,#+4
    \   00000056   0x4911             LDR.N    R1,??main_0+0xC
    \   00000058   0x8008             STRH     R0,[R1, #+0]
-     35            TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_Rising;
-   \   0000005A   0x2000             MOVS     R0,#+0
+     34            TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_BothEdge;
+   \   0000005A   0x200A             MOVS     R0,#+10
    \   0000005C   0x490F             LDR.N    R1,??main_0+0xC
    \   0000005E   0x8048             STRH     R0,[R1, #+2]
-     36            TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI;
+     35            TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI;
    \   00000060   0x2001             MOVS     R0,#+1
    \   00000062   0x490E             LDR.N    R1,??main_0+0xC
    \   00000064   0x8088             STRH     R0,[R1, #+4]
-     37            TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;
+     36            TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;
    \   00000066   0x2000             MOVS     R0,#+0
    \   00000068   0x490C             LDR.N    R1,??main_0+0xC
    \   0000006A   0x80C8             STRH     R0,[R1, #+6]
-     38            TIM_ICInitStructure.TIM_ICFilter = 0x0;
+     37            TIM_ICInitStructure.TIM_ICFilter = 0x0;
    \   0000006C   0x2000             MOVS     R0,#+0
    \   0000006E   0x490B             LDR.N    R1,??main_0+0xC
    \   00000070   0x8108             STRH     R0,[R1, #+8]
-     39            TIM_ICInit(TIM5, &TIM_ICInitStructure);
+     38            TIM_ICInit(TIM5, &TIM_ICInitStructure);
    \   00000072   0x490A             LDR.N    R1,??main_0+0xC
    \   00000074   0x480A             LDR.N    R0,??main_0+0x10  ;; 0x40000c00
    \   00000076   0x.... 0x....      BL       TIM_ICInit
-     40            
-     41            /* TIM5 enable counter */
-     42            TIM_Cmd(TIM5, ENABLE);
+     39            
+     40            /* TIM5 enable counter */
+     41            TIM_Cmd(TIM5, ENABLE);
    \   0000007A   0x2101             MOVS     R1,#+1
    \   0000007C   0x4808             LDR.N    R0,??main_0+0x10  ;; 0x40000c00
    \   0000007E   0x.... 0x....      BL       TIM_Cmd
-     43          
-     44            /* Enable the CC3 Interrupt Request */
-     45            TIM_ITConfig(TIM5, TIM_IT_CC2, ENABLE);
+     42          
+     43            /* Enable the CC3 Interrupt Request */
+     44            TIM_ITConfig(TIM5, TIM_IT_CC2, ENABLE);
    \   00000082   0x2201             MOVS     R2,#+1
    \   00000084   0x2104             MOVS     R1,#+4
    \   00000086   0x4806             LDR.N    R0,??main_0+0x10  ;; 0x40000c00
    \   00000088   0x.... 0x....      BL       TIM_ITConfig
-     46          
-     47            while (1){
+     45          
+     46            while (1){
    \                     ??main_1: (+1)
    \   0000008C   0xE7FE             B.N      ??main_1
    \   0000008E   0xBF00             Nop      
@@ -171,9 +170,9 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    \   00000098   0x........         DC32     NVIC_InitStructureMain
    \   0000009C   0x........         DC32     TIM_ICInitStructure
    \   000000A0   0x40000C00         DC32     0x40000c00
-     48              /* Doin' nothin', son. */
-     49            }
-     50          }
+     47              /* Doin' nothin', son. */
+     48            }
+     49          }
 
    Maximum stack usage in bytes:
 
