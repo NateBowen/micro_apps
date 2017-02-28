@@ -2,7 +2,7 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\Template.ewp</path>
+    <path>$WS_DIR$\Lab6.ewp</path>
   </project>
   <batchBuild/>
 </workspace>
