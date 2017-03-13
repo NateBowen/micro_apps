@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  17:25:16
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  17:54:02
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -40,31 +40,36 @@
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\main.c
       1          #include "main.h"
       2          #include "prelab_task1.h"
-      3          
+      3          #include "prelab_task2.h"
+      4          #include "prelab_task3.h"
+      5          
 
    \                                 In section .text, align 2, keep-with-next
-      4          int main(void)
-      5          {
+      6          int main(void)
+      7          {
    \                     main: (+1)
    \   00000000   0xB580             PUSH     {R7,LR}
-      6            prelab_task1();
-   \   00000002   0x.... 0x....      BL       prelab_task1
-      7            
-      8            /* Infinite loop */
-      9            while (1)
+      8            // Uncomment only one of these
+      9            //prelab_task1();
+     10            //prelab_task2();
+     11            prelab_task3();
+   \   00000002   0x.... 0x....      BL       prelab_task3
+     12            
+     13            /* Infinite loop */
+     14            while (1)
    \                     ??main_0: (+1)
    \   00000006   0xE7FE             B.N      ??main_0
-     10            {
-     11              
-     12            }
-     13          }
+     15            {
+     16              //Catch the processor in case the task() functions exit.
+     17            }
+     18          }
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
        8   main
-         8   -> prelab_task1
+         8   -> prelab_task3
 
 
    Section sizes:

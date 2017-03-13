@@ -32,7 +32,7 @@ int prelab_task1(void)
   { 
     
     for (i = 0; i < 4090; i++){
-      DAC_SetChannel1Data(DAC_Align_12b_R, i );
+      DAC_SetChannel1Data(DAC_Align_12b_R, i);
     }
     
     for (i = 4090; i > 0; i--){     

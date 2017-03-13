@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  17:25:16
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  17:54:02
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -97,7 +97,7 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    \                     ??prelab_task1_0: (+1)
    \   00000036   0x2400             MOVS     R4,#+0
    \   00000038   0xE005             B.N      ??prelab_task1_1
-     35                DAC_SetChannel1Data(DAC_Align_12b_R, i );
+     35                DAC_SetChannel1Data(DAC_Align_12b_R, i);
    \                     ??prelab_task1_2: (+1)
    \   0000003A   0x0021             MOVS     R1,R4
    \   0000003C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
