@@ -11,12 +11,12 @@ ByteLimit=50
 [StLinkDriver]
 CStepIntDis=_ 0
 LeaveTargetRunning=_ 0
-stlinkserialNo=30303031
+stlinkserialNo=53410867
 stlinkfoundProbes=
 stlinkResetStyle=0
 stlinkResetStrategy=1
 [DebugChecksum]
-Checksum=-1963076891
+Checksum=350562924
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0

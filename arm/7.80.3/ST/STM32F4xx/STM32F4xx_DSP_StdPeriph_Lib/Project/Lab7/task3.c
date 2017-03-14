@@ -1,78 +1,95 @@
-#include "task3.h"
-#include "main.h"
+#include "task2.h"
 
-
-/* Private function prototypes -----------------------------------------------*/
-static void TIM2_Config(void);
-static void DAC_Ch1_Config(void);
 static void ADC_Config(void);
+static void DAC_Config(void);
 
 extern uint16_t ADCInputValue;
 
-int task3(void)
-{  
+#define ADC_0_4_VOLTS   544
+
+void task3(void)
+{
+  ADC_Config();
+  DAC_Config();
+   
+  // Start ADC1 Software Conversion
+  ADC_SoftwareStartConv(ADC1); 
   
-  GPIO_InitTypeDef GPIO_InitStructure;
+  while(1)
+  {
+    DAC_SetChannel1Data(DAC_Align_12b_R, (ADCInputValue * 0.75) + ADC_0_4_VOLTS);
+  }
   
-  /* GPIOA clock enable (to be used with DAC) */
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);                         
+}
+
+/**
+  * @brief  ADC3 channel07 with DMA configuration
+  * @note   This function Configure the ADC peripheral  
+            1) Enable peripheral clocks
+            2) DMA2_Stream0 channel2 configuration
+            3) Configure ADC Channel7 pin as analog input
+            4) Configure ADC3 Channel7 
+  * @param  None
+  * @retval None
+  */
+static void ADC_Config(void)
+{
+  GPIO_InitTypeDef       GPIO_InitStructure;
+  ADC_InitTypeDef        ADC_InitStructure;
+  ADC_CommonInitTypeDef  ADC_CommonInitStructure;  
+  NVIC_InitTypeDef      NVIC_InitStructure;
   
-  /* DAC Periph clock enable */
+  NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&NVIC_InitStructure);
+  
+  /* Enable peripheral clocks *************************************************/
+//  RCC_AHB1PeriphClockCmd( ADC1_2_CHANNEL_GPIO_CLK , ENABLE);
+  RCC_APB2PeriphClockCmd( RCC_APB2Periph_ADC1 , ENABLE);
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+
+  /* Configure ADC Channel 12 pin as analog input *****************************/ 
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+  /* ADC Common configuration *************************************************/
+  ADC_CommonInitStructure.ADC_Mode =  ADC_Mode_Independent;
+  ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;  
+  ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div2; 
+  ADC_CommonInit(&ADC_CommonInitStructure);
+
+  /* ADC1 regular channel 12 configuration ************************************/
+  ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+  ADC_InitStructure.ADC_ScanConvMode = DISABLE;
+  ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+  ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
+  ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
+  ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+  ADC_InitStructure.ADC_NbrOfConversion = 1;
+  ADC_Init(ADC1, &ADC_InitStructure);
+
+  ADC_RegularChannelConfig(ADC1, ADC_Channel_6, 1, ADC_SampleTime_3Cycles);
+
+  /* Enable ADC1 **************************************************************/
+  ADC_Cmd(ADC1, ENABLE);
+  
+  ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+}
+  
+void DAC_Config(void)
+{
+  DAC_InitTypeDef       DAC_InitStructure;
+  
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_DAC, ENABLE);
   
-  /* DAC channel 1 (DAC_OUT1 = PA.4) configuration */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
-  
-  TIM2_Config();  
-  DAC_Ch1_Config();
-  ADC_Config();
-  
-  while (1)
-  { 
-    DAC_SetChannel1Data(DAC_Align_12b_R, ADCInputValue);
-  }
-}
-
-static void TIM2_Config(void)
-{
-  TIM_TimeBaseInitTypeDef    TIM_TimeBaseStructure;
-  
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-  
-  /* Time base configuration */
-  TIM_TimeBaseStructInit(&TIM_TimeBaseStructure); 
-  TIM_TimeBaseStructure.TIM_Period = 0xFF;          
-  TIM_TimeBaseStructure.TIM_Prescaler = 0;       
-  TIM_TimeBaseStructure.TIM_ClockDivision = 0;    
-  TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  
-  TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
-  
-  /* TIM2 TRGO selection */
-  TIM_SelectOutputTrigger(TIM2, TIM_TRGOSource_Update);
-  
-  /* TIM2 enable counter */
-  TIM_Cmd(TIM2, ENABLE);
-}
-
-static void DAC_Ch1_Config(void)
-{
-  DAC_InitTypeDef  DAC_InitStructure;
-  
-  /* DAC channel1 Configuration */
-  DAC_InitStructure.DAC_Trigger = DAC_Trigger_T2_TRGO;
+  DAC_InitStructure.DAC_Trigger = DAC_Trigger_None;
   DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
   DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
   DAC_Init(DAC_Channel_1, &DAC_InitStructure);
   
-  /* Enable DAC Channel1 */
-  DAC_Cmd(DAC_Channel_1, ENABLE);   
+  DAC_Cmd(DAC_Channel_1, ENABLE);
 }
-
-static void ADC_Config(void)
-{
-  
-}
-

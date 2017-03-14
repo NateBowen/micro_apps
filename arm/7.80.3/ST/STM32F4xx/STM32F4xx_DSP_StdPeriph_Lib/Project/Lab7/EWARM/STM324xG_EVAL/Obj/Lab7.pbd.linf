@@ -1,13 +1,10 @@
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\Lab7.pbd.linf
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\main.pbi
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\misc.pbi
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\prelab_task1.pbi
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\prelab_task2.pbi
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\prelab_task3.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\system_stm32f4xx.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm324xg_eval.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm324xg_eval_fsmc_sram.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm324xg_eval_ioe.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm324xg_eval_lcd.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\misc.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_adc.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_can.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_crc.pbi
@@ -27,7 +24,6 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_hash_md5.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_hash_sha1.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_i2c.pbi
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_it.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_iwdg.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_pwr.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_rcc.pbi
@@ -39,7 +35,11 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_tim.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_usart.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_wwdg.pbi
-C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\system_stm32f4xx.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\main.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\stm32f4xx_it.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\prelab_task1.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\prelab_task2.pbi
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\prelab_task3.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\task1.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\task2.pbi
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\task3.pbi

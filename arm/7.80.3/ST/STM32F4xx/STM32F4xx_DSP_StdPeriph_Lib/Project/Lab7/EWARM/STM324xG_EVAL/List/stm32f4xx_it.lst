@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  19:57:07
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  21:28:12
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -42,11 +42,11 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
       2          #include "stm32f4xx_it.h"
       3          //#include "main.h"
       4          
-      5          //extern uint16_t ADCInputValue;
+      5          extern uint16_t ADCInputValue;
       6          extern uint16_t SawtoothValue;
       7          
 
-   \                                 In section .text, align 4, keep-with-next
+   \                                 In section .text, align 2, keep-with-next
       8          void TIM2_IRQHandler()
       9          {
    \                     TIM2_IRQHandler: (+1)
@@ -65,54 +65,87 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
      13              
      14           
      15                  if(SawtoothValue > 4092)
-   \   0000001A   0x4808             LDR.N    R0,??TIM2_IRQHandler_1
+   \   0000001A   0x....             LDR.N    R0,??DataTable1
    \   0000001C   0x8800             LDRH     R0,[R0, #+0]
    \   0000001E   0xF640 0x71FD      MOVW     R1,#+4093
    \   00000022   0x4288             CMP      R0,R1
-   \   00000024   0xDB03             BLT.N    ??TIM2_IRQHandler_2
+   \   00000024   0xDB03             BLT.N    ??TIM2_IRQHandler_1
      16                  {
      17                    SawtoothValue = 0;
    \   00000026   0x2000             MOVS     R0,#+0
-   \   00000028   0x4904             LDR.N    R1,??TIM2_IRQHandler_1
+   \   00000028   0x....             LDR.N    R1,??DataTable1
    \   0000002A   0x8008             STRH     R0,[R1, #+0]
    \   0000002C   0xE004             B.N      ??TIM2_IRQHandler_0
      18                  }
      19                  else
      20                  {
      21                    SawtoothValue += 4;
-   \                     ??TIM2_IRQHandler_2: (+1)
-   \   0000002E   0x4803             LDR.N    R0,??TIM2_IRQHandler_1
+   \                     ??TIM2_IRQHandler_1: (+1)
+   \   0000002E   0x....             LDR.N    R0,??DataTable1
    \   00000030   0x8800             LDRH     R0,[R0, #+0]
    \   00000032   0x1D00             ADDS     R0,R0,#+4
-   \   00000034   0x4901             LDR.N    R1,??TIM2_IRQHandler_1
+   \   00000034   0x....             LDR.N    R1,??DataTable1
    \   00000036   0x8008             STRH     R0,[R1, #+0]
      22                  }
      23            }
      24          }
    \                     ??TIM2_IRQHandler_0: (+1)
    \   00000038   0xBD01             POP      {R0,PC}          ;; return
-   \   0000003A   0xBF00             Nop      
-   \                     ??TIM2_IRQHandler_1:
-   \   0000003C   0x........         DC32     SawtoothValue
      25          
-     26          //void ACD_IRQHandler()
-     27          //{
-     28          //  
-     29          //  if(ADC_GetITStatus(ADC1, ADC_IT_EOC) != RESET){
-     30          //    
-     31          //    ADCInputValue = ADC_GetConversionValue(ADC1);
-     32          //    
-     33          //  }
-     34          //  
-     35          //  ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
-     36          //}
+
+   \                                 In section .text, align 2, keep-with-next
+     26          void ADC_IRQHandler()
+     27          {
+   \                     ADC_IRQHandler: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     28            if(ADC_GetITStatus(ADC1, ADC_IT_EOC) != RESET){
+   \   00000002   0xF240 0x2105      MOVW     R1,#+517
+   \   00000006   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40012000
+   \   00000008   0x.... 0x....      BL       ADC_GetITStatus
+   \   0000000C   0x2800             CMP      R0,#+0
+   \   0000000E   0xD00C             BEQ.N    ??ADC_IRQHandler_0
+     29              
+     30              ADCInputValue = ADC_GetConversionValue(ADC1);
+   \   00000010   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40012000
+   \   00000012   0x.... 0x....      BL       ADC_GetConversionValue
+   \   00000016   0x....             LDR.N    R1,??DataTable1_2
+   \   00000018   0x8008             STRH     R0,[R1, #+0]
+     31                
+     32              ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
+   \   0000001A   0xF240 0x2105      MOVW     R1,#+517
+   \   0000001E   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40012000
+   \   00000020   0x.... 0x....      BL       ADC_ClearITPendingBit
+     33              ADC_SoftwareStartConv(ADC1);
+   \   00000024   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40012000
+   \   00000026   0x.... 0x....      BL       ADC_SoftwareStartConv
+     34            }
+     35          }
+   \                     ??ADC_IRQHandler_0: (+1)
+   \   0000002A   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x........         DC32     SawtoothValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x40012000         DC32     0x40012000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x........         DC32     ADCInputValue
+     36          
      37          
-     38          
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
+       8   ADC_IRQHandler
+         8   -> ADC_ClearITPendingBit
+         8   -> ADC_GetConversionValue
+         8   -> ADC_GetITStatus
+         8   -> ADC_SoftwareStartConv
        8   TIM2_IRQHandler
          8   -> TIM_ClearITPendingBit
          8   -> TIM_GetITStatus
@@ -122,12 +155,16 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
 
    Bytes  Function/Label
    -----  --------------
-      64  TIM2_IRQHandler
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+      44  ADC_IRQHandler
+      58  TIM2_IRQHandler
 
  
- 64 bytes in section .text
+ 114 bytes in section .text
  
- 64 bytes of CODE memory
+ 114 bytes of CODE memory
 
 Errors: none
 Warnings: none

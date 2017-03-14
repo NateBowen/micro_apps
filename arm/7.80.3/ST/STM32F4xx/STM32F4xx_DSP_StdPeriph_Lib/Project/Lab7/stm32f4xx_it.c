@@ -2,7 +2,7 @@
 #include "stm32f4xx_it.h"
 //#include "main.h"
 
-//extern uint16_t ADCInputValue;
+extern uint16_t ADCInputValue;
 extern uint16_t SawtoothValue;
 
 void TIM2_IRQHandler()
@@ -23,16 +23,15 @@ void TIM2_IRQHandler()
   }
 }
 
-//void ACD_IRQHandler()
-//{
-//  
-//  if(ADC_GetITStatus(ADC1, ADC_IT_EOC) != RESET){
-//    
-//    ADCInputValue = ADC_GetConversionValue(ADC1);
-//    
-//  }
-//  
-//  ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
-//}
+void ADC_IRQHandler()
+{
+  if(ADC_GetITStatus(ADC1, ADC_IT_EOC) != RESET){
+    
+    ADCInputValue = ADC_GetConversionValue(ADC1);
+      
+    ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
+    ADC_SoftwareStartConv(ADC1);
+  }
+}
 
 
