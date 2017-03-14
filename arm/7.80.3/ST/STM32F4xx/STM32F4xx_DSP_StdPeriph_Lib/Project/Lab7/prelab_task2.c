@@ -2,6 +2,9 @@
 
 int prelab_task2(void){
   
+  
+  
+  
   while(1){
   
   }

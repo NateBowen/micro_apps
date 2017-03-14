@@ -1329,6 +1329,24 @@
   <file>
     <name>$PROJ_DIR$\..\prelab_task3.h</name>
   </file>
+  <file>
+    <name>$PROJ_DIR$\..\task1.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\task1.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\task2.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\task2.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\task3.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\task3.h</name>
+  </file>
 </project>
 
 

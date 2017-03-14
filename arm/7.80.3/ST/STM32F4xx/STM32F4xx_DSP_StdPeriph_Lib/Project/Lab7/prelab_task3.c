@@ -6,6 +6,8 @@
 static void TIM2_Config(void);
 static void DAC_Ch1_Config(void);
 
+extern uint16_t ADCInputValue;
+
 int prelab_task3(void)
 {  
   
@@ -25,19 +27,11 @@ int prelab_task3(void)
   
   TIM2_Config();  
   DAC_Ch1_Config();
+  ADC_Config();
   
-  uint16_t i = 0;
- 
   while (1)
   { 
-    
-    for (i = 0; i < 4090; i++){
-      DAC_SetChannel1Data(DAC_Align_12b_R, i );
-    }
-    
-    for (i = 4090; i > 0; i--){     
-      DAC_SetChannel1Data(DAC_Align_12b_R, i );
-    }
+    DAC_SetChannel1Data(DAC_Align_12b_R, ADCInputValue);
   }
 }
 
@@ -46,7 +40,7 @@ static void TIM2_Config(void)
   TIM_TimeBaseInitTypeDef    TIM_TimeBaseStructure;
   
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
- 
+  
   /* Time base configuration */
   TIM_TimeBaseStructInit(&TIM_TimeBaseStructure); 
   TIM_TimeBaseStructure.TIM_Period = 0xFF;          

@@ -1,0 +1,248 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  19:46:59
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\task3.c
+#    Command line =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\task3.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\..\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\List\task3.lst
+#    Object file  =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\EWARM\STM324xG_EVAL\Obj\task3.o
+#
+###############################################################################
+
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab7\task3.c
+      1          #include "task3.h"
+      2          #include "main.h"
+      3          
+      4          
+      5          /* Private function prototypes -----------------------------------------------*/
+      6          static void TIM2_Config(void);
+      7          static void DAC_Ch1_Config(void);
+      8          static void ADC_Config(void);
+      9          
+     10          extern uint16_t ADCInputValue;
+     11          
+
+   \                                 In section .text, align 2, keep-with-next
+     12          int task3(void)
+     13          {  
+   \                     task3: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB083             SUB      SP,SP,#+12
+     14            
+     15            GPIO_InitTypeDef GPIO_InitStructure;
+     16            
+     17            /* GPIOA clock enable (to be used with DAC) */
+     18            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);                         
+   \   00000004   0x2101             MOVS     R1,#+1
+   \   00000006   0x2001             MOVS     R0,#+1
+   \   00000008   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+     19            
+     20            /* DAC Periph clock enable */
+     21            RCC_APB1PeriphClockCmd(RCC_APB1Periph_DAC, ENABLE);
+   \   0000000C   0x2101             MOVS     R1,#+1
+   \   0000000E   0xF05F 0x5000      MOVS     R0,#+536870912
+   \   00000012   0x.... 0x....      BL       RCC_APB1PeriphClockCmd
+     22            
+     23            /* DAC channel 1 (DAC_OUT1 = PA.4) configuration */
+     24            GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
+   \   00000016   0x2010             MOVS     R0,#+16
+   \   00000018   0x9000             STR      R0,[SP, #+0]
+     25            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+   \   0000001A   0x2003             MOVS     R0,#+3
+   \   0000001C   0xF88D 0x0004      STRB     R0,[SP, #+4]
+     26            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   \   00000020   0x2000             MOVS     R0,#+0
+   \   00000022   0xF88D 0x0007      STRB     R0,[SP, #+7]
+     27            GPIO_Init(GPIOA, &GPIO_InitStructure);
+   \   00000026   0x4669             MOV      R1,SP
+   \   00000028   0x....             LDR.N    R0,??DataTable0  ;; 0x40020000
+   \   0000002A   0x.... 0x....      BL       GPIO_Init
+     28            
+     29            TIM2_Config();  
+   \   0000002E   0x.... 0x....      BL       TIM2_Config
+     30            DAC_Ch1_Config();
+   \   00000032   0x.... 0x....      BL       DAC_Ch1_Config
+     31            ADC_Config();
+   \   00000036   0x.... 0x....      BL       ADC_Config
+     32            
+     33            while (1)
+     34            { 
+     35              DAC_SetChannel1Data(DAC_Align_12b_R, ADCInputValue);
+   \                     ??task3_0: (+1)
+   \   0000003A   0x....             LDR.N    R0,??DataTable0_1
+   \   0000003C   0x8801             LDRH     R1,[R0, #+0]
+   \   0000003E   0x2000             MOVS     R0,#+0
+   \   00000040   0x.... 0x....      BL       DAC_SetChannel1Data
+   \   00000044   0xE7F9             B.N      ??task3_0
+     36            }
+     37          }
+     38          
+
+   \                                 In section .text, align 2, keep-with-next
+     39          static void TIM2_Config(void)
+     40          {
+   \                     TIM2_Config: (+1)
+   \   00000000   0xB5E0             PUSH     {R5-R7,LR}
+     41            TIM_TimeBaseInitTypeDef    TIM_TimeBaseStructure;
+     42            
+     43            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+   \   00000002   0x2101             MOVS     R1,#+1
+   \   00000004   0x2001             MOVS     R0,#+1
+   \   00000006   0x.... 0x....      BL       RCC_APB1PeriphClockCmd
+     44            
+     45            /* Time base configuration */
+     46            TIM_TimeBaseStructInit(&TIM_TimeBaseStructure); 
+   \   0000000A   0x4668             MOV      R0,SP
+   \   0000000C   0x.... 0x....      BL       TIM_TimeBaseStructInit
+     47            TIM_TimeBaseStructure.TIM_Period = 0xFF;          
+   \   00000010   0x20FF             MOVS     R0,#+255
+   \   00000012   0x9001             STR      R0,[SP, #+4]
+     48            TIM_TimeBaseStructure.TIM_Prescaler = 0;       
+   \   00000014   0x2000             MOVS     R0,#+0
+   \   00000016   0xF8AD 0x0000      STRH     R0,[SP, #+0]
+     49            TIM_TimeBaseStructure.TIM_ClockDivision = 0;    
+   \   0000001A   0x2000             MOVS     R0,#+0
+   \   0000001C   0xF8AD 0x0008      STRH     R0,[SP, #+8]
+     50            TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  
+   \   00000020   0x2000             MOVS     R0,#+0
+   \   00000022   0xF8AD 0x0002      STRH     R0,[SP, #+2]
+     51            TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+   \   00000026   0x4669             MOV      R1,SP
+   \   00000028   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   0000002C   0x.... 0x....      BL       TIM_TimeBaseInit
+     52            
+     53            /* TIM2 TRGO selection */
+     54            TIM_SelectOutputTrigger(TIM2, TIM_TRGOSource_Update);
+   \   00000030   0x2120             MOVS     R1,#+32
+   \   00000032   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000036   0x.... 0x....      BL       TIM_SelectOutputTrigger
+     55            
+     56            /* TIM2 enable counter */
+     57            TIM_Cmd(TIM2, ENABLE);
+   \   0000003A   0x2101             MOVS     R1,#+1
+   \   0000003C   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000040   0x.... 0x....      BL       TIM_Cmd
+     58          }
+   \   00000044   0xBD07             POP      {R0-R2,PC}       ;; return
+     59          
+
+   \                                 In section .text, align 2, keep-with-next
+     60          static void DAC_Ch1_Config(void)
+     61          {
+   \                     DAC_Ch1_Config: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB085             SUB      SP,SP,#+20
+     62            DAC_InitTypeDef  DAC_InitStructure;
+     63            
+     64            /* DAC channel1 Configuration */
+     65            DAC_InitStructure.DAC_Trigger = DAC_Trigger_T2_TRGO;
+   \   00000004   0x2024             MOVS     R0,#+36
+   \   00000006   0x9000             STR      R0,[SP, #+0]
+     66            DAC_InitStructure.DAC_WaveGeneration = DAC_WaveGeneration_None;
+   \   00000008   0x2000             MOVS     R0,#+0
+   \   0000000A   0x9001             STR      R0,[SP, #+4]
+     67            DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
+   \   0000000C   0x2000             MOVS     R0,#+0
+   \   0000000E   0x9003             STR      R0,[SP, #+12]
+     68            DAC_Init(DAC_Channel_1, &DAC_InitStructure);
+   \   00000010   0x4669             MOV      R1,SP
+   \   00000012   0x2000             MOVS     R0,#+0
+   \   00000014   0x.... 0x....      BL       DAC_Init
+     69            
+     70            /* Enable DAC Channel1 */
+     71            DAC_Cmd(DAC_Channel_1, ENABLE);   
+   \   00000018   0x2101             MOVS     R1,#+1
+   \   0000001A   0x2000             MOVS     R0,#+0
+   \   0000001C   0x.... 0x....      BL       DAC_Cmd
+     72          }
+   \   00000020   0xB005             ADD      SP,SP,#+20
+   \   00000022   0xBD00             POP      {PC}             ;; return
+     73          
+
+   \                                 In section .text, align 2, keep-with-next
+     74          static void ADC_Config(void)
+     75          {
+     76            
+     77          }
+   \                     ADC_Config: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable0:
+   \   00000000   0x40020000         DC32     0x40020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable0_1:
+   \   00000000   0x........         DC32     ADCInputValue
+     78          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   ADC_Config
+      24   DAC_Ch1_Config
+        24   -> DAC_Cmd
+        24   -> DAC_Init
+      16   TIM2_Config
+        16   -> RCC_APB1PeriphClockCmd
+        16   -> TIM_Cmd
+        16   -> TIM_SelectOutputTrigger
+        16   -> TIM_TimeBaseInit
+        16   -> TIM_TimeBaseStructInit
+      16   task3
+        16   -> ADC_Config
+        16   -> DAC_Ch1_Config
+        16   -> DAC_SetChannel1Data
+        16   -> GPIO_Init
+        16   -> RCC_AHB1PeriphClockCmd
+        16   -> RCC_APB1PeriphClockCmd
+        16   -> TIM2_Config
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+       4  ??DataTable0_1
+       2  ADC_Config
+      36  DAC_Ch1_Config
+      70  TIM2_Config
+      70  task3
+
+ 
+ 186 bytes in section .text
+ 
+ 186 bytes of CODE memory
+
+Errors: none
+Warnings: none

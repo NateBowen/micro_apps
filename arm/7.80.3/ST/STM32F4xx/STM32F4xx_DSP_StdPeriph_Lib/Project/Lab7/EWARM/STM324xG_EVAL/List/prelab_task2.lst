@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  17:54:40
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       13/Mar/2017  19:46:54
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -44,13 +44,16 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    \                                 In section .text, align 2, keep-with-next
       3          int prelab_task2(void){
       4            
-      5            while(1){
+      5            
+      6            
+      7            
+      8            while(1){
    \                     prelab_task2: (+1)
    \                     ??prelab_task2_0: (+1)
    \   00000000   0xE7FE             B.N      ??prelab_task2_0
-      6            
-      7            }
-      8          }
+      9            
+     10            }
+     11          }
 
    Maximum stack usage in bytes:
 
