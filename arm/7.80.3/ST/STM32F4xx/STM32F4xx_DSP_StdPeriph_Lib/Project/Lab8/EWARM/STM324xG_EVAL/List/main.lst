@@ -1,0 +1,195 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       20/Mar/2017  17:25:37
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\main.c
+#    Command line =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\main.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\List\main.lst
+#    Object file  =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\Obj\main.o
+#
+###############################################################################
+
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\main.c
+      1          #include "main.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_SetPriority(IRQn_Type, uint32_t)
+   \                     __NVIC_SetPriority: (+1)
+   \   00000000   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   00000002   0x2800             CMP      R0,#+0
+   \   00000004   0xD404             BMI.N    ??__NVIC_SetPriority_0
+   \   00000006   0x0109             LSLS     R1,R1,#+4
+   \   00000008   0x....             LDR.N    R2,??DataTable2  ;; 0xe000e400
+   \   0000000A   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   0000000C   0x5411             STRB     R1,[R2, R0]
+   \   0000000E   0xE007             B.N      ??__NVIC_SetPriority_1
+   \                     ??__NVIC_SetPriority_0: (+1)
+   \   00000010   0x0109             LSLS     R1,R1,#+4
+   \   00000012   0x....             LDR.N    R2,??DataTable2_1  ;; 0xe000ed18
+   \   00000014   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   00000016   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   0000001A   0x4410             ADD      R0,R2,R0
+   \   0000001C   0xF800 0x1C04      STRB     R1,[R0, #-4]
+   \                     ??__NVIC_SetPriority_1: (+1)
+   \   00000020   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp uint32_t SysTick_Config(uint32_t)
+   \                     SysTick_Config: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+   \   00000002   0x1E41             SUBS     R1,R0,#+1
+   \   00000004   0xF1B1 0x7F80      CMP      R1,#+16777216
+   \   00000008   0xD301             BCC.N    ??SysTick_Config_0
+   \   0000000A   0x2001             MOVS     R0,#+1
+   \   0000000C   0xE00E             B.N      ??SysTick_Config_1
+   \                     ??SysTick_Config_0: (+1)
+   \   0000000E   0x1E40             SUBS     R0,R0,#+1
+   \   00000010   0x....             LDR.N    R1,??DataTable2_2  ;; 0xe000e014
+   \   00000012   0x6008             STR      R0,[R1, #+0]
+   \   00000014   0x210F             MOVS     R1,#+15
+   \   00000016   0xF05F 0x30FF      MOVS     R0,#-1
+   \   0000001A   0x.... 0x....      BL       __NVIC_SetPriority
+   \   0000001E   0x2000             MOVS     R0,#+0
+   \   00000020   0x....             LDR.N    R1,??DataTable2_3  ;; 0xe000e018
+   \   00000022   0x6008             STR      R0,[R1, #+0]
+   \   00000024   0x2007             MOVS     R0,#+7
+   \   00000026   0x....             LDR.N    R1,??DataTable2_4  ;; 0xe000e010
+   \   00000028   0x6008             STR      R0,[R1, #+0]
+   \   0000002A   0x2000             MOVS     R0,#+0
+   \                     ??SysTick_Config_1: (+1)
+   \   0000002C   0xBD02             POP      {R1,PC}          ;; return
+      2          #include "lcd.h"
+      3          #include "delay.h"
+      4          
+
+   \                                 In section .text, align 2, keep-with-next
+      5          int main(void)
+      6          {
+   \                     main: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+      7            
+      8            SysTick_Config(SystemCoreClock / 1000);
+   \   00000002   0x....             LDR.N    R0,??DataTable2_5
+   \   00000004   0x6800             LDR      R0,[R0, #+0]
+   \   00000006   0xF44F 0x717A      MOV      R1,#+1000
+   \   0000000A   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   0000000E   0x.... 0x....      BL       SysTick_Config
+      9            
+     10            LCD_Config();
+   \   00000012   0x.... 0x....      BL       LCD_Config
+     11           
+     12            char count;
+     13            
+     14            /* Infinite loop */
+     15            while (1)
+     16            {
+     17              Delay(1000);
+   \                     ??main_0: (+1)
+   \   00000016   0xF44F 0x707A      MOV      R0,#+1000
+   \   0000001A   0x.... 0x....      BL       Delay
+     18              LCD_Command(0x01);
+   \   0000001E   0x2001             MOVS     R0,#+1
+   \   00000020   0x.... 0x....      BL       LCD_Command
+     19              count++;
+   \   00000024   0x1C64             ADDS     R4,R4,#+1
+     20              LCD_Write(0x30 | count);
+   \   00000026   0xF054 0x0030      ORRS     R0,R4,#0x30
+   \   0000002A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000002C   0x.... 0x....      BL       LCD_Write
+     21              Delay(1000);
+   \   00000030   0xF44F 0x707A      MOV      R0,#+1000
+   \   00000034   0x.... 0x....      BL       Delay
+   \   00000038   0xE7ED             B.N      ??main_0
+     22              
+     23              
+     24            }
+     25          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2:
+   \   00000000   0xE000E400         DC32     0xe000e400
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_1:
+   \   00000000   0xE000ED18         DC32     0xe000ed18
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_2:
+   \   00000000   0xE000E014         DC32     0xe000e014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_3:
+   \   00000000   0xE000E018         DC32     0xe000e018
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_4:
+   \   00000000   0xE000E010         DC32     0xe000e010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_5:
+   \   00000000   0x........         DC32     SystemCoreClock
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   SysTick_Config
+         8   -> __NVIC_SetPriority
+       0   __NVIC_SetPriority
+       8   main
+         8   -> Delay
+         8   -> LCD_Command
+         8   -> LCD_Config
+         8   -> LCD_Write
+         8   -> SysTick_Config
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+       4  ??DataTable2_5
+      46  SysTick_Config
+      34  __NVIC_SetPriority
+      58  main
+
+ 
+ 162 bytes in section .text
+ 
+ 162 bytes of CODE memory
+
+Errors: none
+Warnings: none
