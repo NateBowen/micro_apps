@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       20/Mar/2017  15:23:52
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       20/Mar/2017  22:14:32
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -48,50 +48,155 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    \   00000000                      DS8 4
       5          
 
-   \                                 In section .text, align 4, keep-with-next
+   \                                 In section .text, align 2, keep-with-next
       6          void SysTick_Handler(void)
       7          {
       8            if (TimingDelay !=0) 
    \                     SysTick_Handler: (+1)
-   \   00000000   0x4804             LDR.N    R0,??SysTick_Handler_0
+   \   00000000   0x....             LDR.N    R0,??DataTable2
    \   00000002   0x6800             LDR      R0,[R0, #+0]
    \   00000004   0x2800             CMP      R0,#+0
-   \   00000006   0xD004             BEQ.N    ??SysTick_Handler_1
+   \   00000006   0xD004             BEQ.N    ??SysTick_Handler_0
       9            {
      10              TimingDelay--;
-   \   00000008   0x4802             LDR.N    R0,??SysTick_Handler_0
+   \   00000008   0x....             LDR.N    R0,??DataTable2
    \   0000000A   0x6800             LDR      R0,[R0, #+0]
    \   0000000C   0x1E40             SUBS     R0,R0,#+1
-   \   0000000E   0x4901             LDR.N    R1,??SysTick_Handler_0
+   \   0000000E   0x....             LDR.N    R1,??DataTable2
    \   00000010   0x6008             STR      R0,[R1, #+0]
      11            }
      12          }
-   \                     ??SysTick_Handler_1: (+1)
+   \                     ??SysTick_Handler_0: (+1)
    \   00000012   0x4770             BX       LR               ;; return
-   \                     ??SysTick_Handler_0:
-   \   00000014   0x........         DC32     TimingDelay
      13          
+     14          //--------------------------------TASK2--------------------------
+     15          
+     16          extern unsigned int temp;
+     17          extern unsigned int f_temp;
+     18          extern unsigned int updateDisplay;
+     19          
+
+   \                                 In section .text, align 2, keep-with-next
+     20          void TIM2_IRQHandler(void){
+   \                     TIM2_IRQHandler: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     21            if (TIM_GetITStatus(TIM2, TIM_IT_CC3) != RESET) {
+   \   00000002   0x2108             MOVS     R1,#+8
+   \   00000004   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000008   0x.... 0x....      BL       TIM_GetITStatus
+   \   0000000C   0x2800             CMP      R0,#+0
+   \   0000000E   0xD007             BEQ.N    ??TIM2_IRQHandler_0
+     22              TIM_ClearITPendingBit(TIM2, TIM_IT_CC3 );
+   \   00000010   0x2108             MOVS     R1,#+8
+   \   00000012   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000016   0x.... 0x....      BL       TIM_ClearITPendingBit
+     23              //temp = 100 * ADC_GetConversionValue(ADC1) / 4096;
+     24              //ADC_SoftwareStartConv(ADC1);
+     25              updateDisplay = 1;
+   \   0000001A   0x2001             MOVS     R0,#+1
+   \   0000001C   0x....             LDR.N    R1,??DataTable2_1
+   \   0000001E   0x6008             STR      R0,[R1, #+0]
+     26            }
+     27          }
+   \                     ??TIM2_IRQHandler_0: (+1)
+   \   00000020   0xBD01             POP      {R0,PC}          ;; return
+     28          
+
+   \                                 In section .text, align 2, keep-with-next
+     29          void ADC_IRQHandler() {
+   \                     ADC_IRQHandler: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     30            if(ADC_GetITStatus(ADC1, ADC_IT_EOC) != RESET){
+   \   00000002   0xF240 0x2105      MOVW     R1,#+517
+   \   00000006   0x....             LDR.N    R0,??DataTable2_2  ;; 0x40012000
+   \   00000008   0x.... 0x....      BL       ADC_GetITStatus
+   \   0000000C   0x2800             CMP      R0,#+0
+   \   0000000E   0xD019             BEQ.N    ??ADC_IRQHandler_0
+     31              unsigned int dave = ADC_GetConversionValue(ADC1);
+   \   00000010   0x....             LDR.N    R0,??DataTable2_2  ;; 0x40012000
+   \   00000012   0x.... 0x....      BL       ADC_GetConversionValue
+     32              temp = (unsigned int) dave / 41;
+   \   00000016   0x2129             MOVS     R1,#+41
+   \   00000018   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   0000001C   0x....             LDR.N    R1,??DataTable2_3
+   \   0000001E   0x6008             STR      R0,[R1, #+0]
+     33              f_temp = temp * 9 / 5 + 32;
+   \   00000020   0x....             LDR.N    R0,??DataTable2_3
+   \   00000022   0x6800             LDR      R0,[R0, #+0]
+   \   00000024   0x2109             MOVS     R1,#+9
+   \   00000026   0x4348             MULS     R0,R1,R0
+   \   00000028   0x2105             MOVS     R1,#+5
+   \   0000002A   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   0000002E   0x3020             ADDS     R0,R0,#+32
+   \   00000030   0x....             LDR.N    R1,??DataTable2_4
+   \   00000032   0x6008             STR      R0,[R1, #+0]
+     34              ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
+   \   00000034   0xF240 0x2105      MOVW     R1,#+517
+   \   00000038   0x....             LDR.N    R0,??DataTable2_2  ;; 0x40012000
+   \   0000003A   0x.... 0x....      BL       ADC_ClearITPendingBit
+     35              ADC_SoftwareStartConv(ADC1);
+   \   0000003E   0x....             LDR.N    R0,??DataTable2_2  ;; 0x40012000
+   \   00000040   0x.... 0x....      BL       ADC_SoftwareStartConv
+     36            }
+     37          }
+   \                     ??ADC_IRQHandler_0: (+1)
+   \   00000044   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2:
+   \   00000000   0x........         DC32     TimingDelay
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_1:
+   \   00000000   0x........         DC32     updateDisplay
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_2:
+   \   00000000   0x40012000         DC32     0x40012000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_3:
+   \   00000000   0x........         DC32     temp
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_4:
+   \   00000000   0x........         DC32     f_temp
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
+       8   ADC_IRQHandler
+         8   -> ADC_ClearITPendingBit
+         8   -> ADC_GetConversionValue
+         8   -> ADC_GetITStatus
+         8   -> ADC_SoftwareStartConv
        0   SysTick_Handler
+       8   TIM2_IRQHandler
+         8   -> TIM_ClearITPendingBit
+         8   -> TIM_GetITStatus
 
 
    Section sizes:
 
    Bytes  Function/Label
    -----  --------------
-      24  SysTick_Handler
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+      70  ADC_IRQHandler
+      20  SysTick_Handler
+      34  TIM2_IRQHandler
        4  TimingDelay
 
  
-  4 bytes in section .bss
- 24 bytes in section .text
+   4 bytes in section .bss
+ 144 bytes in section .text
  
- 24 bytes of CODE memory
-  4 bytes of DATA memory
+ 144 bytes of CODE memory
+   4 bytes of DATA memory
 
 Errors: none
 Warnings: none

@@ -8,6 +8,8 @@
 #define LCD_RW_PIN      GPIO_Pin_9
 #define LCD_RS_PIN      GPIO_Pin_10
 
+#define DIGIT_OFFSET    0x30
+
 
 void LCD_Command(uint8_t data){
   LCD_PORT->ODR = data;
@@ -16,6 +18,7 @@ void LCD_Command(uint8_t data){
   LCD_PORT->ODR |= LCD_ENABLE_PIN;
   Delay(1);
   LCD_PORT->ODR &= ~(LCD_ENABLE_PIN);
+  Delay(100);
 }
 
 
@@ -25,7 +28,13 @@ void LCD_Write(uint8_t data){
   LCD_PORT->ODR &= ~LCD_RW_PIN;
   LCD_PORT->ODR |= LCD_ENABLE_PIN;
   Delay(1);
-  LCD_PORT->ODR &= ~(LCD_ENABLE_PIN);  
+  LCD_PORT->ODR &= ~(LCD_ENABLE_PIN);
+  Delay(100);
+}
+
+
+void LCD_WriteDigit(uint8_t data){ 
+  LCD_Write(0x30 | data);
 }
 
 
@@ -50,15 +59,9 @@ void LCD_Config(void) {
   Delay(1);            //must wait 160us, busy flag not available
   LCD_Command(0x30);    //command 0x30 = Wake up #3
   Delay(1);            //must wait 160us, busy flag not available
-//  LCD_Command(0x38);    //Function set: 8-bit/2-line
+
   LCD_Command(0x10);    //Set cursor
   LCD_Command(0x01);    //Clear
-  LCD_Command(0x0F);    //Display ON; Cursor ON, Blink ON
+  LCD_Command(0x0E);    //Display ON; Cursor ON, Blink ON
   LCD_Command(0x06);    //Entry mode set
-  
-//  LCD_Command(0x01);    //Clear
-//  LCD_Command(0x14);
- 
-//  LCD_Write(0x60);
-//  LCD_Write(0x80);
 }

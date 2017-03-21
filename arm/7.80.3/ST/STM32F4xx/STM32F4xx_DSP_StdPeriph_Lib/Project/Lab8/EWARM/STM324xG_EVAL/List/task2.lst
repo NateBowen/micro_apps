@@ -1,0 +1,540 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       20/Mar/2017  22:14:32
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c
+#    Command line =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\List\task2.lst
+#    Object file  =  
+#        C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\EWARM\STM324xG_EVAL\Obj\task2.o
+#
+###############################################################################
+
+C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c
+      1          #include "task2.h"
+      2          #include "delay.h"
+      3          #include "lcd.h"
+      4          
+
+   \                                 In section .bss, align 4
+      5          unsigned int temp = 0;
+   \                     temp:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+      6          unsigned int f_temp = 0;
+   \                     f_temp:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+      7          unsigned int updateDisplay = 0;
+   \                     updateDisplay:
+   \   00000000                      DS8 4
+      8          
+
+   \                                 In section .text, align 2, keep-with-next
+      9          void task2() {
+   \                     task2: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     10            gpioSetup();
+   \   00000002   0x.... 0x....      BL       gpioSetup
+     11            TIM2_Config();
+   \   00000006   0x.... 0x....      BL       TIM2_Config
+     12            ADC_Config();
+   \   0000000A   0x.... 0x....      BL       ADC_Config
+     13            ADC_SoftwareStartConv(ADC1);
+   \   0000000E   0x....             LDR.N    R0,??DataTable3  ;; 0x40012000
+   \   00000010   0x.... 0x....      BL       ADC_SoftwareStartConv
+     14            
+     15            char count, ones, tens, hundreds;
+     16            while(1) {
+     17              display(temp);
+   \                     ??task2_0: (+1)
+   \   00000014   0x....             LDR.N    R0,??DataTable3_1
+   \   00000016   0x6800             LDR      R0,[R0, #+0]
+   \   00000018   0x.... 0x....      BL       display
+   \   0000001C   0xE7FA             B.N      ??task2_0
+     18            };
+     19            
+     20            while (1) {
+                   ^
+Warning[Pe128]: loop is not reachable
+
+    char count, ones, tens, hundreds;
+         ^
+"C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c",15  Warning[Pe177]: 
+          variable "count" was declared but never referenced
+
+    char count, ones, tens, hundreds;
+                ^
+"C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c",15  Warning[Pe177]: 
+          variable "ones" was declared but never referenced
+
+    char count, ones, tens, hundreds;
+                      ^
+"C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c",15  Warning[Pe177]: 
+          variable "tens" was declared but never referenced
+
+    char count, ones, tens, hundreds;
+                            ^
+"C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab8\task2.c",15  Warning[Pe177]: 
+          variable "hundreds" was declared but never referenced
+     21              if ( updateDisplay ) {
+     22                display(temp);
+     23                updateDisplay = 0;
+     24              }
+     25            }
+     26          }
+     27          
+
+   \                                 In section .text, align 2, keep-with-next
+     28          void gpioSetup() {
+   \                     gpioSetup: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB083             SUB      SP,SP,#+12
+     29            GPIO_InitTypeDef GPIO_InitStructure;
+     30            
+     31          //  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+     32          //  GPIO_InitStructure.GPIO_Pin = 0x07FF; //pins 0-10
+     33          //  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+     34          //  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+     35          //  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+     36          //  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+     37          //  GPIO_Init(GPIOD, &GPIO_InitStructure);
+     38            
+     39            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+   \   00000004   0x2101             MOVS     R1,#+1
+   \   00000006   0x2001             MOVS     R0,#+1
+   \   00000008   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+     40            GPIO_InitStructure.GPIO_Pin = 0x0001;
+   \   0000000C   0x2001             MOVS     R0,#+1
+   \   0000000E   0x9000             STR      R0,[SP, #+0]
+     41            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+   \   00000010   0x2000             MOVS     R0,#+0
+   \   00000012   0xF88D 0x0004      STRB     R0,[SP, #+4]
+     42            GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+   \   00000016   0x2000             MOVS     R0,#+0
+   \   00000018   0xF88D 0x0006      STRB     R0,[SP, #+6]
+     43            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+   \   0000001C   0x2003             MOVS     R0,#+3
+   \   0000001E   0xF88D 0x0005      STRB     R0,[SP, #+5]
+     44            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   \   00000022   0x2000             MOVS     R0,#+0
+   \   00000024   0xF88D 0x0007      STRB     R0,[SP, #+7]
+     45            GPIO_Init(GPIOA, &GPIO_InitStructure);
+   \   00000028   0x4669             MOV      R1,SP
+   \   0000002A   0x....             LDR.N    R0,??DataTable3_2  ;; 0x40020000
+   \   0000002C   0x.... 0x....      BL       GPIO_Init
+     46            
+     47            GPIOD->ODR = 0x0000;
+   \   00000030   0x2000             MOVS     R0,#+0
+   \   00000032   0x....             LDR.N    R1,??DataTable3_3  ;; 0x40020c14
+   \   00000034   0x6008             STR      R0,[R1, #+0]
+     48          }
+   \   00000036   0xBD07             POP      {R0-R2,PC}       ;; return
+     49          
+
+   \                                 In section .text, align 2, keep-with-next
+     50          void display(unsigned int x) {
+   \                     display: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+     51            char ones, tens, hundreds;
+                                    ^
+Warning[Pe550]: variable "hundreds" was set but never used
+     52            LCD_Command(0x01); //Clear line, reset cursor
+   \   00000004   0x2001             MOVS     R0,#+1
+   \   00000006   0x.... 0x....      BL       LCD_Command
+     53              
+     54            ones = x % 10;
+   \   0000000A   0x200A             MOVS     R0,#+10
+   \   0000000C   0xFBB4 0xF1F0      UDIV     R1,R4,R0
+   \   00000010   0xFB00 0x4011      MLS      R0,R0,R1,R4
+     55            tens = ((x % 100) - ones) / 10;
+   \   00000014   0x2164             MOVS     R1,#+100
+   \   00000016   0xFBB4 0xF2F1      UDIV     R2,R4,R1
+   \   0000001A   0xFB01 0x4112      MLS      R1,R1,R2,R4
+   \   0000001E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000020   0x1A09             SUBS     R1,R1,R0
+   \   00000022   0x220A             MOVS     R2,#+10
+   \   00000024   0xFBB1 0xF1F2      UDIV     R1,R1,R2
+     56            hundreds = (x - tens - ones) / 100;
+   \   00000028   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000002A   0x1A61             SUBS     R1,R4,R1
+   \   0000002C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000002E   0x1A08             SUBS     R0,R1,R0
+   \   00000030   0x2164             MOVS     R1,#+100
+   \   00000032   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+     57            
+     58            LCD_WriteDigit(7);  //Write tens digit
+   \   00000036   0x2007             MOVS     R0,#+7
+   \   00000038   0x.... 0x....      BL       LCD_WriteDigit
+     59            LCD_WriteDigit(1);  //Write ones digit
+   \   0000003C   0x2001             MOVS     R0,#+1
+   \   0000003E   0x.... 0x....      BL       LCD_WriteDigit
+     60          //  LCD_Write(0x43);  //Write ones digit
+     61            LCD_Write(0x46);
+   \   00000042   0x2046             MOVS     R0,#+70
+   \   00000044   0x.... 0x....      BL       LCD_Write
+     62               
+     63            
+     64            Delay(1000); //Wait 1 second
+   \   00000048   0xF44F 0x707A      MOV      R0,#+1000
+   \   0000004C   0x.... 0x....      BL       Delay
+     65            
+     66          }
+   \   00000050   0xBD10             POP      {R4,PC}          ;; return
+     67          
+
+   \                                 In section .text, align 2, keep-with-next
+     68          void TIM2_Config() {
+   \                     TIM2_Config: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB08B             SUB      SP,SP,#+44
+     69            GPIO_InitTypeDef GPIO_InitStructure;
+     70            NVIC_InitTypeDef NVIC_InitStructure;
+     71            TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+     72            TIM_OCInitTypeDef  TIM_OCInitStructure;
+     73            
+     74            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+   \   00000004   0x2101             MOVS     R1,#+1
+   \   00000006   0x2001             MOVS     R0,#+1
+   \   00000008   0x.... 0x....      BL       RCC_APB1PeriphClockCmd
+     75            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+   \   0000000C   0x2101             MOVS     R1,#+1
+   \   0000000E   0x2001             MOVS     R0,#+1
+   \   00000010   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+     76            
+     77            GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+   \   00000014   0x2004             MOVS     R0,#+4
+   \   00000016   0x9001             STR      R0,[SP, #+4]
+     78            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+   \   00000018   0x2002             MOVS     R0,#+2
+   \   0000001A   0xF88D 0x0008      STRB     R0,[SP, #+8]
+     79            GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+   \   0000001E   0x2003             MOVS     R0,#+3
+   \   00000020   0xF88D 0x0009      STRB     R0,[SP, #+9]
+     80            GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+   \   00000024   0x2000             MOVS     R0,#+0
+   \   00000026   0xF88D 0x000A      STRB     R0,[SP, #+10]
+     81            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   \   0000002A   0x2000             MOVS     R0,#+0
+   \   0000002C   0xF88D 0x000B      STRB     R0,[SP, #+11]
+     82            GPIO_Init(GPIOA, &GPIO_InitStructure);
+   \   00000030   0xA901             ADD      R1,SP,#+4
+   \   00000032   0x....             LDR.N    R0,??DataTable3_2  ;; 0x40020000
+   \   00000034   0x.... 0x....      BL       GPIO_Init
+     83            GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_TIM2);
+   \   00000038   0x2201             MOVS     R2,#+1
+   \   0000003A   0x2102             MOVS     R1,#+2
+   \   0000003C   0x....             LDR.N    R0,??DataTable3_2  ;; 0x40020000
+   \   0000003E   0x.... 0x....      BL       GPIO_PinAFConfig
+     84            
+     85            NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
+   \   00000042   0x201C             MOVS     R0,#+28
+   \   00000044   0xF88D 0x0000      STRB     R0,[SP, #+0]
+     86            NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+   \   00000048   0x2000             MOVS     R0,#+0
+   \   0000004A   0xF88D 0x0001      STRB     R0,[SP, #+1]
+     87            NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+   \   0000004E   0x2001             MOVS     R0,#+1
+   \   00000050   0xF88D 0x0002      STRB     R0,[SP, #+2]
+     88            NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+   \   00000054   0x2001             MOVS     R0,#+1
+   \   00000056   0xF88D 0x0003      STRB     R0,[SP, #+3]
+     89            NVIC_Init(&NVIC_InitStructure);
+   \   0000005A   0x4668             MOV      R0,SP
+   \   0000005C   0x.... 0x....      BL       NVIC_Init
+     90            
+     91            TIM_TimeBaseStructure.TIM_Period = SystemCoreClock / 1000 / 2 / 1000 * 25;
+   \   00000060   0x....             LDR.N    R0,??DataTable3_4
+   \   00000062   0x6800             LDR      R0,[R0, #+0]
+   \   00000064   0xF44F 0x717A      MOV      R1,#+1000
+   \   00000068   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   0000006C   0x0840             LSRS     R0,R0,#+1
+   \   0000006E   0xF44F 0x717A      MOV      R1,#+1000
+   \   00000072   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   00000076   0x2119             MOVS     R1,#+25
+   \   00000078   0x4348             MULS     R0,R1,R0
+   \   0000007A   0x9004             STR      R0,[SP, #+16]
+     92            TIM_TimeBaseStructure.TIM_Prescaler = 0;
+   \   0000007C   0x2000             MOVS     R0,#+0
+   \   0000007E   0xF8AD 0x000C      STRH     R0,[SP, #+12]
+     93            TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+   \   00000082   0x2000             MOVS     R0,#+0
+   \   00000084   0xF8AD 0x0014      STRH     R0,[SP, #+20]
+     94            TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+   \   00000088   0x2000             MOVS     R0,#+0
+   \   0000008A   0xF8AD 0x000E      STRH     R0,[SP, #+14]
+     95            TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+   \   0000008E   0xA903             ADD      R1,SP,#+12
+   \   00000090   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000094   0x.... 0x....      BL       TIM_TimeBaseInit
+     96            
+     97            TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Inactive;
+   \   00000098   0x2020             MOVS     R0,#+32
+   \   0000009A   0xF8AD 0x0018      STRH     R0,[SP, #+24]
+     98            TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+   \   0000009E   0x2001             MOVS     R0,#+1
+   \   000000A0   0xF8AD 0x001A      STRH     R0,[SP, #+26]
+     99            TIM_OCInitStructure.TIM_Pulse = 200;
+   \   000000A4   0x20C8             MOVS     R0,#+200
+   \   000000A6   0x9008             STR      R0,[SP, #+32]
+    100            TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+   \   000000A8   0x2000             MOVS     R0,#+0
+   \   000000AA   0xF8AD 0x0024      STRH     R0,[SP, #+36]
+    101            TIM_OC3Init(TIM2, &TIM_OCInitStructure);
+   \   000000AE   0xA906             ADD      R1,SP,#+24
+   \   000000B0   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   000000B4   0x.... 0x....      BL       TIM_OC3Init
+    102            
+    103            TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Disable);
+   \   000000B8   0x2100             MOVS     R1,#+0
+   \   000000BA   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   000000BE   0x.... 0x....      BL       TIM_OC3PreloadConfig
+    104            
+    105            TIM_Cmd(TIM2, ENABLE);
+   \   000000C2   0x2101             MOVS     R1,#+1
+   \   000000C4   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   000000C8   0x.... 0x....      BL       TIM_Cmd
+    106            
+    107            TIM_ITConfig(TIM2, TIM_IT_CC3, ENABLE);
+   \   000000CC   0x2201             MOVS     R2,#+1
+   \   000000CE   0x2108             MOVS     R1,#+8
+   \   000000D0   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   000000D4   0x.... 0x....      BL       TIM_ITConfig
+    108          }
+   \   000000D8   0xB00B             ADD      SP,SP,#+44
+   \   000000DA   0xBD00             POP      {PC}             ;; return
+    109          
+
+   \                                 In section .text, align 2, keep-with-next
+    110          static void ADC_Config(void) {
+   \                     ADC_Config: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB08D             SUB      SP,SP,#+52
+    111            GPIO_InitTypeDef       GPIO_InitStructure;
+    112            ADC_InitTypeDef        ADC_InitStructure;
+    113            ADC_CommonInitTypeDef  ADC_CommonInitStructure;
+    114            NVIC_InitTypeDef      NVIC_InitStructure;
+    115            
+    116            NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
+   \   00000004   0x2012             MOVS     R0,#+18
+   \   00000006   0xF88D 0x0000      STRB     R0,[SP, #+0]
+    117            NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+   \   0000000A   0x2000             MOVS     R0,#+0
+   \   0000000C   0xF88D 0x0001      STRB     R0,[SP, #+1]
+    118            NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+   \   00000010   0x2001             MOVS     R0,#+1
+   \   00000012   0xF88D 0x0002      STRB     R0,[SP, #+2]
+    119            NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+   \   00000016   0x2001             MOVS     R0,#+1
+   \   00000018   0xF88D 0x0003      STRB     R0,[SP, #+3]
+    120            NVIC_Init(&NVIC_InitStructure);
+   \   0000001C   0x4668             MOV      R0,SP
+   \   0000001E   0x.... 0x....      BL       NVIC_Init
+    121            
+    122            /* Enable peripheral clocks *************************************************/
+    123            //  RCC_AHB1PeriphClockCmd( ADC1_2_CHANNEL_GPIO_CLK , ENABLE);
+    124            RCC_APB2PeriphClockCmd( RCC_APB2Periph_ADC1 , ENABLE);
+   \   00000022   0x2101             MOVS     R1,#+1
+   \   00000024   0xF44F 0x7080      MOV      R0,#+256
+   \   00000028   0x.... 0x....      BL       RCC_APB2PeriphClockCmd
+    125            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+   \   0000002C   0x2101             MOVS     R1,#+1
+   \   0000002E   0x2001             MOVS     R0,#+1
+   \   00000030   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+    126            
+    127            /* Configure ADC Channel 12 pin as analog input *****************************/
+    128            GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+   \   00000034   0x2040             MOVS     R0,#+64
+   \   00000036   0x9001             STR      R0,[SP, #+4]
+    129            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
+   \   00000038   0x2003             MOVS     R0,#+3
+   \   0000003A   0xF88D 0x0008      STRB     R0,[SP, #+8]
+    130            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;
+   \   0000003E   0x2000             MOVS     R0,#+0
+   \   00000040   0xF88D 0x000B      STRB     R0,[SP, #+11]
+    131            GPIO_Init(GPIOA, &GPIO_InitStructure);
+   \   00000044   0xA901             ADD      R1,SP,#+4
+   \   00000046   0x....             LDR.N    R0,??DataTable3_2  ;; 0x40020000
+   \   00000048   0x.... 0x....      BL       GPIO_Init
+    132            
+    133            /* ADC Common configuration *************************************************/
+    134            ADC_CommonInitStructure.ADC_Mode = ADC_Mode_Independent;
+   \   0000004C   0x2000             MOVS     R0,#+0
+   \   0000004E   0x9009             STR      R0,[SP, #+36]
+    135            ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
+   \   00000050   0x2000             MOVS     R0,#+0
+   \   00000052   0x900B             STR      R0,[SP, #+44]
+    136            ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div2;
+   \   00000054   0x2000             MOVS     R0,#+0
+   \   00000056   0x900A             STR      R0,[SP, #+40]
+    137            ADC_CommonInit(&ADC_CommonInitStructure);
+   \   00000058   0xA809             ADD      R0,SP,#+36
+   \   0000005A   0x.... 0x....      BL       ADC_CommonInit
+    138            
+    139            /* ADC1 regular channel 12 configuration ************************************/
+    140            ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+   \   0000005E   0x2000             MOVS     R0,#+0
+   \   00000060   0x9003             STR      R0,[SP, #+12]
+    141            ADC_InitStructure.ADC_ScanConvMode = DISABLE;
+   \   00000062   0x2000             MOVS     R0,#+0
+   \   00000064   0xF88D 0x0010      STRB     R0,[SP, #+16]
+    142            ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+   \   00000068   0x2000             MOVS     R0,#+0
+   \   0000006A   0xF88D 0x0011      STRB     R0,[SP, #+17]
+    143            ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
+   \   0000006E   0x2000             MOVS     R0,#+0
+   \   00000070   0x9005             STR      R0,[SP, #+20]
+    144            ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
+   \   00000072   0x2000             MOVS     R0,#+0
+   \   00000074   0x9006             STR      R0,[SP, #+24]
+    145            ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+   \   00000076   0x2000             MOVS     R0,#+0
+   \   00000078   0x9007             STR      R0,[SP, #+28]
+    146            ADC_InitStructure.ADC_NbrOfConversion = 1;
+   \   0000007A   0x2001             MOVS     R0,#+1
+   \   0000007C   0xF88D 0x0020      STRB     R0,[SP, #+32]
+    147            ADC_Init(ADC1, &ADC_InitStructure);
+   \   00000080   0xA903             ADD      R1,SP,#+12
+   \   00000082   0x....             LDR.N    R0,??DataTable3  ;; 0x40012000
+   \   00000084   0x.... 0x....      BL       ADC_Init
+    148            
+    149            ADC_RegularChannelConfig(ADC1, ADC_Channel_6, 1, ADC_SampleTime_3Cycles);
+   \   00000088   0x2300             MOVS     R3,#+0
+   \   0000008A   0x2201             MOVS     R2,#+1
+   \   0000008C   0x2106             MOVS     R1,#+6
+   \   0000008E   0x....             LDR.N    R0,??DataTable3  ;; 0x40012000
+   \   00000090   0x.... 0x....      BL       ADC_RegularChannelConfig
+    150            
+    151            /* Enable ADC1 **************************************************************/
+    152            ADC_Cmd(ADC1, ENABLE);
+   \   00000094   0x2101             MOVS     R1,#+1
+   \   00000096   0x....             LDR.N    R0,??DataTable3  ;; 0x40012000
+   \   00000098   0x.... 0x....      BL       ADC_Cmd
+    153            
+    154            ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+   \   0000009C   0x2201             MOVS     R2,#+1
+   \   0000009E   0xF240 0x2105      MOVW     R1,#+517
+   \   000000A2   0x....             LDR.N    R0,??DataTable3  ;; 0x40012000
+   \   000000A4   0x.... 0x....      BL       ADC_ITConfig
+    155          }
+   \   000000A8   0xB00D             ADD      SP,SP,#+52
+   \   000000AA   0xBD00             POP      {PC}             ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3:
+   \   00000000   0x40012000         DC32     0x40012000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_1:
+   \   00000000   0x........         DC32     temp
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_2:
+   \   00000000   0x40020000         DC32     0x40020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_3:
+   \   00000000   0x40020C14         DC32     0x40020c14
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_4:
+   \   00000000   0x........         DC32     SystemCoreClock
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      56   ADC_Config
+        56   -> ADC_Cmd
+        56   -> ADC_CommonInit
+        56   -> ADC_ITConfig
+        56   -> ADC_Init
+        56   -> ADC_RegularChannelConfig
+        56   -> GPIO_Init
+        56   -> NVIC_Init
+        56   -> RCC_AHB1PeriphClockCmd
+        56   -> RCC_APB2PeriphClockCmd
+      48   TIM2_Config
+        48   -> GPIO_Init
+        48   -> GPIO_PinAFConfig
+        48   -> NVIC_Init
+        48   -> RCC_AHB1PeriphClockCmd
+        48   -> RCC_APB1PeriphClockCmd
+        48   -> TIM_Cmd
+        48   -> TIM_ITConfig
+        48   -> TIM_OC3Init
+        48   -> TIM_OC3PreloadConfig
+        48   -> TIM_TimeBaseInit
+       8   display
+         8   -> Delay
+         8   -> LCD_Command
+         8   -> LCD_Write
+         8   -> LCD_WriteDigit
+      16   gpioSetup
+        16   -> GPIO_Init
+        16   -> RCC_AHB1PeriphClockCmd
+       8   task2
+         8   -> ADC_Config
+         8   -> ADC_SoftwareStartConv
+         8   -> TIM2_Config
+         8   -> display
+         8   -> gpioSetup
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_2
+       4  ??DataTable3_3
+       4  ??DataTable3_4
+     172  ADC_Config
+     220  TIM2_Config
+      82  display
+       4  f_temp
+      56  gpioSetup
+      30  task2
+       4  temp
+       4  updateDisplay
+
+ 
+  12 bytes in section .bss
+ 580 bytes in section .text
+ 
+ 580 bytes of CODE memory
+  12 bytes of DATA memory
+
+Errors: none
+Warnings: 6
