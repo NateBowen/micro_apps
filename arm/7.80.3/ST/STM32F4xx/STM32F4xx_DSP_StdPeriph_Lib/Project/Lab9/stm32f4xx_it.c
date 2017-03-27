@@ -26,29 +26,47 @@ void SysTick_Handler(void)
 }
 
 void TIM2_IRQHandler(void){
-  
-  if (TIM_GetITStatus(TIM2, TIM_IT_CC2) != RESET)
-  {
+  if (TIM_GetITStatus(TIM2, TIM_IT_CC2) != RESET){
     TIM_ClearITPendingBit(TIM2, TIM_IT_CC2);
   }
 }
 
-  void TIM5_IRQHandler(void){  
+char state = 0;
+extern __IO uint16_t startCapture;
+extern __IO uint16_t stopCapture;
+extern __IO uint16_t pulseWidth;
+
+void TIM5_IRQHandler(void){  
   if (TIM_GetITStatus(TIM5, TIM_IT_CC3) != RESET){
     
     /* Check the signal level, only measure when starting with a peak */  
     sigLevel = (GPIOA->IDR & 0x04) >> 2;   
     
+    switch(state) {
+    case 0:
+      //low to high
+      if ( GPIOA->IDR & GPIO_Pin_2 ) {
+        startCapture = TIM_GetCapture3(TIM5);
+        state = 1;
+      }
+      break;
+    case 1:
+      //high to low
+      if ( !( GPIOA->IDR & GPIO_Pin_2 ) ) {
+        stopCapture = TIM_GetCapture3(TIM5);
+        state = 0;
+      }
+      break;
+    }
+    /**
     if ((uhCaptureNumber == 0) & (sigLevel == 1))
     {    
-      /* Get the Input Capture value */
       uhIC2ReadValue1 = TIM_GetCapture3(TIM5);
       uhCaptureNumber = 1;
     } 
     
     else if(uhCaptureNumber == 1)
     {
-      /* Get the Input Capture value */
       uhIC2ReadValue2 = TIM_GetCapture3(TIM5); 
       uhCaptureNumber = 2;
     }
@@ -56,10 +74,8 @@ void TIM2_IRQHandler(void){
     
     else if (uhCaptureNumber == 2)
     {     
-      /* Get the Input Capture value */
       uhIC2ReadValue3 = TIM_GetCapture3(TIM5); 
       
-      /* First period computation */
       if (uhIC2ReadValue2 > uhIC2ReadValue1)
       {
         uwCapture = (uhIC2ReadValue2 - uhIC2ReadValue1); 
@@ -73,7 +89,6 @@ void TIM2_IRQHandler(void){
         uwCapture = 0;
       }
       
-      /* Second period computation */
       if (uhIC2ReadValue3 > uhIC2ReadValue2)
       {
         uwCapture2 = (uhIC2ReadValue3 - uhIC2ReadValue2); 
@@ -87,17 +102,15 @@ void TIM2_IRQHandler(void){
         uwCapture2 = 0;
       }
       
-      /*  Period computation (in microseconds) */
       uwTIM5Period = 2 * 84 *(uwCapture + uwCapture2) / (SystemCoreClock / 1000000);
       
-      /* Duty Cycle computation (percentage) */
       uwTIM5Duty = (uwCapture * 100) / (uwCapture + uwCapture2);
       
-      /* Frequency computation */ 
       uwTIM5Freq = (uint32_t) SystemCoreClock / (84 * 2 * (uwCapture + uwCapture2)) - 1;
       
       uhCaptureNumber = 0; 
     }    
+    **/
     TIM_ClearITPendingBit(TIM5, TIM_IT_CC3);
   }
 }

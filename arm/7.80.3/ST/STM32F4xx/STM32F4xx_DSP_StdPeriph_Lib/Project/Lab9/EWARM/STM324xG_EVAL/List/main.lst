@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       27/Mar/2017  16:26:31
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       27/Mar/2017  19:19:30
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -44,27 +44,45 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
       4          #include "task3.h"
       5          
 
+   \                                 In section .bss, align 2
+      6          __IO uint16_t startCapture = 0;
+   \                     startCapture:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+      7          __IO uint16_t stopCapture = 0;
+   \                     stopCapture:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+      8          __IO uint16_t pulseWidth = 0;
+   \                     pulseWidth:
+   \   00000000                      DS8 2
+      9          
+
    \                                 In section .text, align 2, keep-with-next
-      6          int main(void)
-      7          { 
+     10          int main(void)
+     11          { 
    \                     main: (+1)
    \   00000000   0xB580             PUSH     {R7,LR}
-      8          //Each of the following funtions contains an infinite loop.
-      9          //  task1();
-     10            task2();
-   \   00000002   0x.... 0x....      BL       task2
-     11          //  task3();
-     12          }
+     12          //Each of the following funtions contains an infinite loop.
+     13          //  task1();
+     14          //  task2();
+     15            task3();
+                   ^
+Warning[Pe223]: function "task3" declared implicitly
+   \   00000002   0x.... 0x....      BL       task3
+     16          }
    \   00000006   0x2000             MOVS     R0,#+0
    \   00000008   0xBD02             POP      {R1,PC}          ;; return
-     13          
+     17          
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
        8   main
-         8   -> task2
+         8   -> task3
 
 
    Section sizes:
@@ -72,11 +90,16 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    Bytes  Function/Label
    -----  --------------
       10  main
+       2  pulseWidth
+       2  startCapture
+       2  stopCapture
 
  
+  6 bytes in section .bss
  10 bytes in section .text
  
  10 bytes of CODE memory
+  6 bytes of DATA memory
 
 Errors: none
-Warnings: none
+Warnings: 1

@@ -8,7 +8,7 @@ int task1(void){
   uint16_t count, ones, tens, hundreds;
   
   while(1){    
-    for(count = 300; count == 0; count--){
+    for(count = 300; count > -1; count--){
       LCD_ClearDisplay();     
       ones = count % 10;
       tens = ((count % 100) - ones) / 10;

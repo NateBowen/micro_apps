@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       27/Mar/2017  16:26:35
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       27/Mar/2017  19:19:30
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -39,44 +39,232 @@
 
 C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\task2.c
       1          #include "task2.h"
-      2          
 
    \                                 In section .text, align 2, keep-with-next
-      3          int task2(void)
-      4          {
+   \   static __interwork __softfp void __NVIC_SetPriority(IRQn_Type, uint32_t)
+   \                     __NVIC_SetPriority: (+1)
+   \   00000000   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   00000002   0x2800             CMP      R0,#+0
+   \   00000004   0xD404             BMI.N    ??__NVIC_SetPriority_0
+   \   00000006   0x0109             LSLS     R1,R1,#+4
+   \   00000008   0x....             LDR.N    R2,??DataTable2  ;; 0xe000e400
+   \   0000000A   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   0000000C   0x5411             STRB     R1,[R2, R0]
+   \   0000000E   0xE007             B.N      ??__NVIC_SetPriority_1
+   \                     ??__NVIC_SetPriority_0: (+1)
+   \   00000010   0x0109             LSLS     R1,R1,#+4
+   \   00000012   0x....             LDR.N    R2,??DataTable2_8  ;; 0xe000ed18
+   \   00000014   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \   00000016   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \   0000001A   0x4410             ADD      R0,R2,R0
+   \   0000001C   0xF800 0x1C04      STRB     R1,[R0, #-4]
+   \                     ??__NVIC_SetPriority_1: (+1)
+   \   00000020   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp uint32_t SysTick_Config(uint32_t)
+   \                     SysTick_Config: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+   \   00000002   0x1E41             SUBS     R1,R0,#+1
+   \   00000004   0xF1B1 0x7F80      CMP      R1,#+16777216
+   \   00000008   0xD301             BCC.N    ??SysTick_Config_0
+   \   0000000A   0x2001             MOVS     R0,#+1
+   \   0000000C   0xE00E             B.N      ??SysTick_Config_1
+   \                     ??SysTick_Config_0: (+1)
+   \   0000000E   0x1E40             SUBS     R0,R0,#+1
+   \   00000010   0x....             LDR.N    R1,??DataTable2_1  ;; 0xe000e014
+   \   00000012   0x6008             STR      R0,[R1, #+0]
+   \   00000014   0x210F             MOVS     R1,#+15
+   \   00000016   0xF05F 0x30FF      MOVS     R0,#-1
+   \   0000001A   0x.... 0x....      BL       __NVIC_SetPriority
+   \   0000001E   0x2000             MOVS     R0,#+0
+   \   00000020   0x....             LDR.N    R1,??DataTable2_2  ;; 0xe000e018
+   \   00000022   0x6008             STR      R0,[R1, #+0]
+   \   00000024   0x2007             MOVS     R0,#+7
+   \   00000026   0x....             LDR.N    R1,??DataTable2_9  ;; 0xe000e010
+   \   00000028   0x6008             STR      R0,[R1, #+0]
+   \   0000002A   0x2000             MOVS     R0,#+0
+   \                     ??SysTick_Config_1: (+1)
+   \   0000002C   0xBD02             POP      {R1,PC}          ;; return
+      2          
+      3          extern __IO uint16_t startCapture;
+      4          extern __IO uint16_t stopCapture;
+      5          extern __IO uint16_t pulseWidth;
+      6          
+
+   \                                 In section .text, align 4, keep-with-next
+      7          int task2(void)
+      8          {
    \                     task2: (+1)
    \   00000000   0xB580             PUSH     {R7,LR}
-      5          
-      6            SR4_Config();
-   \   00000002   0x.... 0x....      BL       SR4_Config
-      7            
-      8            while (1)
+      9          double distance = 0;
+                        ^
+Warning[Pe550]: variable "distance" was set but never used
+   \   00000002   0xED9F 0x....      VLDR.W   D0,??DataTable2_3
+     10            SysTick_Config(SystemCoreClock / 1000);
+   \   00000006   0x....             LDR.N    R0,??DataTable2_4
+   \   00000008   0x6800             LDR      R0,[R0, #+0]
+   \   0000000A   0xF44F 0x717A      MOV      R1,#+1000
+   \   0000000E   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   00000012   0x.... 0x....      BL       SysTick_Config
+     11            LCD_Config();
+   \   00000016   0x.... 0x....      BL       LCD_Config
+     12            SR4_Config();
+   \   0000001A   0x.... 0x....      BL       SR4_Config
+   \   0000001E   0xE008             B.N      ??task2_0
+     13            
+     14            while (1) {
+     15              if( stopCapture > startCapture ) {
+                     ^
+Warning[Pa082]: undefined behavior: the order of volatile accesses is undefined
+          in this statement
+     16                pulseWidth = stopCapture - startCapture;
+                       ^
+Warning[Pa082]: undefined behavior: the order of volatile accesses is undefined
+          in this statement
+     17              } else {
+     18                pulseWidth = startCapture - stopCapture;
+                       ^
+Warning[Pa082]: undefined behavior: the order of volatile accesses is undefined
+          in this statement
+     19              }
+     20              
+     21              if( GPIOA->IDR & GPIO_Pin_0 ) {
+     22                //in
+     23                distance = pulseWidth / 148;
+   \                     ??task2_1: (+1)
+   \   00000020   0x....             LDR.N    R0,??DataTable2_10
+   \   00000022   0x8800             LDRH     R0,[R0, #+0]
+   \   00000024   0x2194             MOVS     R1,#+148
+   \   00000026   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   0000002A   0x.... 0x....      BL       __aeabi_i2d
+   \   0000002E   0xEC41 0x0B10      VMOV     D0,R0,R1
+     24              } else {
    \                     ??task2_0: (+1)
-   \   00000006   0xE7FE             B.N      ??task2_0
-      9            {
-     10             
-     11            }
-     12          }
-     13          
+   \   00000032   0x....             LDR.N    R0,??DataTable2_5
+   \   00000034   0x8800             LDRH     R0,[R0, #+0]
+   \   00000036   0x....             LDR.N    R1,??DataTable2_6
+   \   00000038   0x8809             LDRH     R1,[R1, #+0]
+   \   0000003A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000003C   0x4288             CMP      R0,R1
+   \   0000003E   0xD207             BCS.N    ??task2_2
+   \   00000040   0x....             LDR.N    R0,??DataTable2_6
+   \   00000042   0x8800             LDRH     R0,[R0, #+0]
+   \   00000044   0x....             LDR.N    R1,??DataTable2_5
+   \   00000046   0x8809             LDRH     R1,[R1, #+0]
+   \   00000048   0x1A40             SUBS     R0,R0,R1
+   \   0000004A   0x....             LDR.N    R1,??DataTable2_10
+   \   0000004C   0x8008             STRH     R0,[R1, #+0]
+   \   0000004E   0xE006             B.N      ??task2_3
+   \                     ??task2_2: (+1)
+   \   00000050   0x....             LDR.N    R0,??DataTable2_5
+   \   00000052   0x8800             LDRH     R0,[R0, #+0]
+   \   00000054   0x....             LDR.N    R1,??DataTable2_6
+   \   00000056   0x8809             LDRH     R1,[R1, #+0]
+   \   00000058   0x1A40             SUBS     R0,R0,R1
+   \   0000005A   0x....             LDR.N    R1,??DataTable2_10
+   \   0000005C   0x8008             STRH     R0,[R1, #+0]
+   \                     ??task2_3: (+1)
+   \   0000005E   0x....             LDR.N    R0,??DataTable2_7  ;; 0x40020010
+   \   00000060   0x6800             LDR      R0,[R0, #+0]
+   \   00000062   0x07C0             LSLS     R0,R0,#+31
+   \   00000064   0xD4DC             BMI.N    ??task2_1
+     25                //cm
+     26                distance = pulseWidth / 58;
+   \   00000066   0x....             LDR.N    R0,??DataTable2_10
+   \   00000068   0x8800             LDRH     R0,[R0, #+0]
+   \   0000006A   0x213A             MOVS     R1,#+58
+   \   0000006C   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000070   0x.... 0x....      BL       __aeabi_i2d
+   \   00000074   0xEC41 0x0B10      VMOV     D0,R0,R1
+   \   00000078   0xE7DB             B.N      ??task2_0
+     27              }
+     28            }
+     29          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2:
+   \   00000000   0xE000E400         DC32     0xe000e400
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_1:
+   \   00000000   0xE000E014         DC32     0xe000e014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_2:
+   \   00000000   0xE000E018         DC32     0xe000e018
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_3:
+   \   00000000   0x00000000         DC32     0x0,0x0
+   \              0x00000000   
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_4:
+   \   00000000   0x........         DC32     SystemCoreClock
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_5:
+   \   00000000   0x........         DC32     startCapture
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_6:
+   \   00000000   0x........         DC32     stopCapture
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_7:
+   \   00000000   0x40020010         DC32     0x40020010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_8:
+   \   00000000   0xE000ED18         DC32     0xe000ed18
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_9:
+   \   00000000   0xE000E010         DC32     0xe000e010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_10:
+   \   00000000   0x........         DC32     pulseWidth
+     30          
 
    Maximum stack usage in bytes:
 
    .cstack Function
    ------- --------
+       8   SysTick_Config
+         8   -> __NVIC_SetPriority
+       0   __NVIC_SetPriority
        8   task2
+         8   -> LCD_Config
          8   -> SR4_Config
+         8   -> SysTick_Config
+         8   -> __aeabi_i2d
 
 
    Section sizes:
 
    Bytes  Function/Label
    -----  --------------
-       8  task2
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_10
+       4  ??DataTable2_2
+       8  ??DataTable2_3
+       4  ??DataTable2_4
+       4  ??DataTable2_5
+       4  ??DataTable2_6
+       4  ??DataTable2_7
+       4  ??DataTable2_8
+       4  ??DataTable2_9
+      46  SysTick_Config
+      34  __NVIC_SetPriority
+     122  task2
 
  
- 8 bytes in section .text
+ 250 bytes in section .text
  
- 8 bytes of CODE memory
+ 250 bytes of CODE memory
 
 Errors: none
-Warnings: none
+Warnings: 4

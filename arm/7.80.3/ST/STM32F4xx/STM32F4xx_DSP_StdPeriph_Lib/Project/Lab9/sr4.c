@@ -13,32 +13,26 @@ void SR4_EchoConfig(void){
   NVIC_InitTypeDef NVIC_InitStructure;
   GPIO_InitTypeDef GPIO_InitStructure;
   
-  /* TIM2 clock enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
   
-  /* GPIOA clock enable */
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
   
-  /* GPIOA Configuration: TIM2 CH2 (PA1), TIM2 CH2 (PA2) */
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(GPIOA, &GPIO_InitStructure); 
   
-  /* Connect TIM Channels to AF1 */
   GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_TIM5);
   
-  /* Enable the TIM2 Interrupt */
   NVIC_InitStructure.NVIC_IRQChannel = TIM5_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStructure);  
     
-//  uint16_t pulseDuration = 14;
+  //interrupt every 1 us
   uint16_t uhPrescalerValue = 84;
   
-  /* Time base configuration */
   TIM_TimeBaseStructure.TIM_Period = 65535;
   TIM_TimeBaseStructure.TIM_Prescaler = uhPrescalerValue;
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
@@ -54,10 +48,8 @@ void SR4_EchoConfig(void){
   
   TIM_ARRPreloadConfig(TIM5, ENABLE);
   
-  /* TIM IT enable */
   TIM_ITConfig(TIM5, TIM_IT_CC3, ENABLE);
   
-  /* TIM2 enable counter */
   TIM_Cmd(TIM5, ENABLE);
 }
 
@@ -68,13 +60,10 @@ void SR4_TriggerConfig(void){
   NVIC_InitTypeDef NVIC_InitStructure;
   GPIO_InitTypeDef GPIO_InitStructure;
   
-  /* TIM2 clock enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
   
-  /* GPIOA clock enable */
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
   
-  /* GPIOC Configuration: TIM2 CH1 (PA0), TIM2 CH2 (PA1), TIM2 CH2 (PA2) and TIM2 CH4 (PA3) */
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -82,10 +71,8 @@ void SR4_TriggerConfig(void){
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(GPIOA, &GPIO_InitStructure); 
   
-  /* Connect TIM Channels to AF1 */
   GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_TIM2);
   
-  /* Enable the TIM2 Interrupt */
   NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
@@ -95,15 +82,14 @@ void SR4_TriggerConfig(void){
   
   uint16_t pulseDuration = 14;
   uint16_t uhPrescalerValue = 84;
+  //interrupt every 1 us
   
-  /* Time base configuration */
   TIM_TimeBaseStructure.TIM_Period = 50000;
   TIM_TimeBaseStructure.TIM_Prescaler = uhPrescalerValue;
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
   TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
   
-  /* Output Compare Active Mode configuration: Channel1 */
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure.TIM_Pulse = pulseDuration;
@@ -113,9 +99,7 @@ void SR4_TriggerConfig(void){
   TIM_OC2PreloadConfig(TIM2, TIM_OCPreload_Disable);
   TIM_ARRPreloadConfig(TIM2, ENABLE);
   
-  /* TIM IT enable */
   TIM_ITConfig(TIM2, TIM_IT_CC2, ENABLE);
   
-  /* TIM2 enable counter */
   TIM_Cmd(TIM2, ENABLE);
 }
