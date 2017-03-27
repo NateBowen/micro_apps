@@ -1,0 +1,90 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       01/Feb/2017  20:33:47
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\main.c
+#    Command line =  
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\main.c" -D USE_STDPERIPH_DRIVER -D STM32F40XX -D
+#        USE_STM324xG_EVAL -lC
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\STM324xG_EVAL\List" -o
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\STM324xG_EVAL\Obj" --no_cse --no_unroll --no_inline
+#        --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug
+#        --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config
+#        "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        7.5\arm\INC\c\DLib_Config_Full.h" -I
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\..\" -I
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\"
+#        -I
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\" -I
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\..\..\..\Utilities\STM32_EVAL\Common\" -I
+#        "C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\" -Ol
+#        --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\STM324xG_EVAL\List\main.lst
+#    Object file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG
+#        Template\EWARM\STM324xG_EVAL\Obj\main.o
+#
+###############################################################################
+
+C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\STM32F407VG Template\main.c
+      1          #include "main.h"
+      2          
+
+   \                                 In section .text, align 2, keep-with-next
+      3          int main(void)
+      4          {
+      5            /*!< At this stage the microcontroller clock setting is already configured, 
+      6                 this is done through SystemInit() function which is called from startup
+      7                 files (startup_stm32f40xx.s/startup_stm32f427x.s/startup_stm32f429x.s)
+      8                 before to branch to application main. 
+      9                 To reconfigure the default setting of SystemInit() function, refer to
+     10                 system_stm32f4xx.c file
+     11               */  
+     12              
+     13            /* Infinite loop */
+     14            while (1)
+   \                     main: (+1)
+   \                     ??main_0: (+1)
+   \   00000000   0xE7FE             B.N      ??main_0
+     15            {
+     16              
+     17            }
+     18          }
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   main
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  main
+
+ 
+ 2 bytes in section .text
+ 
+ 2 bytes of CODE memory
+
+Errors: none
+Warnings: none

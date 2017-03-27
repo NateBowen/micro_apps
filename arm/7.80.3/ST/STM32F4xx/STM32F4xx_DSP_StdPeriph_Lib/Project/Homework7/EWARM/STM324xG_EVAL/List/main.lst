@@ -1,0 +1,141 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       24/Mar/2017  14:57:25
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\main.c
+#    Command line =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\main.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\..\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\STM324xG_EVAL\List\main.lst
+#    Object file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\EWARM\STM324xG_EVAL\Obj\main.o
+#
+###############################################################################
+
+C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework7\main.c
+      1          #include "main.h"
+      2          
+      3          #define SYN     0x16
+      4          #define NAK     0x15
+      5          #define ACK     0x06
+      6          
+      7          
+      8          static void USART_Config(void);
+      9          
+     10          int main(void)
+     11          {
+     12            /* USART configuration */
+     13            USART_Config();
+     14            
+     15            uint16_t message;
+     16            uint16_t synErrorCount = 0;
+     17            
+     18            while (1)
+     19            {
+     20              //Read data
+     21              message = USART_ReceiveData(EVAL_COM1);
+     22              //Check data
+     23              if(message == SYN){
+     24                //Check error flags
+     25                if(ERROR_FLAGS){
+                          ^
+Error[Pe020]: identifier "ERROR_FLAGS" is undefined
+     26                  //Send NAK and increment/check error count
+     27                  USART_SendData(EVAL_COM1, NAK);
+     28                  synErrorCount++;
+     29                  if(synErrorCount >= 5){
+     30                    while(1){
+     31                      //End program with a return 1
+     32                      return(1);
+     33                    }
+     34                  }
+     35                }
+     36                else{
+     37                  //Send ACK and clear error count
+     38                  USART_SendData(EVAL_COM1, ACK);
+     39                  synErrorCount = 0;
+     40                  //Read data
+     41                  message = USART_ReceiveData(EVAL_COM1);
+     42                  if (message = VALID_ASCII_CHAR){
+                                       ^
+Error[Pe020]: identifier "VALID_ASCII_CHAR" is undefined
+     43                    //Check error flags
+     44                    if(ERROR_FLAGS){
+     45                      //Send NAK and increment/check error count
+     46                      USART_SendData(EVAL_COM1, NAK);
+     47                      synErrorCount++;
+     48                      if(synErrorCount >= 5){
+     49                        while(1){
+     50                          //End program with a return 1
+     51                          return(1);
+     52                        }
+     53                      }
+     54                    }
+     55                    else {
+     56                      //Send ACK and clear error count
+     57                      USART_SendData(EVAL_COM1, ACK);
+     58                      synErrorCount = 0;
+     59                      //Write message to memory
+     60                      MEMORY_LOCATION = message;
+                             ^
+Error[Pe020]: identifier "MEMORY_LOCATION" is undefined
+     61                      while(1){
+     62                        //End program with a return 0
+     63                        return(0);
+     64                      }
+     65                    }
+     66                  }
+     67                }
+     68              }
+     69            }
+     70          } 
+     71          
+     72          static void USART_Config(void)
+     73          {
+     74            USART_InitTypeDef USART_InitStructure;
+     75            
+     76            /* USARTx configured as follow:
+     77            - BaudRate = 50000 baud  
+     78            - Word Length = 8 Bits
+     79            - One Stop Bit
+     80            - Even parity
+     81            - Hardware flow control disabled (RTS and CTS signals)
+     82            - Receive and transmit enabled
+     83            */
+     84            USART_InitStructure.USART_BaudRate = 50000;
+     85            USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+     86            USART_InitStructure.USART_StopBits = USART_StopBits_1;
+     87            USART_InitStructure.USART_Parity = USART_Parity_Even;
+     88            USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+     89            USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+     90            
+     91            STM_EVAL_COMInit(COM1, &USART_InitStructure);
+     92          }
+
+Errors: 3
+Warnings: none
