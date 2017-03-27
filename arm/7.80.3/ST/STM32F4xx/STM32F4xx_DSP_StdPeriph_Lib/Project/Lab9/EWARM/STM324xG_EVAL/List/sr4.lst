@@ -1,14 +1,14 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       26/Mar/2017  21:40:05
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       26/Mar/2017  21:39:07
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
 #    Endian       =  little
 #    Source file  =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\task3.c
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\sr4.c
 #    Command line =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\task3.c
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\sr4.c
 #        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
 #        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\EWARM\STM324xG_EVAL\List
 #        -o
@@ -31,18 +31,42 @@
 #        Workbench 7.5\arm\CMSIS\Include\"
 #    Locale       =  English_United States.1252
 #    List file    =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\EWARM\STM324xG_EVAL\List\task3.lst
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\EWARM\STM324xG_EVAL\List\sr4.lst
 #    Object file  =  
-#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\EWARM\STM324xG_EVAL\Obj\task3.o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\EWARM\STM324xG_EVAL\Obj\sr4.o
 #
 ###############################################################################
 
+C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Lab9\sr4.c
+      1          #include "sr4.h"
+      2          
+      3          //#define 
+      4          
 
+   \                                 In section .text, align 2, keep-with-next
+      5          void SR4_Config(void){
+      6            
+      7          }
+   \                     SR4_Config: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   SR4_Config
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  SR4_Config
 
  
-
+ 2 bytes in section .text
  
-
+ 2 bytes of CODE memory
 
 Errors: none
 Warnings: none

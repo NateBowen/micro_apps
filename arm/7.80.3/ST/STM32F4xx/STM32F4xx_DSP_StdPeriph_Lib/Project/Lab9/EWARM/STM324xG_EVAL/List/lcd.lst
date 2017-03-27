@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       26/Mar/2017  20:44:05
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       26/Mar/2017  21:39:02
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -148,7 +148,7 @@ C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\L
      42          void LCD_WriteDigit(uint8_t data){ 
    \                     LCD_WriteDigit: (+1)
    \   00000000   0xB580             PUSH     {R7,LR}
-     43            LCD_Write(0x30 | data);
+     43            LCD_Write(DIGIT_OFFSET | data);
    \   00000002   0xF050 0x0030      ORRS     R0,R0,#0x30
    \   00000006   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
    \   00000008   0x.... 0x....      BL       LCD_Write

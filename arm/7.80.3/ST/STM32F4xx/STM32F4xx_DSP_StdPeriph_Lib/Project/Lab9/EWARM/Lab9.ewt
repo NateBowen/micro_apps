@@ -1320,6 +1320,12 @@
       <name>$PROJ_DIR$\..\main.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\sr4.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\sr4.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\stm32f4xx_it.c</name>
     </file>
     <file>

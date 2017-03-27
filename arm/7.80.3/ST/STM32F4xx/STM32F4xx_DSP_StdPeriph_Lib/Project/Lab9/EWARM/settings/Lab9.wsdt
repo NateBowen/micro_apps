@@ -14,7 +14,7 @@
       </Debug-Log>
       <Workspace>
         <ColumnWidths>
-          <Column0>124</Column0>
+          <Column0>107</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
@@ -84,9 +84,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>156</SelStart2>
-          <SelEnd2>156</SelEnd2>
+          <YPos2>73</YPos2>
+          <SelStart2>3018</SelStart2>
+          <SelEnd2>3018</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -132,11 +132,71 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>33</YPos2>
-          <SelStart2>1275</SelStart2>
-          <SelEnd2>1275</SelEnd2>
+          <YPos2>0</YPos2>
+          <SelStart2>1001</SelStart2>
+          <SelEnd2>1001</SelEnd2>
         </Tab>
-        <ActiveTab>4</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\sr4.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>0</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\sr4.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>0</YPos2>
+          <SelStart2>20</SelStart2>
+          <SelEnd2>30</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\stm32f4xx_it.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>13</YPos2>
+          <SelStart2>638</SelStart2>
+          <SelEnd2>638</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>542</YPos2>
+          <SelStart2>19301</SelStart2>
+          <SelEnd2>19301</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>233</YPos2>
+          <SelStart2>12143</SelStart2>
+          <SelEnd2>12143</SelEnd2>
+        </Tab>
+        <ActiveTab>9</ActiveTab>
       </Pane>
       <ActivePane>0</ActivePane>
       <Sizes>
@@ -176,7 +236,7 @@
                 <sizeHorzCX>146413</sizeHorzCX>
                 <sizeHorzCY>291971</sizeHorzCY>
                 <sizeVertCX>146413</sizeVertCX>
-                <sizeVertCY>648175</sizeVertCY>
+                <sizeVertCY>578102</sizeVertCY>
               </Rect>
             </Wnd0>
           </Sizes>

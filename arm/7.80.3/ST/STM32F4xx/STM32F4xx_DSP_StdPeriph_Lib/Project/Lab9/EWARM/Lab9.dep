@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>217592038</fileChecksum>
+  <fileChecksum>1891983670</fileChecksum>
   <configuration>
     <name>STM324xG_EVAL</name>
     <outputs>
@@ -286,6 +286,13 @@
       <file>$PROJ_DIR$\STM324xG_EVAL\List\stm32f4xx_spi.lst</file>
       <file>$PROJ_DIR$\STM324xG_EVAL\List\stm32f4xx_sdio.lst</file>
       <file>$PROJ_DIR$\STM324xG_EVAL\List\stm32f4xx_rng.lst</file>
+      <file>$PROJ_DIR$\STM324xG_EVAL\List\sr4.lst</file>
+      <file>$PROJ_DIR$\STM324xG_EVAL\Obj\sr4.o</file>
+      <file>$PROJ_DIR$\STM324xG_EVAL\Obj\sr4.pbi</file>
+      <file>$PROJ_DIR$\..\sr4.h</file>
+      <file>$PROJ_DIR$\..\sr4.c</file>
+      <file>$PROJ_DIR$\..\hcsr04.h</file>
+      <file>$PROJ_DIR$\STM324xG_EVAL\Obj\sr4.__cstat.et</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c</name>
@@ -856,7 +863,7 @@
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 154 237 211 148 87 68 98 25 83 99 35 90 97 85 65 21 39 149 141 114 37 88 162 91 42 82 79 53 46 113 136 72 44 77 59 61 62 163 24 96 29 52 215 216 176 143 134 117 135</file>
+          <file> 154 237 211 148 87 281 68 98 25 83 99 35 90 97 85 65 21 39 149 141 114 37 88 162 91 42 82 79 53 46 113 136 72 44 77 59 61 62 163 24 96 29 52 215 216 176 143 134 117 135</file>
         </tool>
       </inputs>
     </file>
@@ -1284,7 +1291,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 101 36 49 115 69 23 100 57 142 109 156 147 118 22 55 89 104 111 60 75 168 157 155 151 170 120 152 161 56 27 34 112 159 33 167 71 66 73 172 158 54 58 122 64 140 169 171</file>
+          <file> 36 49 115 69 23 109 100 57 142 101 156 147 118 22 55 89 104 111 60 75 168 157 155 151 170 120 152 161 56 27 34 112 159 33 167 71 66 73 172 158 54 58 122 64 140 169 171</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -1338,7 +1345,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 75 89 171 169 111 151 157 23 22 173 55 104 60 168 155 210 212 213 170 109 101 49 100 115 36 156 57 147 69 118 142 183 161 56 27 34 112 159 33 167 71 66 73 172 158 54 58 122 64 140 120</file>
+          <file> 75 89 171 55 111 151 157 23 22 173 169 104 60 168 155 210 212 213 170 109 101 49 100 115 36 156 57 147 69 118 142 183 161 56 27 34 112 159 33 167 71 66 73 172 158 54 58 122 64 140 120</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -1436,7 +1443,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 23 22 101 147 170 156 118 109 49 100 115 36 57 69 142 183 169 55 89 104 111 60 75 168 157 155 151 171 210 161 56 27 34 112 159 33 167 71 66 73 172 158 54 58 122 64 140 120</file>
+          <file> 23 55 147 156 118 169 49 100 115 36 57 69 142 183 22 170 109 101 89 104 111 60 75 168 157 155 151 171 210 161 56 27 34 112 159 33 167 71 66 73 172 158 54 58 122 64 140 120</file>
         </tool>
         <tool>
           <name>ICCARM</name>
@@ -1460,6 +1467,33 @@
           <file> 185</file>
         </tool>
       </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\sr4.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 282</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 280 281</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 286</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 55 73 23 112 49 33 58 169 101 71 158 64 22 170 109 161 56 115 34 159 167 66 172 54 122 140 120 283 89 100 104 111 36 60 156 75 57 168 147 157 69 155 118 151 142 171</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 283 22 23 109 101 49 115 89 27 34 100 104 56 111 112 55 161 36 159 60 33 156 167 75 71 57 66 168 73 147 172 157 158 69 54 155 58 118 122 151 64 142 140 170 120 169 171</file>
+        </tool>
+      </inputs>
     </file>
   </configuration>
 </project>
