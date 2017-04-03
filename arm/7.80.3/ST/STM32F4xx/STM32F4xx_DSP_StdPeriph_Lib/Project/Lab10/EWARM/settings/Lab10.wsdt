@@ -43,6 +43,7 @@
             <Session>
               <NodeDict>
                 <ExpandedNode>Lab10</ExpandedNode>
+                <ExpandedNode>Lab10/CMSIS</ExpandedNode>
                 <ExpandedNode>Lab10/User</ExpandedNode>
               </NodeDict>
             </Session>
@@ -84,9 +85,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>459</SelStart2>
-          <SelEnd2>459</SelEnd2>
+          <YPos2>6</YPos2>
+          <SelStart2>2022</SelStart2>
+          <SelEnd2>2022</SelEnd2>
         </Tab>
         <ActiveTab>0</ActiveTab>
         <Tab>
@@ -97,9 +98,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>152</YPos2>
-          <SelStart2>7507</SelStart2>
-          <SelEnd2>7523</SelEnd2>
+          <YPos2>210</YPos2>
+          <SelStart2>9185</SelStart2>
+          <SelEnd2>9210</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -133,9 +134,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>792</YPos2>
-          <SelStart2>32913</SelStart2>
-          <SelEnd2>32913</SelEnd2>
+          <YPos2>1158</YPos2>
+          <SelStart2>47163</SelStart2>
+          <SelEnd2>47163</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -145,9 +146,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>21358</SelStart2>
-          <SelEnd2>21358</SelEnd2>
+          <YPos2>36</YPos2>
+          <SelStart2>22015</SelStart2>
+          <SelEnd2>22015</SelEnd2>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>

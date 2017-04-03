@@ -44,25 +44,25 @@
   *=============================================================================
   *        Supported STM32F40xx/41xx/427x/437x devices
   *-----------------------------------------------------------------------------
-  *        System Clock source                    | PLL(HSI)
+  *        System Clock source                    | PLL (HSE)
   *-----------------------------------------------------------------------------
-  *        SYSCLK(Hz)                             | 168000000
+  *        SYSCLK(Hz)                             | 51200000
   *-----------------------------------------------------------------------------
-  *        HCLK(Hz)                               | 168000000
+  *        HCLK(Hz)                               | 51200000
   *-----------------------------------------------------------------------------
   *        AHB Prescaler                          | 1
   *-----------------------------------------------------------------------------
   *        APB1 Prescaler                         | 4
   *-----------------------------------------------------------------------------
-  *        APB2 Prescaler                         | 2
+  *        APB2 Prescaler                         | 8
   *-----------------------------------------------------------------------------
   *        HSE Frequency(Hz)                      | 8000000
   *-----------------------------------------------------------------------------
-  *        PLL_M                                  | 16
+  *        PLL_M                                  | 5
   *-----------------------------------------------------------------------------
-  *        PLL_N                                  | 336
+  *        PLL_N                                  | 192
   *-----------------------------------------------------------------------------
-  *        PLL_P                                  | 2
+  *        PLL_P                                  | 6
   *-----------------------------------------------------------------------------
   *        PLL_Q                                  | 7
   *-----------------------------------------------------------------------------
@@ -74,9 +74,9 @@
   *-----------------------------------------------------------------------------
   *        VDD(V)                                 | 3.3
   *-----------------------------------------------------------------------------
-  *        Main regulator output voltage          | Scale1 mode
+  *        Main regulator output voltage          | Scale2 mode
   *-----------------------------------------------------------------------------
-  *        Flash Latency(WS)                      | 5
+  *        Flash Latency(WS)                      | 1
   *-----------------------------------------------------------------------------
   *        Prefetch Buffer                        | OFF
   *-----------------------------------------------------------------------------
@@ -152,11 +152,11 @@
 
 /************************* PLL Parameters *************************************/
 /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N */
-#define PLL_M      16
-#define PLL_N      336
+#define PLL_M      5
+#define PLL_N      192
 
 /* SYSCLK = PLL_VCO / PLL_P */
-#define PLL_P      2
+#define PLL_P      6
 
 /* USB OTG FS, SDIO and RNG Clock =  PLL_VCO / PLLQ */
 #define PLL_Q      7
@@ -179,7 +179,7 @@
   * @{
   */
 
-  uint32_t SystemCoreClock = 168000000;
+  uint32_t SystemCoreClock = 51200000;
 
   __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
 
@@ -347,47 +347,73 @@ void SystemCoreClockUpdate(void)
 static void SetSysClock(void)
 {
 /******************************************************************************/
-/*            PLL (clocked by HSI) used as System clock source                */
+/*            PLL (clocked by HSE) used as System clock source                */
 /******************************************************************************/
+  __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+  
+  /* Enable HSE */
+  RCC->CR |= ((uint32_t)RCC_CR_HSEON);
+ 
+  /* Wait till HSE is ready and if Time out is reached exit */
+  do
+  {
+    HSEStatus = RCC->CR & RCC_CR_HSERDY;
+    StartUpCounter++;
+  } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
 
-  /* At this stage the HSI is already enabled and used as System clock source */
+  if ((RCC->CR & RCC_CR_HSERDY) != RESET)
+  {
+    HSEStatus = (uint32_t)0x01;
+  }
+  else
+  {
+    HSEStatus = (uint32_t)0x00;
+  }
 
-    /* Select regulator voltage output Scale 1 mode, System frequency up to 168 MHz */
+  if (HSEStatus == (uint32_t)0x01)
+  {
+    /* Select regulator voltage output Scale 2 mode, System frequency up to 144 MHz */
     RCC->APB1ENR |= RCC_APB1ENR_PWREN;
-    PWR->CR |= PWR_CR_VOS;
+    PWR->CR &= (uint32_t)~(PWR_CR_VOS);
 
-  /* HCLK = SYSCLK / 1*/
-  RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
+    /* HCLK = SYSCLK / 1*/
+    RCC->CFGR |= RCC_CFGR_HPRE_DIV1;
       
-  /* PCLK2 = HCLK / 2*/
-  RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;
+    /* PCLK2 = HCLK / 8*/
+    RCC->CFGR |= RCC_CFGR_PPRE2_DIV8;
     
-  /* PCLK1 = HCLK / 1*/
-  RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
+    /* PCLK1 = HCLK / 4*/
+    RCC->CFGR |= RCC_CFGR_PPRE1_DIV4;
 
-  /* Configure the main PLL */
-  RCC->PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) -1) << 16) |
-                 (RCC_PLLCFGR_PLLSRC_HSI) | (PLL_Q << 24);
+    /* Configure the main PLL */
+    RCC->PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) -1) << 16) |
+                   (RCC_PLLCFGR_PLLSRC_HSE) | (PLL_Q << 24);
 
-  /* Enable the main PLL */
-  RCC->CR |= RCC_CR_PLLON;
+    /* Enable the main PLL */
+    RCC->CR |= RCC_CR_PLLON;
 
-  /* Wait till the main PLL is ready */
-  while((RCC->CR & RCC_CR_PLLRDY) == 0)
-  {
-  }
+    /* Wait till the main PLL is ready */
+    while((RCC->CR & RCC_CR_PLLRDY) == 0)
+    {
+    }
    
-  /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
-  FLASH->ACR = FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
+    /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
+    FLASH->ACR = FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_1WS;
 
-  /* Select the main PLL as system clock source */
-  RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
-  RCC->CFGR |= RCC_CFGR_SW_PLL;
+    /* Select the main PLL as system clock source */
+    RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
+    RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-  /* Wait till the main PLL is used as system clock source */
-  while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
-  {
+    /* Wait till the main PLL is used as system clock source */
+    while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
+    {
+    }
   }
+  else
+  { /* If HSE fails to start-up, the application will have wrong clock
+         configuration. User can add here some code to deal with this error */
+  }
+
 }
 
 /**
