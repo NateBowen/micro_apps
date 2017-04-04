@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       03/Apr/2017  18:23:32
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       03/Apr/2017  21:52:17
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -88,13 +88,13 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
      48            *-----------------------------------------------------------------------------
      49            *        SYSCLK(Hz)                             | 51200000
      50            *-----------------------------------------------------------------------------
-     51            *        HCLK(Hz)                               | 51200000
+     51            *        HCLK(Hz)                               | 153600000
      52            *-----------------------------------------------------------------------------
      53            *        AHB Prescaler                          | 1
      54            *-----------------------------------------------------------------------------
      55            *        APB1 Prescaler                         | 4
      56            *-----------------------------------------------------------------------------
-     57            *        APB2 Prescaler                         | 8
+     57            *        APB2 Prescaler                         | 2
      58            *-----------------------------------------------------------------------------
      59            *        HSE Frequency(Hz)                      | 8000000
      60            *-----------------------------------------------------------------------------
@@ -114,9 +114,9 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
      74            *-----------------------------------------------------------------------------
      75            *        VDD(V)                                 | 3.3
      76            *-----------------------------------------------------------------------------
-     77            *        Main regulator output voltage          | Scale2 mode
+     77            *        Main regulator output voltage          | Scale1 mode
      78            *-----------------------------------------------------------------------------
-     79            *        Flash Latency(WS)                      | 1
+     79            *        Flash Latency(WS)                      | 5
      80            *-----------------------------------------------------------------------------
      81            *        Prefetch Buffer                        | OFF
      82            *-----------------------------------------------------------------------------
@@ -221,9 +221,9 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
     181          
 
    \                                 In section .data, align 4
-    182            uint32_t SystemCoreClock = 51200000;
+    182            uint32_t SystemCoreClock = 153600000;
    \                     SystemCoreClock:
-   \   00000000   0x030D4000         DC32 51200000
+   \   00000000   0x0927C000         DC32 153600000
     183          
 
    \                                 In section .data, align 4
@@ -585,17 +585,17 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    \   00000048   0x2801             CMP      R0,#+1
    \   0000004A   0xD13E             BNE.N    ??SetSysClock_4
     374            {
-    375              /* Select regulator voltage output Scale 2 mode, System frequency up to 144 MHz */
+    375              /* Select regulator voltage output Scale 1 mode, System frequency up to 168 MHz */
     376              RCC->APB1ENR |= RCC_APB1ENR_PWREN;
    \   0000004C   0x....             LDR.N    R0,??DataTable2_12  ;; 0x40023840
    \   0000004E   0x6800             LDR      R0,[R0, #+0]
    \   00000050   0xF050 0x5080      ORRS     R0,R0,#0x10000000
    \   00000054   0x....             LDR.N    R1,??DataTable2_12  ;; 0x40023840
    \   00000056   0x6008             STR      R0,[R1, #+0]
-    377              PWR->CR &= (uint32_t)~(PWR_CR_VOS);
+    377              PWR->CR |= PWR_CR_VOS;
    \   00000058   0x....             LDR.N    R0,??DataTable2_13  ;; 0x40007000
    \   0000005A   0x6800             LDR      R0,[R0, #+0]
-   \   0000005C   0xF430 0x4040      BICS     R0,R0,#0xC000
+   \   0000005C   0xF450 0x4040      ORRS     R0,R0,#0xC000
    \   00000060   0x....             LDR.N    R1,??DataTable2_13  ;; 0x40007000
    \   00000062   0x6008             STR      R0,[R1, #+0]
     378          
@@ -606,11 +606,11 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
    \   00000068   0x....             LDR.N    R1,??DataTable2_2  ;; 0x40023808
    \   0000006A   0x6008             STR      R0,[R1, #+0]
     381                
-    382              /* PCLK2 = HCLK / 8*/
-    383              RCC->CFGR |= RCC_CFGR_PPRE2_DIV8;
+    382              /* PCLK2 = HCLK / 2*/
+    383              RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;
    \   0000006C   0x....             LDR.N    R0,??DataTable2_2  ;; 0x40023808
    \   0000006E   0x6800             LDR      R0,[R0, #+0]
-   \   00000070   0xF450 0x4040      ORRS     R0,R0,#0xC000
+   \   00000070   0xF450 0x4000      ORRS     R0,R0,#0x8000
    \   00000074   0x....             LDR.N    R1,??DataTable2_2  ;; 0x40023808
    \   00000076   0x6008             STR      R0,[R1, #+0]
     384              
@@ -648,8 +648,8 @@ C:\Users\ecelab\Desktop\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeri
     398              }
     399             
     400              /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
-    401              FLASH->ACR = FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_1WS;
-   \   0000009E   0xF240 0x6001      MOVW     R0,#+1537
+    401              FLASH->ACR = FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
+   \   0000009E   0xF240 0x6005      MOVW     R0,#+1541
    \   000000A2   0x....             LDR.N    R1,??DataTable2_15  ;; 0x40023c00
    \   000000A4   0x6008             STR      R0,[R1, #+0]
     402          

@@ -1,7 +1,9 @@
 #include "main.h"
 
-
-uint16_t recieved = 0x12;
+void writeInstruction(uint16_t data);
+void writeData(uint16_t data);
+void writeRegs(uint16_t data);
+void sendSpi(uint16_t data);
   
 int main(void){
   SysTick_Config(SystemCoreClock / 1000);
@@ -12,25 +14,13 @@ int main(void){
   SPI_InitTypeDef SPI_InitStructure;
   GPIO_InitTypeDef GPIO_InitStructure;
   
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
-  
-  
   SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-  if ( GPIOA->IDR & GPIO_Pin_8 ) { //IS_MASTER ) {
-    SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-  } else {
-    SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
-  }
-  SPI_InitStructure.SPI_DataSize = SPI_DataSize_16b;
+  SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+  SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
   SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
   SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
   SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-  SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256; 
+  SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_64; 
   SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
   SPI_InitStructure.SPI_CRCPolynomial = 7;
   SPI_Init(SPI1, &SPI_InitStructure);
@@ -41,13 +31,6 @@ int main(void){
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
   GPIO_Init(GPIOA, &GPIO_InitStructure);
-  
-  //  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-  //  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-  //  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  //  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-  //  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  //  GPIO_Init(GPIOA, &GPIO_InitStructure);
   
   // SPI1_NSS CHIP SELECT
   GPIO_PinAFConfig(GPIOA, GPIO_PinSource4, GPIO_AF_SPI1);
@@ -62,19 +45,99 @@ int main(void){
   
   SPI_Cmd(SPI1, ENABLE);
   
-  uint16_t count;
-  uint16_t dumbDelay = 0;
+  writeInstruction(0x30);
+  writeInstruction(0x30);
+  writeInstruction(0x0F);
+  writeInstruction(0x01);
+  writeInstruction(0x07);
+  
+  //set extened instruction mode
+//  writeInstruction(0x36);
+  writeInstruction(0x34);
+  writeInstruction(0x36);
+  
+  writeInstruction(0x80);
+  writeInstruction(0x80);
+  writeData(0xFF);
+  
+  for(uint16_t wait = 0; wait < 0xFFF0; wait++);
+  writeInstruction(0x01);
+  writeData(0xFF);
+  
+  
+  // x=64 y=256 
+  //draw BOX
+  uint16_t verticalAddress, horizontalAddress;
+  for(int x = 1; x <= 14; x++ ) {
+    //TOP OF BOX
+    verticalAddress = 12;
+    horizontalAddress = x;
+    //set GRAM address
+    writeInstruction(0x80 | verticalAddress);
+    writeInstruction(0x80 | horizontalAddress);
+    writeData(0xFF);
+    
+    //BOTTOM BORDER
+    verticalAddress = 48;
+    horizontalAddress = x;
+    writeInstruction(0x80 | verticalAddress);
+    writeInstruction(0x80 | horizontalAddress);
+    writeData(0xFF);
+  }
+  for(int y = 12; y < 48; y++ ) {
+    verticalAddress = y;
+    horizontalAddress = 1;
+    writeInstruction(0x80 | verticalAddress);
+    writeInstruction(0x80 | horizontalAddress);
+    writeData(0x0F);
+    
+    verticalAddress = y;
+    horizontalAddress = 14;
+    writeInstruction(0x80 | verticalAddress);
+    writeInstruction(0x80 | horizontalAddress);
+    writeData(0xF0);
+  }
+  
+  
+  //draw 8 chars
+  while (1) { 
+  }
+}
 
-  while (1) {  
-    if ( GPIOA->IDR & GPIO_Pin_8 ) { //IS_MASTER ) {
-        for(count = 0; count < 256; count++){
-          while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
-          SPI_I2S_SendData(SPI1, count);
-          for(dumbDelay = 0; dumbDelay < 0xFFF0; dumbDelay++);     
-        }
-    } else {
-      while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == RESET);
-      recieved = SPI_I2S_ReceiveData(SPI1);
-    }
-    }
+
+void writeInstruction(uint16_t data) {
+  sendSpi(0xF8 | 0x00);
+  writeRegs(data);
+}
+
+void writeData(uint16_t data) {
+  sendSpi(0xF8 | 0x02);
+  writeRegs(data);
+}
+
+void writeRegs(uint16_t data) {
+  sendSpi(data & 0xF0);
+  sendSpi((data & 0x0F) << 4);
+}
+
+/**
+void writeInstruction(uint16_t data) {
+  sendSpi(0x1F);
+  writeRegs(data);
+}
+
+void writeData(uint16_t data) {
+  sendSpi(0x1F | 0x50);
+  writeRegs(data);
+}
+
+void writeRegs(uint16_t data) {
+  sendSpi(data & 0x0F);
+  sendSpi( (data >> 4) & 0x0F);
+}
+*/
+void sendSpi(uint16_t data) {
+  while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
+  SPI_I2S_SendData(SPI1, data);
+  for(uint16_t dumbDelay = 0; dumbDelay < 0x0FF0; dumbDelay++);     
 }

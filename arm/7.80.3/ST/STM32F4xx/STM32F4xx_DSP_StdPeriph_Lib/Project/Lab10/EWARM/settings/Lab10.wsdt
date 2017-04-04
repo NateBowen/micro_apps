@@ -109,11 +109,10 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>47</YPos2>
-          <SelStart2>2534</SelStart2>
-          <SelEnd2>2534</SelEnd2>
+          <YPos2>0</YPos2>
+          <SelStart2>578</SelStart2>
+          <SelEnd2>578</SelEnd2>
         </Tab>
-        <ActiveTab>2</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h</Filename>
@@ -134,9 +133,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>1143</YPos2>
-          <SelStart2>47394</SelStart2>
-          <SelEnd2>47394</SelEnd2>
+          <YPos2>795</YPos2>
+          <SelStart2>32740</SelStart2>
+          <SelEnd2>32748</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -146,10 +145,11 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>36</YPos2>
-          <SelStart2>2467</SelStart2>
-          <SelEnd2>2467</SelEnd2>
+          <YPos2>509</YPos2>
+          <SelStart2>22004</SelStart2>
+          <SelEnd2>22004</SelEnd2>
         </Tab>
+        <ActiveTab>5</ActiveTab>
       </Pane>
       <ActivePane>0</ActivePane>
       <Sizes>
@@ -172,6 +172,20 @@
         <Row1>
           <Sizes/>
         </Row1>
+        <Row2>
+          <Sizes>
+            <Toolbar-0784FE08>
+              <key>debuggergui.enu1</key>
+            </Toolbar-0784FE08>
+          </Sizes>
+        </Row2>
+        <Row3>
+          <Sizes>
+            <Toolbar-07851BB8>
+              <key>armstlink2.enu1</key>
+            </Toolbar-07851BB8>
+          </Sizes>
+        </Row3>
       </Top>
       <Left>
         <Row0>
