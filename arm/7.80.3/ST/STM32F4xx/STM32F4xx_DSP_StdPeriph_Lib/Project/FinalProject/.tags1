@@ -4,4 +4,4 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Encoder_Config	C:\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\encoder.c	/^void Encoder_Config(void){$/;"	function	line:3	signature:(void)
+Motor_Config	C:\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\motor.c	/^void Motor_Config(void){$/;"	function	line:3	signature:(void)
