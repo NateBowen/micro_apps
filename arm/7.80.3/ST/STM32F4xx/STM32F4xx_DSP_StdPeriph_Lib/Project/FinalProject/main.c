@@ -13,6 +13,8 @@ int main(void)
   LCD_Config();
   Buzzer_Config();
   Switch_Config();
+  Encoder_Config();
+  Motor_Config();
 
   while (1)
   {
