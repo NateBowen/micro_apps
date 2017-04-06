@@ -1,0 +1,198 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       05/Apr/2017  19:35:16
+# Copyright 1999-2016 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\encoder.c
+#    Command line =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\encoder.c
+#        -D USE_STDPERIPH_DRIVER -D STM32F40XX -D USE_STM324xG_EVAL -lC
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\STM324xG_EVAL\List
+#        -o
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\STM324xG_EVAL\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench 7.5\arm\INC\c\DLib_Config_Full.h"
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\..\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\..\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\..\..\..\Utilities\STM32_EVAL\Common\
+#        -I
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\..\..\..\Utilities\STM32_EVAL\STM3240_41_G_EVAL\
+#        -Ol --use_c++_inline -I "C:\Program Files (x86)\IAR Systems\Embedded
+#        Workbench 7.5\arm\CMSIS\Include\"
+#    Locale       =  English_United States.1252
+#    List file    =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\STM324xG_EVAL\List\encoder.lst
+#    Object file  =  
+#        C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\STM324xG_EVAL\Obj\encoder.o
+#
+###############################################################################
+
+C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\encoder.c
+      1          #include "encoder.h"
+      2          
+
+   \                                 In section .text, align 2, keep-with-next
+      3          void Encoder_Config(void){
+   \                     Encoder_Config: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB087             SUB      SP,SP,#+28
+      4            
+      5            TIM_ICInitTypeDef  TIM_ICInitStructure;
+      6            GPIO_InitTypeDef GPIO_InitStructure;
+      7            NVIC_InitTypeDef NVIC_InitStructureMain;
+      8            
+      9            /* TIM5 clock enable */
+     10            RCC_APB1PeriphClockCmd(ENCODER_TIMx_CLOCK, ENABLE);
+   \   00000004   0x2101             MOVS     R1,#+1
+   \   00000006   0x2008             MOVS     R0,#+8
+   \   00000008   0x.... 0x....      BL       RCC_APB1PeriphClockCmd
+     11            
+     12            /* GPIOA clock enable */
+     13            RCC_AHB1PeriphClockCmd(ENCODER_PORT_CLOCK, ENABLE);
+   \   0000000C   0x2101             MOVS     R1,#+1
+   \   0000000E   0x2001             MOVS     R0,#+1
+   \   00000010   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
+     14            
+     15            /* TIM5 channel 2 pin (PA1) configuration */
+     16            GPIO_InitStructure.GPIO_Pin =  ENCODER_PIN;
+   \   00000014   0x2002             MOVS     R0,#+2
+   \   00000016   0x9001             STR      R0,[SP, #+4]
+     17            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+   \   00000018   0x2002             MOVS     R0,#+2
+   \   0000001A   0xF88D 0x0008      STRB     R0,[SP, #+8]
+     18            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   \   0000001E   0x2000             MOVS     R0,#+0
+   \   00000020   0xF88D 0x000B      STRB     R0,[SP, #+11]
+     19            GPIO_Init(ENCODER_PORT, &GPIO_InitStructure);
+   \   00000024   0xA901             ADD      R1,SP,#+4
+   \   00000026   0x....             LDR.N    R0,??DataTable1  ;; 0x40020000
+   \   00000028   0x.... 0x....      BL       GPIO_Init
+     20            
+     21            /* Connect TIM5 pins to AF1 */
+     22            GPIO_PinAFConfig(ENCODER_PORT, ENCODER_PINSOURCE, ENCODER_AF_TIMx);
+   \   0000002C   0x2202             MOVS     R2,#+2
+   \   0000002E   0x2101             MOVS     R1,#+1
+   \   00000030   0x....             LDR.N    R0,??DataTable1  ;; 0x40020000
+   \   00000032   0x.... 0x....      BL       GPIO_PinAFConfig
+     23            
+     24            /* Enable the TIM5 global Interrupt */
+     25            NVIC_InitStructureMain.NVIC_IRQChannel = ENCODER_TIMx_IRQ;
+   \   00000036   0x2032             MOVS     R0,#+50
+   \   00000038   0xF88D 0x0000      STRB     R0,[SP, #+0]
+     26            NVIC_InitStructureMain.NVIC_IRQChannelPreemptionPriority = 0;
+   \   0000003C   0x2000             MOVS     R0,#+0
+   \   0000003E   0xF88D 0x0001      STRB     R0,[SP, #+1]
+     27            NVIC_InitStructureMain.NVIC_IRQChannelSubPriority = 1;
+   \   00000042   0x2001             MOVS     R0,#+1
+   \   00000044   0xF88D 0x0002      STRB     R0,[SP, #+2]
+     28            NVIC_InitStructureMain.NVIC_IRQChannelCmd = ENABLE;
+   \   00000048   0x2001             MOVS     R0,#+1
+   \   0000004A   0xF88D 0x0003      STRB     R0,[SP, #+3]
+     29            NVIC_Init(&NVIC_InitStructureMain);
+   \   0000004E   0x4668             MOV      R0,SP
+   \   00000050   0x.... 0x....      BL       NVIC_Init
+     30            
+     31            /* TIM5 configuration: Input Capture mode ---------------------*/
+     32            TIM_ICInitStructure.TIM_Channel = ENCODER_TIMx_CHx;
+   \   00000054   0x2004             MOVS     R0,#+4
+   \   00000056   0xF8AD 0x000C      STRH     R0,[SP, #+12]
+     33            TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_BothEdge;
+   \   0000005A   0x200A             MOVS     R0,#+10
+   \   0000005C   0xF8AD 0x000E      STRH     R0,[SP, #+14]
+     34            TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI;
+   \   00000060   0x2001             MOVS     R0,#+1
+   \   00000062   0xF8AD 0x0010      STRH     R0,[SP, #+16]
+     35            TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;
+   \   00000066   0x2000             MOVS     R0,#+0
+   \   00000068   0xF8AD 0x0012      STRH     R0,[SP, #+18]
+     36            TIM_ICInitStructure.TIM_ICFilter = 0x0;
+   \   0000006C   0x2000             MOVS     R0,#+0
+   \   0000006E   0xF8AD 0x0014      STRH     R0,[SP, #+20]
+     37            TIM_ICInit(ENCODER_TIMx, &TIM_ICInitStructure);
+   \   00000072   0xA903             ADD      R1,SP,#+12
+   \   00000074   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40000c00
+   \   00000076   0x.... 0x....      BL       TIM_ICInit
+     38            
+     39            /* TIM5 enable counter */
+     40            TIM_Cmd(ENCODER_TIMx, ENABLE);
+   \   0000007A   0x2101             MOVS     R1,#+1
+   \   0000007C   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40000c00
+   \   0000007E   0x.... 0x....      BL       TIM_Cmd
+     41            
+     42            /* Enable the CC3 Interrupt Request */
+     43            TIM_ITConfig(ENCODER_TIMx, ENCODER_TIMx_IT_CCx, ENABLE);
+   \   00000082   0x2201             MOVS     R2,#+1
+   \   00000084   0x2104             MOVS     R1,#+4
+   \   00000086   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40000c00
+   \   00000088   0x.... 0x....      BL       TIM_ITConfig
+     44            
+     45          }
+   \   0000008C   0xB007             ADD      SP,SP,#+28
+   \   0000008E   0xBD00             POP      {PC}             ;; return
+     46          
+
+   \                                 In section .text, align 2, keep-with-next
+     47          uint16_t GetEncoderFrequency(void){
+     48            return encoderFrequency;
+   \                     GetEncoderFrequency: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable1_2
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000006   0x4770             BX       LR               ;; return
+     49          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x40020000         DC32     0x40020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x40000C00         DC32     0x40000c00
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x........         DC32     encoderFrequency
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   Encoder_Config
+        32   -> GPIO_Init
+        32   -> GPIO_PinAFConfig
+        32   -> NVIC_Init
+        32   -> RCC_AHB1PeriphClockCmd
+        32   -> RCC_APB1PeriphClockCmd
+        32   -> TIM_Cmd
+        32   -> TIM_ICInit
+        32   -> TIM_ITConfig
+       0   GetEncoderFrequency
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+     144  Encoder_Config
+       8  GetEncoderFrequency
+
+ 
+ 164 bytes in section .text
+ 
+ 164 bytes of CODE memory
+
+Errors: none
+Warnings: none

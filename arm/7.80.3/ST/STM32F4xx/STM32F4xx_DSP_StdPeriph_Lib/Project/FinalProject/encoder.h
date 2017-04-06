@@ -17,6 +17,7 @@ function generator. To change the pin or port used, modify the following #define
 #define ENCODER_TIMx_IRQ    TIM5_IRQn
 #define ENCODER_TIMx_IT_CCx TIM_IT_CC2
 
-uint32_t encoderFrequency = 0;
+extern uint32_t encoderFrequency;
 
 void Encoder_Config(void);
+uint16_t GetEncoderFrequency(void);

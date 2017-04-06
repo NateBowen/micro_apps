@@ -1142,6 +1142,12 @@
       <name>$PROJ_DIR$\..\delay.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\encoder.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\encoder.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\lcd.c</name>
     </file>
     <file>
