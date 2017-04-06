@@ -4,7 +4,26 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-SR4_Config	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.c	/^void SR4_Config(void){$/;"	function	line:3	signature:(void)
-SR4_TriggerConfig	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.c	/^void SR4_TriggerConfig(void){$/;"	function	line:8	signature:(void)
-SR4_EchoConfig	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.c	/^void SR4_EchoConfig(void){$/;"	function	line:44	signature:(void)
-GetDistance	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.c	/^uint16_t GetDistance(void){$/;"	function	line:87	signature:(void)
+MICROSECONDS_TO_CM	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define MICROSECONDS_TO_CM /;"	macro	line:9
+TRIG_PORT	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_PORT /;"	macro	line:11
+TRIG_PIN	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_PIN /;"	macro	line:12
+TRIG_PORT_CLOCK	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_PORT_CLOCK /;"	macro	line:13
+TRIG_PINSOURCE	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_PINSOURCE /;"	macro	line:14
+TRIG_TIMx	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_TIMx /;"	macro	line:15
+TRIG_TIMx_CLOCK	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_TIMx_CLOCK /;"	macro	line:16
+TRIG_AF_TIMx	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_AF_TIMx /;"	macro	line:17
+TRIG_CLOCK_PRESCALAR	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_CLOCK_PRESCALAR /;"	macro	line:18
+TRIG_CLOCK_PERIOD	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_CLOCK_PERIOD /;"	macro	line:19
+TRIG_PULSE	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define TRIG_PULSE /;"	macro	line:20
+ECHO_PORT	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_PORT /;"	macro	line:22
+ECHO_PIN	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_PIN /;"	macro	line:23
+ECHO_PORT_CLOCK	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_PORT_CLOCK /;"	macro	line:24
+ECHO_PINSOURCE	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_PINSOURCE /;"	macro	line:25
+ECHO_TIMx	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_TIMx /;"	macro	line:26
+ECHO_TIMx_CHANNEL	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_TIMx_CHANNEL /;"	macro	line:27
+ECHO_TIMx_CLOCK	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_TIMx_CLOCK /;"	macro	line:28
+ECHO_AF_TIMx	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_AF_TIMx /;"	macro	line:29
+ECHO_CLOCK_PRESCALAR	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_CLOCK_PRESCALAR /;"	macro	line:30
+ECHO_CLOCK_PERIOD	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_CLOCK_PERIOD /;"	macro	line:31
+ECHO_TIMx_IRQ	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_TIMx_IRQ /;"	macro	line:32
+ECHO_TIM_IT_CCx	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\sr4.h	/^#define ECHO_TIM_IT_CCx /;"	macro	line:33

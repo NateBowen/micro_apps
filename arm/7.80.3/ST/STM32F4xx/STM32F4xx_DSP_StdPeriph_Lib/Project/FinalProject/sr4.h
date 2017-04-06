@@ -1,7 +1,12 @@
 #include "main.h"
 
-#define MICROSECONDS_TO_CM      58
+/*
+The SR4 driver uses TIM3_CH1 (PA6) and TIM3_CH2 (PA7) for interfacing
+with the TRIG and ECHO pins on the SR4 module, respectively.
+To change the pin or port used, modify the following #defines.
+*/
 
+#define MICROSECONDS_TO_CM      58
 
 #define TRIG_PORT               GPIOA
 #define TRIG_PIN                GPIO_Pin_6

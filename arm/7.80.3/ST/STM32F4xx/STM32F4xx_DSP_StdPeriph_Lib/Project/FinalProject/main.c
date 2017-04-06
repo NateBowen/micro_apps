@@ -19,6 +19,7 @@ int main(void)
   Switch_Config();
   Encoder_Config();
   Motor_Config();
+  SR4_Config();
 
   uint16_t frequency, currentDistance;
   uint8_t calculatedDutyCycle;

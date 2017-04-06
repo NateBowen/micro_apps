@@ -37,7 +37,7 @@ void TIM5_IRQHandler(void){
     /* Check the signal level, only measure when starting with a peak */
     TIM5_CC2_sigLevel = (ENCODER_PORT->IDR & ENCODER_PIN);
 
-    if ((CaptureNumber == 0) & (TIM5_CC2_sigLevel)) {
+    if ((CaptureNumber == 0) && (TIM5_CC2_sigLevel)) {
       /* Get the Input Capture value */
       IC2ReadValue1 = TIM_GetCapture2(TIM5);
       CaptureNumber = 1;
@@ -104,9 +104,9 @@ void TIM3_IRQHandler(void){
 
   if(TIM_GetITStatus(TIM3, TIM_IT_CC2) == SET) {
     /* Check the signal level, only measure when starting with a peak */
-    TIM3_CC2_sigLevel = (ENCODER_PORT->IDR & ENCODER_PIN);
+    TIM3_CC2_sigLevel = (ECHO_PORT->IDR & ECHO_PIN);
 
-    if ((CaptureNumber == 0) & (TIM3_CC2_sigLevel)) {
+    if ((CaptureNumber == 0) && (TIM3_CC2_sigLevel)) {
       /* Get the Input Capture value */
       IC2ReadValue1 = TIM_GetCapture2(TIM3);
       CaptureNumber = 1;
