@@ -10,7 +10,6 @@ function generator. To change the pin or port used, modify the following #define
 #define ENCODER_PIN         GPIO_Pin_1
 #define ENCODER_PINSOURCE   GPIO_PinSource1
 #define ENCODER_AF_TIMx     GPIO_AF_TIM5
-
 #define ENCODER_TIMx        TIM5
 #define ENCODER_TIMx_CLOCK  RCC_APB1Periph_TIM5
 #define ENCODER_TIMx_CHx    TIM_Channel_2

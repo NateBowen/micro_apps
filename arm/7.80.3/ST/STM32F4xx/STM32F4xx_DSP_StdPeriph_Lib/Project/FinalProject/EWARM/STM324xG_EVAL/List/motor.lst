@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       05/Apr/2017  19:53:03
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       06/Apr/2017  18:36:37
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -44,23 +44,23 @@ C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\F
    \                                 In section .text, align 2, keep-with-next
       3          void Motor_Config(void){
    \                     Motor_Config: (+1)
-   \   00000000   0xB510             PUSH     {R4,LR}
-   \   00000002   0xB08A             SUB      SP,SP,#+40
-      4            
+   \   00000000   0xB500             PUSH     {LR}
+   \   00000002   0xB08B             SUB      SP,SP,#+44
+      4          
       5            TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
       6            TIM_OCInitTypeDef  TIM_OCInitStructure;
       7            GPIO_InitTypeDef GPIO_InitStructure;
-      8            
-      9            RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+      8          
+      9            RCC_APB1PeriphClockCmd(MOTOR_TIMx_CLOCK, ENABLE);
    \   00000004   0x2101             MOVS     R1,#+1
    \   00000006   0x2001             MOVS     R0,#+1
    \   00000008   0x.... 0x....      BL       RCC_APB1PeriphClockCmd
-     10            RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+     10            RCC_AHB1PeriphClockCmd(MOTOR_PORT_CLOCK, ENABLE);
    \   0000000C   0x2101             MOVS     R1,#+1
    \   0000000E   0x2001             MOVS     R0,#+1
    \   00000010   0x.... 0x....      BL       RCC_AHB1PeriphClockCmd
-     11            
-     12            GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+     11          
+     12            GPIO_InitStructure.GPIO_Pin = MOTOR_PIN;
    \   00000014   0x2004             MOVS     R0,#+4
    \   00000016   0x9000             STR      R0,[SP, #+0]
      13            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
@@ -75,126 +75,119 @@ C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\F
      16            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
    \   0000002A   0x2000             MOVS     R0,#+0
    \   0000002C   0xF88D 0x0007      STRB     R0,[SP, #+7]
-     17            GPIO_Init(GPIOA, &GPIO_InitStructure);
+     17            GPIO_Init(MOTOR_PORT, &GPIO_InitStructure);
    \   00000030   0x4669             MOV      R1,SP
    \   00000032   0x....             LDR.N    R0,??DataTable1  ;; 0x40020000
    \   00000034   0x.... 0x....      BL       GPIO_Init
-     18            
-     19            GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_TIM2);
+     18          
+     19            GPIO_PinAFConfig(MOTOR_PORT, MOTOR_PINSOURCE, MOTOR_AF_TIMx);
    \   00000038   0x2201             MOVS     R2,#+1
    \   0000003A   0x2102             MOVS     R1,#+2
    \   0000003C   0x....             LDR.N    R0,??DataTable1  ;; 0x40020000
    \   0000003E   0x.... 0x....      BL       GPIO_PinAFConfig
-     20              
-     21            uint16_t pulseDuration = 16000;
-   \   00000042   0xF44F 0x547A      MOV      R4,#+16000
-     22          //  uint16_t uhPrescalerValue = 0;
-     23            //interrupt every 1 us
-     24            
-     25            
-     26            
-     27            TIM_TimeBaseStructure.TIM_Period = MOTOR_PWM_PERIOD;
-   \   00000046   0xF44F 0x602F      MOV      R0,#+2800
-   \   0000004A   0x9003             STR      R0,[SP, #+12]
-     28            TIM_TimeBaseStructure.TIM_Prescaler = MOTOR_CLOCK_PRESCALAR;
-   \   0000004C   0x2000             MOVS     R0,#+0
-   \   0000004E   0xF8AD 0x0008      STRH     R0,[SP, #+8]
-     29            TIM_TimeBaseStructure.TIM_ClockDivision = 0;
-   \   00000052   0x2000             MOVS     R0,#+0
-   \   00000054   0xF8AD 0x0010      STRH     R0,[SP, #+16]
-     30            TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-   \   00000058   0x2000             MOVS     R0,#+0
-   \   0000005A   0xF8AD 0x000A      STRH     R0,[SP, #+10]
-     31            TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
-   \   0000005E   0xA902             ADD      R1,SP,#+8
-   \   00000060   0xF05F 0x4080      MOVS     R0,#+1073741824
-   \   00000064   0x.... 0x....      BL       TIM_TimeBaseInit
-     32            
-     33            TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-   \   00000068   0x2060             MOVS     R0,#+96
-   \   0000006A   0xF8AD 0x0014      STRH     R0,[SP, #+20]
-     34            TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-   \   0000006E   0x2001             MOVS     R0,#+1
-   \   00000070   0xF8AD 0x0016      STRH     R0,[SP, #+22]
-     35            TIM_OCInitStructure.TIM_Pulse = pulseDuration;
-   \   00000074   0xB2A4             UXTH     R4,R4            ;; ZeroExt  R4,R4,#+16,#+16
-   \   00000076   0x9407             STR      R4,[SP, #+28]
-     36            TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-   \   00000078   0x2000             MOVS     R0,#+0
-   \   0000007A   0xF8AD 0x0020      STRH     R0,[SP, #+32]
-     37            TIM_OC3Init(TIM2, &TIM_OCInitStructure);
-   \   0000007E   0xA905             ADD      R1,SP,#+20
-   \   00000080   0xF05F 0x4080      MOVS     R0,#+1073741824
-   \   00000084   0x.... 0x....      BL       TIM_OC3Init
-     38            
-     39            TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Disable);
-   \   00000088   0x2100             MOVS     R1,#+0
-   \   0000008A   0xF05F 0x4080      MOVS     R0,#+1073741824
-   \   0000008E   0x.... 0x....      BL       TIM_OC3PreloadConfig
-     40            TIM_ARRPreloadConfig(TIM2, ENABLE);
-   \   00000092   0x2101             MOVS     R1,#+1
-   \   00000094   0xF05F 0x4080      MOVS     R0,#+1073741824
-   \   00000098   0x.... 0x....      BL       TIM_ARRPreloadConfig
-     41              
-     42            TIM_Cmd(TIM2, ENABLE);
-   \   0000009C   0x2101             MOVS     R1,#+1
-   \   0000009E   0xF05F 0x4080      MOVS     R0,#+1073741824
-   \   000000A2   0x.... 0x....      BL       TIM_Cmd
-     43          }
-   \   000000A6   0xB00A             ADD      SP,SP,#+40
-   \   000000A8   0xBD10             POP      {R4,PC}          ;; return
-     44          
-     45          
+     20          
+     21            TIM_TimeBaseStructure.TIM_Period = MOTOR_PWM_PERIOD;
+   \   00000042   0xF44F 0x602F      MOV      R0,#+2800
+   \   00000046   0x9003             STR      R0,[SP, #+12]
+     22            TIM_TimeBaseStructure.TIM_Prescaler = MOTOR_CLOCK_PRESCALAR;
+   \   00000048   0x2000             MOVS     R0,#+0
+   \   0000004A   0xF8AD 0x0008      STRH     R0,[SP, #+8]
+     23            TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+   \   0000004E   0x2000             MOVS     R0,#+0
+   \   00000050   0xF8AD 0x0010      STRH     R0,[SP, #+16]
+     24            TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+   \   00000054   0x2000             MOVS     R0,#+0
+   \   00000056   0xF8AD 0x000A      STRH     R0,[SP, #+10]
+     25            TIM_TimeBaseInit(MOTOR_TIMx, &TIM_TimeBaseStructure);
+   \   0000005A   0xA902             ADD      R1,SP,#+8
+   \   0000005C   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000060   0x.... 0x....      BL       TIM_TimeBaseInit
+     26          
+     27            TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+   \   00000064   0x2060             MOVS     R0,#+96
+   \   00000066   0xF8AD 0x0014      STRH     R0,[SP, #+20]
+     28            TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+   \   0000006A   0x2001             MOVS     R0,#+1
+   \   0000006C   0xF8AD 0x0016      STRH     R0,[SP, #+22]
+     29            TIM_OCInitStructure.TIM_Pulse = 0;
+   \   00000070   0x2000             MOVS     R0,#+0
+   \   00000072   0x9007             STR      R0,[SP, #+28]
+     30            TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+   \   00000074   0x2000             MOVS     R0,#+0
+   \   00000076   0xF8AD 0x0020      STRH     R0,[SP, #+32]
+     31            TIM_OC3Init(MOTOR_TIMx, &TIM_OCInitStructure);
+   \   0000007A   0xA905             ADD      R1,SP,#+20
+   \   0000007C   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000080   0x.... 0x....      BL       TIM_OC3Init
+     32          
+     33            TIM_OC3PreloadConfig(MOTOR_TIMx, TIM_OCPreload_Disable);
+   \   00000084   0x2100             MOVS     R1,#+0
+   \   00000086   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   0000008A   0x.... 0x....      BL       TIM_OC3PreloadConfig
+     34            TIM_ARRPreloadConfig(MOTOR_TIMx, ENABLE);
+   \   0000008E   0x2101             MOVS     R1,#+1
+   \   00000090   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   00000094   0x.... 0x....      BL       TIM_ARRPreloadConfig
+     35          
+     36            TIM_Cmd(MOTOR_TIMx, ENABLE);
+   \   00000098   0x2101             MOVS     R1,#+1
+   \   0000009A   0xF05F 0x4080      MOVS     R0,#+1073741824
+   \   0000009E   0x.... 0x....      BL       TIM_Cmd
+     37          }
+   \   000000A2   0xB00B             ADD      SP,SP,#+44
+   \   000000A4   0xBD00             POP      {PC}             ;; return
+     38          
+     39          
 
    \                                 In section .text, align 2, keep-with-next
-     46          void SetMotorDutyCycle(uint8_t dutyCycle){
-     47            uint16_t pulse = MOTOR_PWM_PERIOD * dutyCycle / 100;
+     40          void SetMotorDutyCycle(uint8_t dutyCycle){
+     41            uint16_t pulse = MOTOR_PWM_PERIOD * dutyCycle / 100;
    \                     SetMotorDutyCycle: (+1)
    \   00000000   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
    \   00000002   0xF44F 0x612F      MOV      R1,#+2800
    \   00000006   0x4348             MULS     R0,R1,R0
    \   00000008   0x2164             MOVS     R1,#+100
    \   0000000A   0xFB90 0xF0F1      SDIV     R0,R0,R1
-     48            TIM2->CCR3 = pulse;
+     42            TIM2->CCR3 = pulse;
    \   0000000E   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
    \   00000010   0x....             LDR.N    R1,??DataTable1_1  ;; 0x4000003c
    \   00000012   0x6008             STR      R0,[R1, #+0]
-     49          }
+     43          }
    \   00000014   0x4770             BX       LR               ;; return
-     50          
+     44          
 
    \                                 In section .text, align 2, keep-with-next
-     51          uint8_t CalculateDutyCycle(uint16_t freq){
-     52            if(freq > 6500){
+     45          uint8_t CalculateDutyCycle(uint16_t freq){
+     46            if(freq > 6500){
    \                     CalculateDutyCycle: (+1)
    \   00000000   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
    \   00000002   0xF641 0x1165      MOVW     R1,#+6501
    \   00000006   0x4288             CMP      R0,R1
    \   00000008   0xDB02             BLT.N    ??CalculateDutyCycle_0
-     53              freq = 6500;
+     47              freq = 6500;
    \   0000000A   0xF641 0x1064      MOVW     R0,#+6500
    \   0000000E   0xE006             B.N      ??CalculateDutyCycle_1
-     54            }
-     55            else if(freq < 4500){
+     48            }
+     49            else if(freq < 4500){
    \                     ??CalculateDutyCycle_0: (+1)
    \   00000010   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
    \   00000012   0xF241 0x1194      MOVW     R1,#+4500
    \   00000016   0x4288             CMP      R0,R1
    \   00000018   0xDA01             BGE.N    ??CalculateDutyCycle_1
-     56              freq = 4500;
+     50              freq = 4500;
    \   0000001A   0xF241 0x1094      MOVW     R0,#+4500
-     57            }
-     58            uint8_t dutyCycle = (6500-freq)/20;
+     51            }
+     52            uint8_t dutyCycle = (6500-freq)/20;
    \                     ??CalculateDutyCycle_1: (+1)
    \   0000001E   0xF641 0x1164      MOVW     R1,#+6500
    \   00000022   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
    \   00000024   0x1A08             SUBS     R0,R1,R0
    \   00000026   0x2114             MOVS     R1,#+20
    \   00000028   0xFB90 0xF0F1      SDIV     R0,R0,R1
-     59            return dutyCycle;
+     53            return dutyCycle;
    \   0000002C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
    \   0000002E   0x4770             BX       LR               ;; return
-     60          }
+     54          }
 
    \                                 In section .text, align 4, keep-with-next
    \                     ??DataTable1:
@@ -229,13 +222,13 @@ C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\F
        4  ??DataTable1
        4  ??DataTable1_1
       48  CalculateDutyCycle
-     170  Motor_Config
+     166  Motor_Config
       22  SetMotorDutyCycle
 
  
- 248 bytes in section .text
+ 244 bytes in section .text
  
- 248 bytes of CODE memory
+ 244 bytes of CODE memory
 
 Errors: none
 Warnings: none
