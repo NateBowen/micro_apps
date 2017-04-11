@@ -1,9 +1,9 @@
 /**
   ******************************************************************************
-  * @file    Project/STM32F4xx_StdPeriph_Templates/stm32f4xx_it.h 
+  * @file    CAN/CAN_Networking/stm32f4xx_it.h 
   * @author  MCD Application Team
-  * @version V1.2.0RC2
-  * @date    20-February-2013
+  * @version V1.1.0
+  * @date    18-January-2013
   * @brief   This file contains the headers of the interrupt handlers.
   ******************************************************************************
   * @attention
@@ -50,6 +50,8 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void CAN1_RX0_IRQHandler(void);
+void CAN2_RX0_IRQHandler(void);
 
 #ifdef __cplusplus
 }

@@ -14,7 +14,7 @@
       </Debug-Log>
       <Workspace>
         <ColumnWidths>
-          <Column0>203</Column0>
+          <Column0>220</Column0>
           <Column1>27</Column1>
           <Column2>27</Column2>
           <Column3>27</Column3>
@@ -37,7 +37,6 @@
             <Session>
               <NodeDict>
                 <ExpandedNode>Lab11</ExpandedNode>
-                <ExpandedNode>Lab11/STM32F4xx_StdPeriph_Driver</ExpandedNode>
                 <ExpandedNode>Lab11/User</ExpandedNode>
               </NodeDict>
             </Session>
@@ -73,10 +72,11 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>48</YPos2>
-          <SelStart2>2975</SelStart2>
-          <SelEnd2>2975</SelEnd2>
+          <YPos2>0</YPos2>
+          <SelStart2>270</SelStart2>
+          <SelEnd2>270</SelEnd2>
         </Tab>
+        <ActiveTab>0</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h</Filename>
@@ -98,10 +98,9 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>402</SelStart2>
-          <SelEnd2>879</SelEnd2>
+          <SelStart2>17</SelStart2>
+          <SelEnd2>17</SelEnd2>
         </Tab>
-        <ActiveTab>2</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\..\..\FinalProject\delay.c</Filename>
@@ -125,6 +124,42 @@
           <YPos2>156</YPos2>
           <SelStart2>9648</SelStart2>
           <SelEnd2>9648</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\STM324xG_EVAL\List\main.lst</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>0</YPos2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\main.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>35</YPos2>
+          <SelStart2>1500</SelStart2>
+          <SelEnd2>1500</SelEnd2>
+        </Tab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\..\stm32f4xx_it.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>19</YPos2>
+          <SelStart2>2270</SelStart2>
+          <SelEnd2>2270</SelEnd2>
         </Tab>
       </Pane>
       <ActivePane>0</ActivePane>

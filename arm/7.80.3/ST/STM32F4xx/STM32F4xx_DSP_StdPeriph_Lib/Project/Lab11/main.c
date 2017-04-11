@@ -9,7 +9,6 @@ uint8_t ubKeyNumber = 0x0;
 
 static void NVIC_Config(void);
 static void CAN_Config(void);
-static void Delay(void);
 
 char *transmitMessage = "Herp a Derp!";
 
@@ -109,14 +108,6 @@ static void NVIC_Config(void)
   NVIC_Init(&NVIC_InitStructure);
 }
 
-static void Delay(void)
-{
-  uint16_t nTime = 0x0000;
-
-  for(nTime = 0; nTime <0xFFF; nTime++)
-  {
-  }
-}
 
 #ifdef  USE_FULL_ASSERT
 
