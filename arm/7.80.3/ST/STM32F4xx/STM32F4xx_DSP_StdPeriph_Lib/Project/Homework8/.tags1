@@ -1,0 +1,12 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+TimingDelay	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework8\stm32f4xx_it.c	/^uint32_t TimingDelay;$/;"	variable	line:5
+SysTick_Handler	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework8\stm32f4xx_it.c	/^void SysTick_Handler(void)$/;"	function	line:7	signature:(void)
+S1_distance	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework8\stm32f4xx_it.c	/^uint32_t S1_distance;$/;"	variable	line:12
+S2_distance	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework8\stm32f4xx_it.c	/^uint32_t S2_distance;$/;"	variable	line:13
+S3_distance	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework8\stm32f4xx_it.c	/^uint32_t S3_distance;$/;"	variable	line:14
+TIM5_IRQHandler	C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\Homework8\stm32f4xx_it.c	/^void TIM5_IRQHandler(void){$/;"	function	line:16	signature:(void)
