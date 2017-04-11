@@ -1,29 +1,25 @@
-#include "main.h"
 #include "stm32f4xx_it.h"
+#include "main.h"
 
-/***************************************************************************
-The SysTick_Hander takes care of decrementing the global TimingDelay variable
-that is used in the Delay() function.
-****************************************************************************/
+extern CanTxMsg TxMessage;
+extern CanRxMsg RxMessage;
+extern char recievedMsg[8];
 
-uint32_t TimingDelay;
+int recieveIndex = 0, transmitIndex = 0;
 
-void SysTick_Handler(void)
-{
-  TimingDelay--;
+void CAN1_RX0_IRQHandler(void) {
+  CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);
+  
+  if ((RxMessage.StdId == 0x321)&&(RxMessage.IDE == CAN_ID_STD) && (RxMessage.DLC == 8)) {
+    for(int i = 0; i < 8; i++) {
+      recievedMsg[i] = RxMessage.Data[i];
+    }
+  }
+  // trigger transmit... me wants morez
+  CAN_Transmit(CANx, &TxMessage);
 }
-//
-///***************************************************************************
-//The CAN1_RX0_IRQHandler 
-//****************************************************************************/
-//
-//void CAN1_RX0_IRQHandler(void)
-//{
-//  CAN_Receive(CAN1, CAN_FIFO0, &RxMessage);
-//  
-//  if ((RxMessage.StdId == 0x321)&&(RxMessage.IDE == CAN_ID_STD) && (RxMessage.DLC == 1))
-//  {
-//    LED_Display(RxMessage.Data[0]);
-//    ubKeyNumber = RxMessage.Data[0];
-//  }
-//}
+
+void CAN1_TX_IRQHandler(void) {
+  //clear flag
+  CAN_ClearFlag(CANx, CAN_FLAG_RQCP0);
+}
