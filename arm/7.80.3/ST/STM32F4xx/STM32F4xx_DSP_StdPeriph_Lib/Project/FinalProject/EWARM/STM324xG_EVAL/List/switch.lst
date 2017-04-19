@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       06/Apr/2017  18:36:40
+# IAR ANSI C/C++ Compiler V7.80.3.12102/W32 for ARM       17/Apr/2017  16:26:51
 # Copyright 1999-2016 IAR Systems AB.
 #
 #    Cpu mode     =  thumb
@@ -63,8 +63,8 @@ C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\F
      13            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;             
    \   00000010   0x2000             MOVS     R0,#+0
    \   00000012   0xF88D 0x0004      STRB     R0,[SP, #+4]
-     14            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-   \   00000016   0x2001             MOVS     R0,#+1
+     14            GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+   \   00000016   0x2000             MOVS     R0,#+0
    \   00000018   0xF88D 0x0007      STRB     R0,[SP, #+7]
      15            GPIO_Init(SWITCH_PORT, &GPIO_InitStructure);                    
    \   0000001C   0x4669             MOV      R1,SP

@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V7.80.3.12102/W32 for ARM                06/Apr/2017  19:02:56
+# IAR ELF Linker V7.80.3.12102/W32 for ARM                19/Apr/2017  14:45:35
 # Copyright 2007-2016 IAR Systems AB.
 #
 #    Output file  =  
@@ -90,33 +90,40 @@ initialize by copy { rw };
   .intvec            ro code  0x08000000   0x188  startup_stm32f40xx.o [1]
                             - 0x08000188   0x188
 
-"P1":                                     0x1358
+"P1":                                     0x133c
   .text              ro code  0x08000188   0x448  stm32f4xx_tim.o [1]
-  .text              ro code  0x080005d0   0x2ac  stm32f4xx_it.o [1]
-  .text              ro code  0x0800087c   0x174  sr4.o [1]
-  .text              ro code  0x080009f0    0x6c  stm32f4xx_rcc.o [1]
-  .text              ro code  0x08000a5c    0xf4  stm32f4xx_gpio.o [1]
-  .text              ro code  0x08000b50    0x70  misc.o [1]
-  .text              ro code  0x08000bc0   0x154  system_stm32f4xx.o [1]
-  .text              ro code  0x08000d14    0xf4  buzzer.o [1]
-  .text              ro code  0x08000e08    0xf4  motor.o [1]
-  .text              ro code  0x08000efc    0xd0  lcd.o [1]
-  .text              ro code  0x08000fcc    0x90  delay.o [1]
-  .text              ro code  0x0800105c    0xc0  main.o [1]
-  .text              ro code  0x0800111c    0x74  led.o [1]
-  .text              ro code  0x08001190    0x2c  switch.o [1]
-  .text              ro code  0x080011bc    0xa4  encoder.o [1]
-  .text              ro code  0x08001260    0x2c  copy_init3.o [5]
-  .text              ro code  0x0800128c    0x28  data_init.o [5]
-  .text              ro code  0x080012b4    0x22  fpinit_M.o [4]
-  .iar.init_table    const    0x080012d8    0x14  - Linker created -
-  .text              ro code  0x080012ec    0x1a  cmain.o [5]
-  .text              ro code  0x08001306     0x4  low_level_init.o [3]
-  .text              ro code  0x0800130a     0x4  exit.o [3]
-  .text              ro code  0x08001310     0xa  cexit.o [5]
-  .text              ro code  0x0800131c    0x14  exit.o [6]
-  .text              ro code  0x08001330    0x10  startup_stm32f40xx.o [1]
-  .text              ro code  0x08001340     0xc  cstartup_M.o [5]
+  .text              ro code  0x080005d0   0x2a0  stm32f4xx_it.o [1]
+  .text              ro code  0x08000870   0x168  sr4.o [1]
+  .text              ro code  0x080009d8    0x6c  stm32f4xx_rcc.o [1]
+  .text              ro code  0x08000a44    0xf4  stm32f4xx_gpio.o [1]
+  .text              ro code  0x08000b38    0x70  misc.o [1]
+  .text              ro code  0x08000ba8   0x154  system_stm32f4xx.o [1]
+  .text              ro code  0x08000cfc    0xf4  buzzer.o [1]
+  .text              ro code  0x08000df0    0xf4  motor.o [1]
+  .text              ro code  0x08000ee4    0xd0  lcd.o [1]
+  .text              ro code  0x08000fb4    0x90  delay.o [1]
+  .text              ro code  0x08001044    0xbc  main.o [1]
+  .text              ro code  0x08001100    0x74  led.o [1]
+  .text              ro code  0x08001174    0x2c  switch.o [1]
+  .text              ro code  0x080011a0    0xa4  encoder.o [1]
+  .text              ro code  0x08001244    0x2c  copy_init3.o [5]
+  .text              ro code  0x08001270    0x28  data_init.o [5]
+  .text              ro code  0x08001298    0x22  fpinit_M.o [4]
+  .iar.init_table    const    0x080012bc    0x14  - Linker created -
+  .text              ro code  0x080012d0    0x1a  cmain.o [5]
+  .text              ro code  0x080012ea     0x4  low_level_init.o [3]
+  .text              ro code  0x080012ee     0x4  exit.o [3]
+  .text              ro code  0x080012f4     0xa  cexit.o [5]
+  .text              ro code  0x08001300    0x14  exit.o [6]
+  .text              ro code  0x08001314    0x10  startup_stm32f40xx.o [1]
+  .text              ro code  0x08001324     0xc  cstartup_M.o [5]
+  .text              ro code  0x08001330     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08001334     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08001338     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x0800133c     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08001340     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08001344     0x4  startup_stm32f40xx.o [1]
+  .text              ro code  0x08001348     0x4  startup_stm32f40xx.o [1]
   .text              ro code  0x0800134c     0x4  startup_stm32f40xx.o [1]
   .text              ro code  0x08001350     0x4  startup_stm32f40xx.o [1]
   .text              ro code  0x08001354     0x4  startup_stm32f40xx.o [1]
@@ -198,16 +205,9 @@ initialize by copy { rw };
   .text              ro code  0x08001484     0x4  startup_stm32f40xx.o [1]
   .text              ro code  0x08001488     0x4  startup_stm32f40xx.o [1]
   .text              ro code  0x0800148c     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x08001490     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x08001494     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x08001498     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x0800149c     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x080014a0     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x080014a4     0x4  startup_stm32f40xx.o [1]
-  .text              ro code  0x080014a8     0x4  startup_stm32f40xx.o [1]
-  .rodata            const    0x080014ac     0x0  copy_init3.o [5]
-  Initializer bytes  const    0x080014ac    0x34  <for P4 s0>
-                            - 0x080014e0  0x1358
+  .rodata            const    0x08001490     0x0  copy_init3.o [5]
+  Initializer bytes  const    0x08001490    0x34  <for P4 s0>
+                            - 0x080014c4  0x133c
 
 "P3":                                     0x2000
   CSTACK                      0x10000000  0x2000  <Block>
@@ -245,7 +245,7 @@ initialize by copy { rw };
           -------     ----
 Copy (__iar_copy_init3)
     1 source range, total size 0x34:
-          0x080014ac  0x34
+          0x08001490  0x34
     1 destination range, total size 0x34:
           0x20000000  0x34
 
@@ -263,19 +263,19 @@ C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\F
     encoder.o                 164
     lcd.o                     208
     led.o                     116
-    main.o                    192
+    main.o                    188
     misc.o                    112
     motor.o                   244
-    sr4.o                     372
+    sr4.o                     360
     startup_stm32f40xx.o      760
     stm32f4xx_gpio.o          244
-    stm32f4xx_it.o            684       48       48
+    stm32f4xx_it.o            672       48       48
     stm32f4xx_rcc.o           108
     stm32f4xx_tim.o         1 096
     switch.o                   44
     system_stm32f4xx.o        340        4        4
     -----------------------------------------------
-    Total:                  5 072       52       52
+    Total:                  5 044       52       52
 
 command line: [2]
     -----------------------------------------------
@@ -309,7 +309,7 @@ shb_l.a: [6]
     Gaps                        4        2
     Linker created                      20    8 192
 ---------------------------------------------------
-    Grand Total:            5 270       74    8 244
+    Grand Total:            5 242       74    8 244
 
 
 *******************************************************************************
@@ -318,52 +318,51 @@ shb_l.a: [6]
 
 Entry                      Address   Size  Type      Object
 -----                      -------   ----  ----      ------
-.iar.init_table$$Base   0x080012d8          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x080012ec          --   Gb  - Linker created -
-?main                   0x080012ed         Code  Gb  cmain.o [5]
-BuzzerOff               0x08000df5    0xc  Code  Gb  buzzer.o [1]
-BuzzerOnHigh            0x08000da9   0x4c  Code  Gb  buzzer.o [1]
-BuzzerOnLow             0x08000d5b   0x4e  Code  Gb  buzzer.o [1]
-Buzzer_Config           0x08000d15   0x46  Code  Gb  buzzer.o [1]
+.iar.init_table$$Base   0x080012bc          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x080012d0          --   Gb  - Linker created -
+?main                   0x080012d1         Code  Gb  cmain.o [5]
+BuzzerOff               0x08000ddd    0xc  Code  Gb  buzzer.o [1]
+BuzzerOnHigh            0x08000d91   0x4c  Code  Gb  buzzer.o [1]
+BuzzerOnLow             0x08000d43   0x4e  Code  Gb  buzzer.o [1]
+Buzzer_Config           0x08000cfd   0x46  Code  Gb  buzzer.o [1]
 CSTACK$$Base            0x10000000          --   Gb  - Linker created -
 CSTACK$$Limit           0x10002000          --   Gb  - Linker created -
-CalculateDutyCycle      0x08000ecd   0x30  Code  Gb  motor.o [1]
-Delay                   0x08001031    0xe  Code  Gb  delay.o [1]
-Delay_Config            0x0800101d   0x14  Code  Gb  delay.o [1]
-Encoder_Config          0x080011bd   0x90  Code  Gb  encoder.o [1]
-GPIO_Init               0x08000a5d   0xa4  Code  Gb  stm32f4xx_gpio.o [1]
-GPIO_PinAFConfig        0x08000b01   0x50  Code  Gb  stm32f4xx_gpio.o [1]
-GetDistance             0x080009dd    0x8  Code  Gb  sr4.o [1]
-GetEncoderFrequency     0x0800124d    0x8  Code  Gb  encoder.o [1]
-IREmitterOff            0x08001179    0xe  Code  Gb  led.o [1]
-IREmitterOn             0x0800116b    0xe  Code  Gb  led.o [1]
-IndicatorLEDOff         0x0800115d    0xe  Code  Gb  led.o [1]
-IndicatorLEDOn          0x0800114f    0xe  Code  Gb  led.o [1]
-LCD_Command             0x08000efd   0x46  Code  Gb  lcd.o [1]
-LCD_Config              0x08000f43   0x82  Code  Gb  lcd.o [1]
-LED_Config              0x0800111d   0x32  Code  Gb  led.o [1]
-Motor_Config            0x08000e09   0xa6  Code  Gb  motor.o [1]
-NVIC_Init               0x08000b51   0x60  Code  Gb  misc.o [1]
-RCC_AHB1PeriphClockCmd  0x080009f1   0x20  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_APB1PeriphClockCmd  0x08000a11   0x20  Code  Gb  stm32f4xx_rcc.o [1]
-RCC_APB2PeriphClockCmd  0x08000a31   0x20  Code  Gb  stm32f4xx_rcc.o [1]
-Region$$Table$$Base     0x080012d8          --   Gb  - Linker created -
-Region$$Table$$Limit    0x080012ec          --   Gb  - Linker created -
-SR4_Config              0x0800087d    0xc  Code  Gb  sr4.o [1]
-SR4_EchoConfig          0x08000925   0xb8  Code  Gb  sr4.o [1]
-SR4_TriggerConfig       0x08000889   0x9c  Code  Gb  sr4.o [1]
-SetMotorDutyCycle       0x08000eaf   0x16  Code  Gb  motor.o [1]
-SetSysClock             0x08000c13   0xce  Code  Lc  system_stm32f4xx.o [1]
-Switch_Config           0x08001191   0x2c  Code  Gb  switch.o [1]
-SysTick_Config          0x08000fef   0x2e  Code  Lc  delay.o [1]
+CalculateDutyCycle      0x08000eb5   0x30  Code  Gb  motor.o [1]
+Delay                   0x08001019    0xe  Code  Gb  delay.o [1]
+Delay_Config            0x08001005   0x14  Code  Gb  delay.o [1]
+Encoder_Config          0x080011a1   0x90  Code  Gb  encoder.o [1]
+GPIO_Init               0x08000a45   0xa4  Code  Gb  stm32f4xx_gpio.o [1]
+GPIO_PinAFConfig        0x08000ae9   0x50  Code  Gb  stm32f4xx_gpio.o [1]
+GetEncoderFrequency     0x08001231    0x8  Code  Gb  encoder.o [1]
+IREmitterOff            0x0800115d    0xe  Code  Gb  led.o [1]
+IREmitterOn             0x0800114f    0xe  Code  Gb  led.o [1]
+IndicatorLEDOff         0x08001141    0xe  Code  Gb  led.o [1]
+IndicatorLEDOn          0x08001133    0xe  Code  Gb  led.o [1]
+LCD_Command             0x08000ee5   0x46  Code  Gb  lcd.o [1]
+LCD_Config              0x08000f2b   0x82  Code  Gb  lcd.o [1]
+LED_Config              0x08001101   0x32  Code  Gb  led.o [1]
+Motor_Config            0x08000df1   0xa6  Code  Gb  motor.o [1]
+NVIC_Init               0x08000b39   0x60  Code  Gb  misc.o [1]
+RCC_AHB1PeriphClockCmd  0x080009d9   0x20  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_APB1PeriphClockCmd  0x080009f9   0x20  Code  Gb  stm32f4xx_rcc.o [1]
+RCC_APB2PeriphClockCmd  0x08000a19   0x20  Code  Gb  stm32f4xx_rcc.o [1]
+Region$$Table$$Base     0x080012bc          --   Gb  - Linker created -
+Region$$Table$$Limit    0x080012d0          --   Gb  - Linker created -
+SR4_Config              0x08000871    0xc  Code  Gb  sr4.o [1]
+SR4_EchoConfig          0x08000919   0xb8  Code  Gb  sr4.o [1]
+SR4_TriggerConfig       0x0800087d   0x9c  Code  Gb  sr4.o [1]
+SetMotorDutyCycle       0x08000e97   0x16  Code  Gb  motor.o [1]
+SetSysClock             0x08000bfb   0xce  Code  Lc  system_stm32f4xx.o [1]
+Switch_Config           0x08001175   0x2c  Code  Gb  switch.o [1]
+SysTick_Config          0x08000fd7   0x2e  Code  Lc  delay.o [1]
 SysTick_Handler         0x080005d1    0xc  Code  Gb  stm32f4xx_it.o [1]
 SystemCoreClock         0x20000000    0x4  Data  Gb  system_stm32f4xx.o [1]
-SystemInit              0x08000bc1   0x52  Code  Gb  system_stm32f4xx.o [1]
+SystemInit              0x08000ba9   0x52  Code  Gb  system_stm32f4xx.o [1]
 TI1_Config              0x080004f1   0x34  Code  Lc  stm32f4xx_tim.o [1]
 TI2_Config              0x08000525   0x3a  Code  Lc  stm32f4xx_tim.o [1]
 TI3_Config              0x0800055f   0x38  Code  Lc  stm32f4xx_tim.o [1]
 TI4_Config              0x08000597   0x3a  Code  Lc  stm32f4xx_tim.o [1]
-TIM3_IRQHandler         0x08000701  0x122  Code  Gb  stm32f4xx_it.o [1]
+TIM3_IRQHandler         0x080006f7  0x122  Code  Gb  stm32f4xx_it.o [1]
 TIM3_IRQHandler::Capture
                         0x20000018    0x4  Data  Lc  stm32f4xx_it.o [1]
 TIM3_IRQHandler::Capture2
@@ -378,7 +377,7 @@ TIM3_IRQHandler::IC2ReadValue3
                         0x20000030    0x2  Data  Lc  stm32f4xx_it.o [1]
 TIM3_IRQHandler::TIM3_CC2_sigLevel
                         0x2000002a    0x2  Data  Lc  stm32f4xx_it.o [1]
-TIM5_IRQHandler         0x080005dd  0x124  Code  Gb  stm32f4xx_it.o [1]
+TIM5_IRQHandler         0x080005dd  0x11a  Code  Gb  stm32f4xx_it.o [1]
 TIM5_IRQHandler::Capture
                         0x2000000c    0x4  Data  Lc  stm32f4xx_it.o [1]
 TIM5_IRQHandler::Capture2
@@ -411,22 +410,22 @@ TIM_SetIC3Prescaler     0x08000483   0x12  Code  Gb  stm32f4xx_tim.o [1]
 TIM_SetIC4Prescaler     0x08000495   0x14  Code  Gb  stm32f4xx_tim.o [1]
 TIM_TimeBaseInit        0x08000189   0x68  Code  Gb  stm32f4xx_tim.o [1]
 TimingDelay             0x20000004    0x4  Data  Gb  stm32f4xx_it.o [1]
-__NVIC_SetPriority      0x08000fcd   0x22  Code  Lc  delay.o [1]
-__cmain                 0x080012ed         Code  Gb  cmain.o [5]
-__exit                  0x0800131d   0x14  Code  Gb  exit.o [6]
-__iar_copy_init3        0x08001261   0x2c  Code  Gb  copy_init3.o [5]
-__iar_data_init3        0x0800128d   0x28  Code  Gb  data_init.o [5]
-__iar_init_vfp          0x080012b5         Code  Gb  fpinit_M.o [4]
-__iar_program_start     0x08001341         Code  Gb  cstartup_M.o [5]
-__low_level_init        0x08001307    0x4  Code  Gb  low_level_init.o [3]
+__NVIC_SetPriority      0x08000fb5   0x22  Code  Lc  delay.o [1]
+__cmain                 0x080012d1         Code  Gb  cmain.o [5]
+__exit                  0x08001301   0x14  Code  Gb  exit.o [6]
+__iar_copy_init3        0x08001245   0x2c  Code  Gb  copy_init3.o [5]
+__iar_data_init3        0x08001271   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp          0x08001299         Code  Gb  fpinit_M.o [4]
+__iar_program_start     0x08001325         Code  Gb  cstartup_M.o [5]
+__low_level_init        0x080012eb    0x4  Code  Gb  low_level_init.o [3]
 __vector_table          0x08000000         Data  Gb  startup_stm32f40xx.o [1]
-_call_main              0x080012f9         Code  Gb  cmain.o [5]
-_exit                   0x08001311         Code  Gb  cexit.o [5]
-_main                   0x08001303         Code  Gb  cmain.o [5]
+_call_main              0x080012dd         Code  Gb  cmain.o [5]
+_exit                   0x080012f5         Code  Gb  cexit.o [5]
+_main                   0x080012e7         Code  Gb  cmain.o [5]
 distance_CM             0x20000014    0x4  Data  Gb  stm32f4xx_it.o [1]
 encoderFrequency        0x20000008    0x4  Data  Gb  stm32f4xx_it.o [1]
-exit                    0x0800130b    0x4  Code  Gb  exit.o [3]
-main                    0x0800105d   0xc0  Code  Gb  main.o [1]
+exit                    0x080012ef    0x4  Code  Gb  exit.o [3]
+main                    0x08001045   0xbc  Code  Gb  main.o [1]
 
 
 [1] = C:\proj\micro_apps\arm\7.80.3\ST\STM32F4xx\STM32F4xx_DSP_StdPeriph_Lib\Project\FinalProject\EWARM\STM324xG_EVAL\Obj
@@ -436,7 +435,7 @@ main                    0x0800105d   0xc0  Code  Gb  main.o [1]
 [5] = rt7M_tl.a
 [6] = shb_l.a
 
-  5 270 bytes of readonly  code memory
+  5 242 bytes of readonly  code memory
      74 bytes of readonly  data memory
   8 244 bytes of readwrite data memory
 

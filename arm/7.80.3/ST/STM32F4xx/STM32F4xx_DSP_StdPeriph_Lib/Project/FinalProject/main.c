@@ -8,8 +8,6 @@
 #include "encoder.h"
 #include "sr4.h"
 
-#define STOP_DISTANCE   5
-
 int main(void)
 {
   Delay_Config();
@@ -20,45 +18,47 @@ int main(void)
   Encoder_Config();
   Motor_Config();
   SR4_Config();
-
-  uint16_t frequency, currentDistance;
+  
+  uint16_t frequency;
   uint8_t calculatedDutyCycle;
-
-  while (1)
-  {
-   if (!START_SWITCH_HIGH) {
+  
+  while (1) {
+    if (!START_SWITCH_HIGH) {
       BuzzerOnHigh();
-
+      
       for (uint8_t i = 0; i < NUM_START_BLINKS; i++) {
         IndicatorLEDOn();
         Delay(500);
         IndicatorLEDOff();
         Delay(500);
       }
-
+      
       BuzzerOff();
       IREmitterOn();
       SetMotorDutyCycle(50);
-
-     while (STOP_SWITCH_HIGH && (currentDistance > STOP_DISTANCE)) {
+      
+      while (STOP_SWITCH_HIGH) {
         frequency = GetEncoderFrequency();
         calculatedDutyCycle = CalculateDutyCycle(frequency);
         SetMotorDutyCycle(calculatedDutyCycle);
-        currentDistance = GetDistance();
       }
-
+      
       SetMotorDutyCycle(0);
       BuzzerOnLow();
-
+      
       for(uint8_t i = 0; i < NUM_STOP_BLINKS; i++) {
         IndicatorLEDOn();
         Delay(250);
         IndicatorLEDOff();
         Delay(250);
       }
-
+      
       BuzzerOff();
       IREmitterOff();
+     
+      while (!START_SWITCH_HIGH) {
+        //Wait for START_SWITCH to be in inactive state before leaving sequence
+      }
     }
   }
 }

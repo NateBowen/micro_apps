@@ -11,6 +11,6 @@ void Switch_Config(void){
 
   GPIO_InitStructure.GPIO_Pin = STOP_SWITCH | START_SWITCH;    
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;             
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(SWITCH_PORT, &GPIO_InitStructure);                    
 }
